@@ -7,6 +7,8 @@ for (const sec of topics) {
   if (!gr) { gr = { name: sec.dataset.group, items: [] }; groups.push(gr); }
   gr.items.push(sec);
 }
+const GROUP_ORDER = ['Statik', 'Festigkeitslehre', 'Querschnitte & Profile', 'Kinetik', 'Antriebstechnik', 'Thermodynamik', 'Strömungslehre', 'Fluidtechnik', 'Lüftung & Rohrleitungen', 'Akustik', 'Verbrennungsmotoren', 'Toleranzen & Passungen', 'Verbindungselemente', 'Maschinenelemente', 'Nachschlagen'];
+groups.sort((a, b) => (GROUP_ORDER.indexOf(a.name) + 1 || 99) - (GROUP_ORDER.indexOf(b.name) + 1 || 99));
 // Schriftfelder
 for (const gr of groups) gr.items.forEach((sec, i) => {
   const sf = document.createElement('div');

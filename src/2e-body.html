@@ -1,0 +1,654 @@
+
+<!-- ======================= FLUIDTECHNIK ======================= -->
+<section class="topic" id="hydraulik" data-group="Fluidtechnik" data-title="Hydraulik" data-norm="Ölhydraulik" data-desc="Volumenstrom, Moment und Leistung von Pumpen und Motoren, Kräfte und Geschwindigkeiten von Zylindern" data-keys="Hydraulik Hydraulikpumpe Hydromotor Zylinder Verdrängervolumen Schluckvolumen Kolbenkraft Kolbengeschwindigkeit Differentialzylinder Ölhydraulik" hidden>
+  <p class="lede">Grundformeln der Ölhydraulik für Verdrängerpumpe, Hydromotor und Differentialzylinder. Drücke sind Druckdifferenzen in bar.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="hydraulik"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Pumpe</h3>
+        <div class="eq">\[ Q=V_g\,n\,\eta_{vol},\qquad P_{an}=\frac{Q\,\Delta p}{\eta_{ges}},\qquad T=\frac{V_g\,\Delta p}{2\pi\,\eta_{hm}} \]</div>
+        <p>In Praxiseinheiten: \(Q\,[\mathrm{l/min}]=V_g\,[\mathrm{cm^3}]\cdot n\,[\mathrm{min^{-1}}]\cdot\eta_{vol}/1000\) und \(P\,[\mathrm{kW}]=Q\,[\mathrm{l/min}]\cdot\Delta p\,[\mathrm{bar}]/(600\,\eta_{ges})\). Es gilt \(\eta_{ges}=\eta_{vol}\,\eta_{hm}\).</p>
+      </div>
+      <div class="f"><h3>Hydromotor</h3>
+        <div class="eq">\[ n=\frac{Q\,\eta_{vol}}{V_g},\qquad T=\frac{V_g\,\Delta p\,\eta_{hm}}{2\pi},\qquad P_{ab}=Q\,\Delta p\,\eta_{ges} \]</div>
+        <p>Beim Motor stehen die Wirkungsgrade umgekehrt: Leckage kostet Drehzahl, Reibung kostet Moment.</p>
+      </div>
+      <div class="f"><h3>Differentialzylinder</h3>
+        <div class="eq">\[ F_{aus}=p\,A_K\,\eta_{hm},\qquad F_{ein}=p\,(A_K-A_St)\,\eta_{hm},\qquad v=\frac{Q}{A} \]</div>
+        <p>Beim Einfahren ist die wirksame Fläche kleiner (Ringfläche), der Zylinder fährt bei gleichem Volumenstrom schneller ein als aus. Das Flächenverhältnis φ = A<sub>K</sub>/A<sub>R</sub> ist das Geschwindigkeitsverhältnis.</p>
+      </div>
+      <div class="f"><h3>Richtwerte</h3>
+        <p>Wirkungsgrade: Zahnradpumpe η<sub>ges</sub> ≈ 0,8 … 0,9, Axialkolbenpumpe 0,85 … 0,92, Flügelzellenpumpe 0,75 … 0,85. Strömungsgeschwindigkeiten: Saugleitung 0,5 … 1,5 m/s, Rücklauf 2 … 4 m/s, Druckleitung 3 … 6 m/s (bis 300 bar).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="pneumatik" data-group="Fluidtechnik" data-title="Pneumatik & Druckluft" data-norm="ISO 8778" data-desc="Zylinderkraft, Luftverbrauch, Normvolumen, Speichergröße" data-keys="Pneumatik Druckluft Pneumatikzylinder Luftverbrauch Normliter Kompressor Druckluftspeicher Behälter Normvolumen Kolbenkraft" hidden>
+  <p class="lede">Druckangaben in der Pneumatik sind üblicherweise Überdrücke. Der Luftverbrauch wird auf den Normzustand (1,013 bar, 20 °C nach ISO 8778 für Druckluft) bezogen.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="pneumatik"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Zylinderkraft</h3>
+        <div class="eq">\[ F=p_e\,A\,\eta,\qquad A_{aus}=\frac{\pi D^2}{4},\qquad A_{ein}=\frac{\pi(D^2-d^2)}{4} \]</div>
+        <p>η ≈ 0,85 … 0,95 berücksichtigt Dichtungsreibung. Bei einfachwirkenden Zylindern wird die Rückstellfederkraft abgezogen. Für sichere Funktion wählt man den Zylinder so, dass die Last höchstens 50 … 70 % der theoretischen Kraft beträgt.</p>
+      </div>
+      <div class="f"><h3>Luftverbrauch</h3>
+        <div class="eq">\[ \dot V_n=A\,s\,n_{H}\,\frac{p_e+p_{amb}}{p_n} \]</div>
+        <p>s ist der Hub, n<sub>H</sub> die Zahl der Hübe pro Minute je Richtung. Totvolumina in Schläuchen und Endlagen kommen hinzu (Zuschlag 10 … 30 %).</p>
+      </div>
+      <div class="f"><h3>Normvolumen</h3>
+        <div class="eq">\[ V_n=V\,\frac{p}{p_n}\,\frac{T_n}{T} \]</div>
+      </div>
+      <div class="f"><h3>Druckluftspeicher</h3>
+        <div class="eq">\[ V_B=\frac{\dot V_n\,t\,p_n}{\Delta p} \]</div>
+        <p>Der Speicher deckt für die Zeit t einen Verbrauch ab, während der Druck um Δp sinkt. Für Kompressoren mit Aussetzbetrieb gilt als Faustregel V<sub>B</sub> ≈ Liefermenge in m³/min × 0,3 … 1 m³.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="pumpe" data-group="Fluidtechnik" data-title="Kreiselpumpe & NPSH" data-norm="DIN EN ISO 9906" data-desc="Leistungsbedarf, Haltedruckhöhe der Anlage, Kavitationsreserve, Affinitätsgesetze" data-keys="Pumpe Kreiselpumpe NPSH Kavitation Haltedruckhöhe Saughöhe Förderhöhe Leistungsbedarf Affinitätsgesetze Dampfdruck Zulauf Saugbetrieb" hidden>
+  <p class="lede">Förderung von Wasser. Dampfdruck und Dichte werden aus der Wassertemperatur, der Luftdruck aus der Aufstellhöhe berechnet. Positive Saughöhe heißt Saugbetrieb (Pumpe über dem Wasserspiegel), negative Zulaufbetrieb.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="pumpe"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Leistungsbedarf</h3>
+        <div class="eq">\[ P_h=\rho\,g\,\dot V\,H,\qquad P=\frac{P_h}{\eta_P},\qquad H_A=\Delta z+\frac{\Delta p}{\rho g}+h_V \]</div>
+        <p>Der Betriebspunkt liegt im Schnittpunkt von Pumpenkennlinie H(V̇) und Anlagenkennlinie H<sub>A</sub>(V̇). Der Motor wird mit Reserve gewählt (+10 … 20 %).</p>
+      </div>
+      <div class="f"><h3>NPSH der Anlage</h3>
+        <div class="eq">\[ NPSH_A=\frac{p_e+p_{amb}-p_D}{\rho\,g}+\frac{v_e^2}{2g}-H_{s,geo}-h_{V,s} \]</div>
+        <p>NPSH<sub>A</sub> ist die Druckhöhe über dem Dampfdruck am Pumpeneintritt. Die Pumpe braucht mindestens NPSH<sub>R</sub> (Herstellerkennlinie, 3 % Förderhöhenabfall). Übliche Reserve: NPSH<sub>A</sub> ≥ NPSH<sub>R</sub> + 0,5 m. Warmes Wasser, große Aufstellhöhe und lange Saugleitungen sind die typischen Kavitationsursachen.</p>
+      </div>
+      <div class="f"><h3>Affinitätsgesetze</h3>
+        <div class="eq">\[ \frac{\dot V_2}{\dot V_1}=\frac{n_2}{n_1},\qquad \frac{H_2}{H_1}=\left(\frac{n_2}{n_1}\right)^2,\qquad \frac{P_2}{P_1}=\left(\frac{n_2}{n_1}\right)^3 \]</div>
+        <p>Gelten auch für Ventilatoren. Deshalb spart Drehzahlregelung gegenüber Drosseln viel Energie.</p>
+      </div>
+      <div class="f"><h3>Dampfdruck von Wasser</h3>
+        <div class="tbl"><table>
+          <tr><th>ϑ in °C</th><th>10</th><th>20</th><th>40</th><th>60</th><th>80</th><th>100</th></tr>
+          <tr><td>p<sub>D</sub> in kPa</td><td>1,23</td><td>2,34</td><td>7,38</td><td>19,9</td><td>47,4</td><td>101,3</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="ventilator" data-group="Fluidtechnik" data-title="Ventilator" data-norm="DIN EN ISO 5801" data-desc="Leistungsbedarf, Kennzahlen, Umrechnung auf andere Drehzahl und Dichte" data-keys="Ventilator Lüfter Gebläse Druckerhöhung Lieferzahl Druckzahl Leistungsbedarf Proportionalitätsgesetze Drehzahl Dichte Radialventilator Axialventilator" hidden>
+  <p class="lede">Ventilator mit Laufraddurchmesser D. Die Umrechnung auf eine neue Drehzahl und Dichte folgt den Proportionalitätsgesetzen bei gleichem Betriebspunkt auf der Anlagenkennlinie.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="ventilator"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Leistung</h3>
+        <div class="eq">\[ P_L=\dot V\,\Delta p_t,\qquad P_W=\frac{P_L}{\eta_V},\qquad P_M=\frac{P_W}{\eta_{\text{Antrieb}}\,\eta_{\text{Motor}}} \]</div>
+        <p>Δp<sub>t</sub> ist die Totaldruckerhöhung. Wirkungsgrade: Radialventilator mit rückwärts gekrümmten Schaufeln bis 0,85, vorwärts gekrümmt 0,6 … 0,7, Axialventilator 0,7 … 0,85.</p>
+      </div>
+      <div class="f"><h3>Kennzahlen</h3>
+        <div class="eq">\[ \varphi=\frac{\dot V}{\frac{\pi}{4}D^2\,u},\qquad \psi=\frac{2\,\Delta p_t}{\rho\,u^2},\qquad u=\pi D n \]</div>
+        <p>Lieferzahl φ und Druckzahl ψ beschreiben die Bauart unabhängig von der Größe. Radialventilatoren haben große ψ (≈ 1), Axialventilatoren große φ.</p>
+      </div>
+      <div class="f"><h3>Proportionalitätsgesetze</h3>
+        <div class="eq">\[ \dot V\sim n\,D^3,\qquad \Delta p\sim\rho\,n^2D^2,\qquad P\sim\rho\,n^3D^5 \]</div>
+        <p>Heiße Luft hat geringere Dichte: Bei gleicher Drehzahl bleibt der Volumenstrom, Druck und Leistung sinken. Ein Ventilator, der kalt anläuft, braucht deshalb mehr Leistung als im Betrieb.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= LÜFTUNG & ROHRLEITUNGEN ======================= -->
+<section class="topic" id="luftzustand" data-group="Lüftung &amp; Rohrleitungen" data-title="Luftdruck, Dichte & Normvolumen" data-norm="DIN 1343 · ISA" data-desc="Barometrische Höhenformel, Dichte trockener und feuchter Luft, Umrechnung Norm- in Betriebsvolumen" data-keys="Luftdruck Höhe barometrische Höhenformel Luftdichte Normvolumen Normkubikmeter Betriebsvolumen Normzustand DIN 1343 Standardatmosphäre" hidden>
+  <p class="lede">Normzustand nach DIN 1343: 1,01325 bar und 0 °C. Der Luftdruck wird nach der internationalen Standardatmosphäre aus der Höhe über dem Meeresspiegel berechnet.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="luftzustand"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Barometrische Höhenformel</h3>
+        <div class="eq">\[ p(h)=p_0\left(1-\frac{0{,}0065\,h}{288{,}15\ \mathrm K}\right)^{5{,}255},\qquad p_0=1013{,}25\ \mathrm{hPa} \]</div>
+        <p>Berücksichtigt die Temperaturabnahme von 0,65 K je 100 m in der Troposphäre. Auf 1000 m liegt der Druck bei rund 899 hPa, die Luft ist etwa 10 % dünner. Das mindert Motor- und Kühlerleistung.</p>
+      </div>
+      <div class="f"><h3>Luftdichte</h3>
+        <div class="eq">\[ \rho_{\text{trocken}}=\frac{p}{R_L\,T},\qquad \rho_{\text{feucht}}=\frac{p-\varphi\,p_s}{R_L\,T}+\frac{\varphi\,p_s}{R_D\,T} \]</div>
+        <p>Feuchte Luft ist leichter als trockene, weil Wasserdampf (18 g/mol) leichter ist als Luft (29 g/mol). R<sub>L</sub> = 287,1, R<sub>D</sub> = 461,5 J/(kg·K).</p>
+      </div>
+      <div class="f"><h3>Norm- und Betriebsvolumen</h3>
+        <div class="eq">\[ \dot V_B=\dot V_n\,\frac{p_n}{p}\,\frac{T}{T_n} \]</div>
+        <p>Achtung: Es gibt mehrere Normzustände. DIN 1343: 0 °C, 1,01325 bar (m³ i. N.). ISO 8778 (Druckluft): 20 °C, 1 bar, 65 % Feuchte. Gasversorger rechnen oft mit 15 °C. Bei Herstellerangaben immer nachsehen.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="raumlueftung" data-group="Lüftung &amp; Rohrleitungen" data-title="Raumlüftung" data-norm="VDI 2053 · VDI 3802" data-desc="Volumenstrom zur Wärmeabfuhr, Luftwechsel, Kanal- und Öffnungsquerschnitte" data-keys="Lüftung Raumlüftung Luftwechsel Volumenstrom Wärmeabfuhr Aggregateraum Zuluft Abluft Kanalquerschnitt Luftgeschwindigkeit" hidden>
+  <p class="lede">Ein Raum mit innerer Wärmelast (Maschinen, Motoren, Elektrik) wird mit Außenluft gekühlt. Der Rechner ermittelt Zuluftvolumenstrom, Luftwechsel und die nötigen Querschnitte.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="raumlueftung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Volumenstrom zur Wärmeabfuhr</h3>
+        <div class="eq">\[ \dot V=\frac{\dot Q}{\rho\,c_p\,\Delta\vartheta},\qquad \Delta\vartheta=\vartheta_{\text{Abluft}}-\vartheta_{\text{Zuluft}} \]</div>
+        <p>Mit ρ·c<sub>p</sub> ≈ 1,2 kJ/(m³·K) folgt die Faustformel V̇ [m³/h] ≈ 3000·Q̇ [kW]/Δϑ [K]. Typisch für Aggregateräume ist Δϑ = 10 … 15 K. Die Abwärme eines Motors ist ungefähr (1 − η)·P.</p>
+      </div>
+      <div class="f"><h3>Luftwechselrate</h3>
+        <div class="eq">\[ n=\frac{\dot V}{V_R}\quad[\mathrm{h^{-1}}] \]</div>
+        <p>Richtwerte: Büro 4 … 8, Werkstatt 3 … 6, Lackiererei 20 … 50, Batterieraum nach Gasentwicklung (EN IEC 62485).</p>
+      </div>
+      <div class="f"><h3>Querschnitte</h3>
+        <div class="eq">\[ A=\frac{\dot V}{v},\qquad A_{\text{frei}}=\dot V\sqrt{\frac{\zeta\,\rho}{2\,\Delta p}} \]</div>
+        <p>Übliche Geschwindigkeiten: Wetterschutzgitter 2 … 3 m/s, Kanäle 4 … 8 m/s, Schalldämpferspalt bis 10 m/s. Gitter haben einen freien Querschnitt von 40 … 60 % der Ansichtsfläche.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="rohrleitung" data-group="Lüftung &amp; Rohrleitungen" data-title="Rohrleitung: Wanddicke & Wärmedehnung" data-norm="EN 13480-3" data-desc="Mindestwanddicke unter Innendruck, Längenänderung, Festpunktkraft, Dehnungsschenkel" data-keys="Rohrleitung Wanddicke Wärmedehnung Längenänderung Festpunkt Festpunktkraft Dehnungsschenkel Kompensator Rohrbogen Ausdehnung Nennweite" hidden>
+  <p class="lede">Stahlrohr unter Innendruck mit Temperaturänderung. Die Festpunktkraft gilt für eine starr eingespannte gerade Leitung; der Dehnungsschenkel nimmt die Längenänderung durch Biegung auf.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="rohrleitung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Mindestwanddicke</h3>
+        <div class="eq">\[ e_{\min}=\frac{p\,D_a}{2\,f\,z+p}+c_0+c_1 \]</div>
+        <p>c<sub>0</sub> Korrosionszuschlag (Stahl 0,5 … 1 mm), c<sub>1</sub> Minustoleranz der Wanddicke (nahtlos ca. 12,5 %).</p>
+      </div>
+      <div class="f"><h3>Wärmedehnung und Festpunktkraft</h3>
+        <div class="eq">\[ \Delta L=\alpha\,L\,\Delta T,\qquad \sigma=E\,\alpha\,\Delta T,\qquad F=\sigma\,A_{\text{Wand}} \]</div>
+        <p>Stahl dehnt sich um rund 1,2 mm je Meter und 100 K. Behindert man das, entstehen schon bei 50 K Druckspannungen von über 120 N/mm². Deshalb brauchen warme Leitungen Kompensation durch Bögen, Kompensatoren oder Gleitlager.</p>
+      </div>
+      <div class="f"><h3>Dehnungsschenkel</h3>
+        <div class="eq">\[ L_S=\sqrt{\frac{3\,E\,D_a\,\Delta L}{2\,\sigma_{\text{zul}}}} \]</div>
+        <p>Der Schenkel eines L-Bogens wirkt als Kragarm, dessen Ende um ΔL ausgelenkt wird. Die Formel folgt aus Durchbiegung und Biegespannung des Kragarms. Für σ<sub>zul</sub> setzt man bei Stahl häufig 50 … 80 N/mm² an.</p>
+      </div>
+      <div class="f"><h3>Druckstufen</h3>
+        <p>PN gibt den zulässigen Überdruck in bar bei 20 °C an (PN 6, 10, 16, 25, 40, 63, 100). Bei höheren Temperaturen sinkt der zulässige Druck nach Druck-Temperatur-Zuordnung der Flanschnorm (EN 1092-1).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="leckrate" data-group="Lüftung &amp; Rohrleitungen" data-title="Leckrate & Dichtheitsprüfung" data-norm="DIN EN 1779" data-desc="Leckrate aus Druckabfall, Umrechnung der Einheiten, Leckratenklassen" data-keys="Leckrate Leckage Dichtheit Dichtheitsprüfung Druckabfall Druckanstieg Helium mbar l/s Vakuum Lecksuche" hidden>
+  <p class="lede">Druckabfall- oder Druckanstiegsprüfung an einem abgeschlossenen Volumen. Temperaturkonstanz vorausgesetzt: 1 K Temperaturänderung täuscht bei 1 bar schon rund 3,4 mbar Druckänderung vor.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="leckrate"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Leckrate aus Druckänderung</h3>
+        <div class="eq">\[ q_L=\frac{V\,\Delta p}{\Delta t}\quad[\mathrm{mbar\cdot l/s}] \]</div>
+        <p>Die Leckrate ist ein pV-Durchsatz, also eine Gasmenge pro Zeit. Umrechnung in eine Masse: \(\dot m=q_L\,M/(R_m\,T)\).</p>
+      </div>
+      <div class="f"><h3>Einheiten</h3>
+        <p>1 mbar·l/s = 0,1 Pa·m³/s = 10⁻⁴ bar·m³/s ≈ 1 cm³/s bei Normaldruck. 1 Pa·m³/s = 10 mbar·l/s.</p>
+      </div>
+      <div class="f"><h3>Größenordnungen</h3>
+        <div class="tbl"><table>
+          <tr><th>Leckrate in mbar·l/s</th><th>Bedeutung</th></tr>
+          <tr><td>10⁻¹</td><td class="t">Wasser tropft</td></tr>
+          <tr><td>10⁻²</td><td class="t">wasserdicht, Blasentest gerade noch erkennbar</td></tr>
+          <tr><td>10⁻³ … 10⁻⁴</td><td class="t">dampfdicht, Bläschenprüfung</td></tr>
+          <tr><td>10⁻⁵</td><td class="t">bakteriendicht, Kältemittelkreisläufe</td></tr>
+          <tr><td>10⁻⁶ … 10⁻⁹</td><td class="t">gasdicht, Heliumlecksuche nötig</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Strömungsform im Leck</h3>
+        <p>Große Lecks strömen turbulent (q ~ √Δp), mittlere laminar (q ~ p₁² − p₂²), sehr kleine molekular (q ~ Δp). Für eine Umrechnung von Helium auf Luft bei laminarer Strömung gilt der Viskositätsfaktor η<sub>He</sub>/η<sub>Luft</sub> ≈ 1,08, bei molekularer Strömung \(\sqrt{M_{Luft}/M_{He}}\approx2{,}7\).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= AKUSTIK ======================= -->
+<section class="topic" id="schallpegel" data-group="Akustik" data-title="Schallpegel" data-norm="DIN EN ISO 9613" data-desc="Pegeladdition, Abnahme mit der Entfernung, Schallleistung und Schalldruck im Freifeld" data-keys="Schall Schallpegel Schalldruckpegel Pegeladdition Summenpegel Entfernung Abstand Punktschallquelle Linienschallquelle dB Dezibel Lärm" hidden>
+  <p class="lede">Pegel werden energetisch addiert, nicht arithmetisch. Die Entfernungsabnahme gilt im Freifeld ohne Hindernisse und ohne Luftabsorption.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="schallpegel"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Pegel</h3>
+        <div class="eq">\[ L_p=20\lg\frac{p}{p_0},\quad p_0=20\ \mu\mathrm{Pa},\qquad L_W=10\lg\frac{P}{P_0},\quad P_0=10^{-12}\ \mathrm W \]</div>
+      </div>
+      <div class="f"><h3>Pegeladdition</h3>
+        <div class="eq">\[ L_\Sigma=10\lg\sum_i10^{L_i/10},\qquad n\ \text{gleiche Quellen:}\ L_\Sigma=L+10\lg n \]</div>
+        <p>Zwei gleich laute Quellen ergeben +3 dB, zehn +10 dB. Ist eine Quelle 10 dB leiser als die andere, ändert sie den Summenpegel kaum (+0,4 dB). Subtraktion (Fremdgeräusch abziehen) läuft entsprechend.</p>
+      </div>
+      <div class="f"><h3>Entfernung</h3>
+        <div class="eq">\[ \text{Punktquelle:}\ L_2=L_1-20\lg\frac{r_2}{r_1},\qquad \text{Linienquelle:}\ L_2=L_1-10\lg\frac{r_2}{r_1} \]</div>
+        <p>Pro Abstandsverdopplung −6 dB bei Punkt-, −3 dB bei Linienquellen (Straße, Rohrleitung).</p>
+      </div>
+      <div class="f"><h3>Schallleistung → Schalldruck im Freifeld</h3>
+        <div class="eq">\[ L_p=L_W-10\lg\frac{S}{S_0},\qquad S=4\pi r^2\ \text{(Vollkugel)},\ 2\pi r^2\ \text{(Halbkugel über Boden)} \]</div>
+        <p>S<sub>0</sub> = 1 m². Über reflektierendem Boden strahlt die Quelle in den Halbraum, der Pegel ist 3 dB höher als im Vollraum.</p>
+      </div>
+      <div class="f"><h3>A-Bewertung und Richtwerte</h3>
+        <p>dB(A) gewichtet nach dem Gehör (tiefe Töne gedämpft). Orientierung: Flüstern 30 dB(A), Büro 50, Pkw in 7,5 m 70, Drehbank 80, Presslufthammer 100. Ab 80 dB(A) Tages-Lärmexpositionspegel muss der Arbeitgeber Gehörschutz anbieten, ab 85 dB(A) muss er getragen werden.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="schallleistung" data-group="Akustik" data-title="Schallleistung (Hüllflächenverfahren)" data-norm="DIN EN ISO 3744" data-desc="Schallleistungspegel aus gemessenen Schalldruckpegeln auf einer Messfläche" data-keys="Schallleistung Schallleistungspegel Hüllfläche Messfläche Messflächenmaß Quader Halbkugel ISO 3744 Maschinenlärm" hidden>
+  <p class="lede">Bis zu sechs Messpunkte auf einer Hüllfläche um die Maschine. Quaderförmige Messfläche über reflektierendem Boden (Maschine mit Länge, Breite, Höhe und Messabstand d) oder Halbkugel mit Radius r.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="schallleistung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Grundgleichung</h3>
+        <div class="eq">\[ L_W=\overline{L_p}+10\lg\frac{S}{S_0},\qquad \overline{L_p}=10\lg\left(\frac1N\sum_{i=1}^N10^{L_{p,i}/10}\right) \]</div>
+        <p>Der energetische Mittelwert der Messpunkte plus Messflächenmaß ergibt den Schallleistungspegel, eine Kenngröße der Maschine, unabhängig vom Messort. Korrekturen für Fremdgeräusch (K<sub>1</sub>) und Raumeinfluss (K<sub>2</sub>) werden abgezogen.</p>
+      </div>
+      <div class="f"><h3>Messflächen</h3>
+        <div class="eq">\[ \text{Quader:}\ S=4\,(ab+bc+ca),\quad a=\tfrac{l_1}{2}+d,\ b=\tfrac{l_2}{2}+d,\ c=l_3+d \]</div>
+        <div class="eq">\[ \text{Halbkugel:}\ S=2\pi r^2,\qquad \text{Vollkugel:}\ S=4\pi r^2 \]</div>
+        <p>l<sub>1</sub>, l<sub>2</sub>, l<sub>3</sub> sind Länge, Breite und Höhe des Bezugsquaders um die Maschine, d der Messabstand (meist 1 m).</p>
+      </div>
+      <div class="f"><h3>Fremdgeräuschkorrektur</h3>
+        <div class="eq">\[ K_1=-10\lg\left(1-10^{-0{,}1\,\Delta L}\right) \]</div>
+        <p>ΔL ist der Abstand zwischen Messung mit und ohne laufende Maschine. Bei ΔL ≥ 15 dB ist K<sub>1</sub> vernachlässigbar, bei ΔL &lt; 6 dB ist die Messung ungültig.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="raumakustik" data-group="Akustik" data-title="Raumakustik & Schalldämmung" data-norm="DIN 18041 · Berger" data-desc="Nachhallzeit nach Sabine, äquivalente Absorptionsfläche, Pegelminderung, Hallradius, Massegesetz" data-keys="Raumakustik Nachhallzeit Sabine Absorption Absorptionsgrad äquivalente Absorptionsfläche Hallradius Schalldämmmaß Massegesetz Berger Lärmminderung" hidden>
+  <p class="lede">Raum mit bis zu vier Flächenarten. Die Pegelminderung vergleicht den Zustand vorher mit dem Zustand nach zusätzlicher Absorptionsfläche. Das Schalldämmmaß einer einschaligen Wand wird nach dem Massegesetz geschätzt.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="raumakustik"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Nachhallzeit (Sabine)</h3>
+        <div class="eq">\[ T=0{,}163\,\frac{V}{A},\qquad A=\sum\alpha_i\,S_i \]</div>
+        <p>T ist die Zeit, in der der Pegel nach Abschalten der Quelle um 60 dB fällt. A ist die äquivalente Absorptionsfläche in m². Für stark gedämpfte Räume (mittleres α &gt; 0,3) ist die Formel nach Eyring genauer.</p>
+      </div>
+      <div class="f"><h3>Pegelminderung durch Absorption</h3>
+        <div class="eq">\[ \Delta L=10\lg\frac{A_2}{A_1} \]</div>
+        <p>Gilt im Diffusfeld, also weit von der Quelle. Eine Verdopplung der Absorptionsfläche bringt 3 dB. In Werkhallen sind durch Deckenabsorber realistisch 3 … 6 dB erreichbar.</p>
+      </div>
+      <div class="f"><h3>Hallradius</h3>
+        <div class="eq">\[ r_H=0{,}057\sqrt{\frac{V}{T}} \]</div>
+        <p>Innerhalb von r<sub>H</sub> überwiegt der Direktschall; dort hilft Absorption kaum, nur Kapselung oder Abstand.</p>
+      </div>
+      <div class="f"><h3>Schalldämmmaß (Massegesetz)</h3>
+        <div class="eq">\[ R\approx20\lg\left(m''\,f\right)-47\ \mathrm{dB}\qquad[m''\ \mathrm{in\ kg/m^2},\ f\ \mathrm{in\ Hz}] \]</div>
+        <p>Doppelte flächenbezogene Masse oder doppelte Frequenz: +6 dB. Oberhalb der Koinzidenzfrequenz bricht die Dämmung ein. Zweischalige Wände mit Hohlraumdämpfung erreichen bei gleicher Masse deutlich mehr.</p>
+      </div>
+      <div class="f"><h3>Absorptionsgrade bei 500 Hz (Richtwerte)</h3>
+        <div class="tbl"><table>
+          <tr><th>Material</th><th>α</th><th>Material</th><th>α</th></tr>
+          <tr><td class="t">Beton, Fliesen</td><td>0,02</td><td class="t">Teppich</td><td>0,2 … 0,3</td></tr>
+          <tr><td class="t">Putz, Mauerwerk</td><td>0,03</td><td class="t">Mineralwolle 50 mm</td><td>0,8 … 0,9</td></tr>
+          <tr><td class="t">Holz, Glas</td><td>0,05 … 0,1</td><td class="t">Akustikdecke</td><td>0,6 … 0,9</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= VERBRENNUNGSMOTOREN ======================= -->
+<section class="topic" id="kurbeltrieb" data-group="Verbrennungsmotoren" data-title="Kurbeltrieb" data-norm="Schubkurbel" data-desc="Kolbenweg, -geschwindigkeit, -beschleunigung, Massenkräfte erster und zweiter Ordnung" data-keys="Kurbeltrieb Schubkurbel Kolbenweg Kolbengeschwindigkeit Kolbenbeschleunigung Pleuel Pleuelstangenverhältnis Massenkraft oszillierend rotierend Hub" hidden>
+  <p class="lede">Zentrische Schubkurbel. Die Formeln sind die übliche Näherung bis zur zweiten Ordnung; der Fehler ist für λ ≤ 0,35 vernachlässigbar.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="kurbeltrieb"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Kinematik</h3>
+        <div class="eq">\[ s(\varphi)\approx r\left[(1-\cos\varphi)+\frac\lambda4(1-\cos2\varphi)\right],\qquad \lambda=\frac rl \]</div>
+        <div class="eq">\[ v\approx r\omega\left(\sin\varphi+\frac\lambda2\sin2\varphi\right),\qquad a\approx r\omega^2\left(\cos\varphi+\lambda\cos2\varphi\right) \]</div>
+        <p>φ = 0 ist der obere Totpunkt. Wegen der endlichen Pleuellänge ist die Beschleunigung im OT größer als im UT. Mittlere Kolbengeschwindigkeit \(c_m=2sn\): Pkw-Ottomotoren bis 20 m/s, große Dieselmotoren 6 … 10 m/s.</p>
+      </div>
+      <div class="f"><h3>Massenkräfte</h3>
+        <div class="eq">\[ F_{osz}=m_{osz}\,r\,\omega^2(\cos\varphi+\lambda\cos2\varphi),\qquad F_{rot}=m_{rot}\,r\,\omega^2 \]</div>
+        <p>Die oszillierende Masse umfasst Kolben, Bolzen, Ringe und etwa ein Drittel der Pleuelmasse, die rotierende den Rest des Pleuels und die Kurbelkröpfung. Rotierende Kräfte lassen sich durch Gegengewichte ausgleichen, oszillierende nur durch Ausgleichswellen oder die Zylinderanordnung.</p>
+      </div>
+      <div class="f"><h3>Ausgleich bei Mehrzylindermotoren</h3>
+        <p>Reihen-Vierzylinder: Massenkräfte 1. Ordnung ausgeglichen, 2. Ordnung bleiben (Ausgleichswellen mit doppelter Drehzahl). Reihen-Sechszylinder: Kräfte und Momente 1. und 2. Ordnung ausgeglichen. Reihen-Dreizylinder: Kräfte ausgeglichen, freies Moment 1. Ordnung.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="motor" data-group="Verbrennungsmotoren" data-title="Motorkenndaten & Verbrennung" data-norm="DIN ISO 3046" data-desc="Mitteldruck, Drehmoment, Wirkungsgrad, Kraftstoff- und Luftbedarf, Abgasmassenstrom" data-keys="Motor Verbrennungsmotor Mitteldruck Hubraum spezifischer Kraftstoffverbrauch Wirkungsgrad Heizwert Luftverhältnis Lambda stöchiometrisch Abgas Restsauerstoff Diesel Otto" hidden>
+  <p class="lede">Stationärer Betriebspunkt eines Verbrennungsmotors. Abgaswerte als Bilanz über Kraftstoff und Luft; der Restsauerstoff ist eine Näherung für das trockene Abgas.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="motor"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Leistung und Mitteldruck</h3>
+        <div class="eq">\[ P_e=p_{me}\,V_H\,\frac{n}{k},\qquad T=\frac{P_e}{2\pi n},\qquad p_{me}=\frac{2\pi\,k\,T}{V_H} \]</div>
+        <p>k = 2 beim Viertakter, 1 beim Zweitakter. Der effektive Mitteldruck vergleicht Motoren unterschiedlicher Größe: Saugottomotor ≈ 10 … 13 bar, aufgeladener Pkw-Diesel 20 … 25 bar, großer Gasmotor 20 … 24 bar.</p>
+      </div>
+      <div class="f"><h3>Wirkungsgrad und Verbrauch</h3>
+        <div class="eq">\[ \dot m_B=b_e\,P_e,\qquad \eta_e=\frac{P_e}{\dot m_B\,H_u}=\frac{3600}{b_e\,[\mathrm{g/kWh}]\cdot H_u\,[\mathrm{MJ/kg}]} \]</div>
+        <p>Heizwerte H<sub>u</sub>: Diesel 42,7 MJ/kg, Benzin 42,0, Erdgas H ≈ 48, Heizöl schwer ≈ 40. Ein spezifischer Verbrauch von 200 g/kWh entspricht beim Diesel η<sub>e</sub> ≈ 42 %.</p>
+      </div>
+      <div class="f"><h3>Luftbedarf und Abgas</h3>
+        <div class="eq">\[ \dot m_L=\lambda\,L_{st}\,\dot m_B,\qquad \dot m_A=\dot m_B\,(1+\lambda L_{st}),\qquad O_{2,tr}\approx20{,}9\,\%\cdot\frac{\lambda-1}{\lambda} \]</div>
+        <p>Stöchiometrischer Luftbedarf L<sub>st</sub>: Diesel 14,5, Benzin 14,7, Erdgas ≈ 17,2 kg Luft je kg Kraftstoff. Dieselmotoren laufen mager (λ = 1,3 … 2 und mehr), Ottomotoren mit Dreiwegekatalysator bei λ = 1.</p>
+      </div>
+      <div class="f"><h3>Energiebilanz</h3>
+        <p>Grobe Aufteilung der zugeführten Brennstoffleistung beim Dieselmotor: 40 % Nutzleistung, 30 % Abgas, 25 % Kühlwasser und Ölkühler, 5 % Strahlung. Blockheizkraftwerke nutzen Abgas- und Kühlwasserwärme und erreichen so Gesamtwirkungsgrade über 85 %.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= VERBINDUNGSELEMENTE (neu) ======================= -->
+<section class="topic" id="bolzen" data-group="Verbindungselemente" data-title="Bolzen & Stifte" data-norm="DIN 1444 · DIN 1481" data-desc="Bolzenverbindung nach Einbaufall, Querstift und Längsstift in Welle-Nabe-Verbindungen" data-keys="Bolzen Bolzenverbindung Gabel Stange Stift Querstift Längsstift Spannstift Kerbstift Scherung Flächenpressung Lasche Augenstab" hidden>
+  <p class="lede">Bolzenverbindung Gabel–Stange (zweischnittig) und Stifte zur Drehmomentübertragung. Die Spannungen sind Nennwerte; der Vergleich mit zulässigen Werten steht im Formelteil.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="bolzen"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Bolzenverbindung</h3>
+        <div class="eq">\[ M_b=\frac{F\,(t_S+2t_G)}{8}\ \text{(Fall 1)},\qquad M_b=\frac{F\,t_S}{8}\ \text{(Fall 2)},\qquad M_b=\frac{F\,t_G}{4}\ \text{(Fall 3)} \]</div>
+        <dl><dt>Fall 1</dt><dd>Bolzen in Stange und Gabel mit Spiel (frei aufliegend)</dd><dt>Fall 2</dt><dd>Bolzen in der Gabel eingespannt (Übermaß), Stange mit Spiel</dd><dt>Fall 3</dt><dd>Bolzen in der Stange eingespannt, Gabel mit Spiel</dd></dl>
+        <div class="eq">\[ \sigma_b=\frac{M_b}{0{,}1\,d^3},\qquad \tau_{a,\max}=\frac43\,\frac{F}{2\,A},\qquad p_S=\frac{F}{d\,t_S},\qquad p_G=\frac{F}{2\,d\,t_G} \]</div>
+        <p>Meist ist die Biegung maßgebend. Richtwerte für ruhende Last und Stahlbolzen: σ<sub>b,zul</sub> ≈ 0,3 R<sub>m</sub>, τ<sub>a,zul</sub> ≈ 0,2 R<sub>m</sub>, p<sub>zul</sub> bei Gleitbewegung 5 … 25 N/mm², ohne Gleiten bis 0,35 R<sub>m</sub>.</p>
+      </div>
+      <div class="f"><h3>Querstift in einer Welle</h3>
+        <div class="eq">\[ \tau_a=\frac{4\,T}{\pi\,d^2\,d_W},\qquad p_W=\frac{6\,T}{d\,d_W^2},\qquad p_N=\frac{4\,T}{d\,(D^2-d_W^2)} \]</div>
+        <p>Zweischnittig. Die Flächenpressung in der Welle ist dreieckförmig verteilt, daher der Faktor 6. Stiftdurchmesser üblich d ≈ (0,2 … 0,3)·d<sub>W</sub>.</p>
+      </div>
+      <div class="f"><h3>Längsstift</h3>
+        <div class="eq">\[ p=\frac{4\,T}{d\,d_W\,l},\qquad \tau_a=\frac{2\,T}{d\,d_W\,l} \]</div>
+        <p>Der Längsstift sitzt halb in der Welle und halb in der Nabe, ähnlich einer runden Passfeder.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="kegelpress" data-group="Verbindungselemente" data-title="Kegelpressverbindung" data-norm="DIN 254 · DIN 7190" data-desc="Fugenpressung, Einpresskraft, Übermaß und Aufschubweg kegeliger Welle-Nabe-Verbindungen" data-keys="Kegel Kegelpressverbindung Kegelsitz Kegelverhältnis Aufschubweg Einpresskraft Fugenpressung Welle-Nabe-Verbindung Konus" hidden>
+  <p class="lede">Kegelige Welle-Nabe-Verbindung aus Stahl, Vollwelle, Nabe als dickwandiger Ring. Das zu übertragende Moment bestimmt die nötige Fugenpressung, daraus folgen Axialkraft, Übermaß und Aufschubweg.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="kegelpress"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Kegelgeometrie</h3>
+        <div class="eq">\[ C=\frac{D-d}{l}=2\tan\frac\alpha2 \]</div>
+        <p>Übliche Kegel nach DIN 254: 1:5 (Spannzangen, lösbar), 1:10 (Wellenenden, Kupplungen), 1:20 (Metrische Kegel, Werkzeugaufnahmen), 1:50 (Kegelstifte). Je schlanker der Kegel, desto kleiner die Einpresskraft und desto eher selbsthemmend.</p>
+      </div>
+      <div class="f"><h3>Moment und Fugenpressung</h3>
+        <div class="eq">\[ T=\mu\,p\,\frac{\pi\,D_m^2\,l}{2},\qquad p_{\text{erf}}=\frac{2\,T}{\mu\,\pi\,D_m^2\,l} \]</div>
+      </div>
+      <div class="f"><h3>Einpresskraft</h3>
+        <div class="eq">\[ F_a=p\,\pi\,D_m\,l\left(\sin\frac\alpha2+\mu\cos\frac\alpha2\right) \]</div>
+        <p>Beim Lösen wechselt das Vorzeichen des Sinusglieds. Ist \(\tan(\alpha/2)\lt\mu\), hält die Verbindung ohne Axialsicherung (Selbsthemmung); trotzdem wird meist mit Mutter gesichert.</p>
+      </div>
+      <div class="f"><h3>Übermaß und Aufschubweg</h3>
+        <div class="eq">\[ Ü=p\,D_m\,K,\qquad a=\frac{Ü}{C} \]</div>
+        <p>K ist die Hilfsgröße aus dem zylindrischen Pressverband (siehe dort). Bei 1:10 erzeugt jeder Millimeter Aufschubweg 0,1 mm Durchmesserübermaß. Die Glättung der Oberflächen ist hier nicht berücksichtigt.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="klemm" data-group="Verbindungselemente" data-title="Klemmverbindung" data-norm="Roloff/Matek" data-desc="Übertragbares Moment geteilter und geschlitzter Naben, nötige Schraubenkraft, Flächenpressung" data-keys="Klemmverbindung Klemmnabe geteilte Nabe geschlitzte Nabe Klemmhebel Schraubenkraft Reibschluss Welle-Nabe-Verbindung" hidden>
+  <p class="lede">Reibschlüssige Klemmnabe. Bei der geschlitzten Nabe wirkt die Schraube über einen Hebel; a ist der Abstand der Schraube vom Biegepunkt der Nabe, b der Abstand der Wellenmitte von diesem Punkt.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="klemm"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Normalkraft und Pressung</h3>
+        <div class="eq">\[ \text{geteilt:}\ F_N=z\,F_S,\qquad \text{geschlitzt:}\ F_N=z\,F_S\,\frac ab,\qquad p=\frac{F_N}{d\,l} \]</div>
+        <p>z ist die Zahl der Schrauben auf einer Seite der Trennfuge.</p>
+      </div>
+      <div class="f"><h3>Übertragbares Moment</h3>
+        <div class="eq">\[ \text{gleichmäßige Pressung:}\ T=\frac\pi2\,\mu\,F_N\,d,\qquad \text{Linienberührung:}\ T=\mu\,F_N\,d \]</div>
+        <p>Eine eingelaufene, gut passende Nabe trägt annähernd mit gleichmäßiger Pressung. Eine steife Nabe mit Spiel berührt nur entlang zweier Linien; das ist die vorsichtige Annahme. Haftbeiwert Stahl/Stahl trocken μ ≈ 0,15 … 0,2.</p>
+      </div>
+      <div class="f"><h3>Gestaltung</h3>
+        <p>Nabendurchmesser D ≈ (2 … 2,5)·d, Nabenlänge l ≈ (1 … 1,5)·d. Die Wellenpassung sollte eng sein (H7/g6 oder H7/h6), sonst verliert die Verbindung Pressung durch Aufbiegen der Nabe.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="schweissnaht" data-group="Verbindungselemente" data-title="Schweißnähte" data-norm="EN 1993-1-8" data-desc="Kehl- und Stumpfnähte unter Normal- und Längskraft, richtungsbezogener Nachweis nach Eurocode 3" data-keys="Schweißnaht Schweißen Kehlnaht Stumpfnaht a-Maß Nahtdicke Nahtlänge Eurocode richtungsbezogen Korrelationsbeiwert Schweißverbindung" hidden>
+  <p class="lede">Statischer Nachweis von Schweißnähten im Stahlbau. Kehlnähte nach dem richtungsbezogenen Verfahren, voll durchgeschweißte Stumpfnähte wie der Grundwerkstoff. Für schwingend belastete Maschinenbauteile gelten die Kerbfallkataloge (FKM, IIW, EN 1993-1-9).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="schweissnaht"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Nahtfläche</h3>
+        <div class="eq">\[ A_w=\sum a_i\,l_i \]</div>
+        <p>a ist die Kehlnahtdicke (Höhe des eingeschriebenen gleichschenkligen Dreiecks), l die wirksame Nahtlänge ohne Endkrater. Regeln: a ≥ 3 mm, a ≤ 0,7·t<sub>min</sub>, l ≥ 6a und ≥ 30 mm.</p>
+      </div>
+      <div class="f"><h3>Spannungskomponenten in der Kehlnaht</h3>
+        <div class="eq">\[ \text{Kraft quer zur Naht:}\ \sigma_\perp=\tau_\perp=\frac{F_\perp}{\sqrt2\,A_w},\qquad \text{Kraft längs:}\ \tau_\parallel=\frac{F_\parallel}{A_w} \]</div>
+        <p>Die Kraft quer zur Naht wird in der um 45° geneigten Kehlnahtfläche in eine Normal- und eine Schubkomponente zerlegt.</p>
+      </div>
+      <div class="f"><h3>Nachweis (richtungsbezogen)</h3>
+        <div class="eq">\[ \sqrt{\sigma_\perp^2+3\,(\tau_\perp^2+\tau_\parallel^2)}\le\frac{f_u}{\beta_w\,\gamma_{M2}},\qquad \sigma_\perp\le\frac{0{,}9\,f_u}{\gamma_{M2}} \]</div>
+        <div class="tbl"><table>
+          <tr><th>Stahl</th><th>f<sub>u</sub> in N/mm²</th><th>β<sub>w</sub></th></tr>
+          <tr><td>S235</td><td>360</td><td>0,8</td></tr>
+          <tr><td>S275</td><td>430</td><td>0,85</td></tr>
+          <tr><td>S355</td><td>490</td><td>0,9</td></tr>
+        </table></div>
+        <p>γ<sub>M2</sub> = 1,25. Die Lasten sind Bemessungswerte (charakteristisch × Teilsicherheitsbeiwert, z. B. 1,35 für ständige, 1,5 für veränderliche Lasten).</p>
+      </div>
+      <div class="f"><h3>Stumpfnaht</h3>
+        <div class="eq">\[ \sigma=\frac{F}{a\,l}\le\frac{f_y}{\gamma_{M0}} \]</div>
+        <p>Voll durchgeschweißte Stumpfnähte mit passendem Zusatzwerkstoff haben die Tragfähigkeit des schwächeren Grundwerkstoffs; a ist die Blechdicke.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= MASCHINENELEMENTE (neu) ======================= -->
+<section class="topic" id="bewegungsschraube" data-group="Maschinenelemente" data-title="Bewegungsschraube" data-norm="DIN 103 · Trapezgewinde" data-desc="Antriebsmoment, Wirkungsgrad, Selbsthemmung, Spannungen, Knickung und Mutterpressung von Trapezgewindespindeln" data-keys="Bewegungsschraube Trapezgewinde Spindel Gewindespindel Hubspindel Selbsthemmung Wirkungsgrad Antriebsmoment Mutter Flächenpressung Knickung" hidden>
+  <p class="lede">Trapezgewindespindel nach DIN 103 (eingängig) mit Mutter aus Bronze oder Stahl. Die Knickung wird für die freie Spindellänge nach Euler und Tetmajer (S235/St 37-Werte) geprüft.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="bewegungsschraube"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Moment und Wirkungsgrad</h3>
+        <div class="eq">\[ T=F\,\frac{d_2}{2}\tan(\varphi+\rho'),\qquad \tan\varphi=\frac{P_h}{\pi d_2},\qquad \tan\rho'=\frac{\mu}{\cos(\beta/2)} \]</div>
+        <div class="eq">\[ \eta=\frac{\tan\varphi}{\tan(\varphi+\rho')},\qquad \text{selbsthemmend, wenn }\varphi\lt\rho' \]</div>
+        <p>Flankenwinkel β = 30° beim Trapezgewinde. Selbsthemmende Spindeln haben η &lt; 50 %. Reibwerte: Stahl/Bronze geschmiert μ ≈ 0,08 … 0,1, Stahl/Stahl ≈ 0,1 … 0,15, Stahl/Kunststoff ≈ 0,05 … 0,1.</p>
+      </div>
+      <div class="f"><h3>Spannungen</h3>
+        <div class="eq">\[ \sigma=\frac{F}{A_3},\qquad \tau_t=\frac{T}{\frac\pi{16}d_3^3},\qquad \sigma_v=\sqrt{\sigma^2+3\,(\alpha_0\,\tau_t)^2} \]</div>
+        <p>A<sub>3</sub> ist der Kernquerschnitt. Ist die Torsion im belasteten Abschnitt nicht vorhanden (Moment wird an der Mutter eingeleitet), entfällt τ dort.</p>
+      </div>
+      <div class="f"><h3>Mutterhöhe und Flächenpressung</h3>
+        <div class="eq">\[ p=\frac{F\,P}{\pi\,d_2\,H_1\,m}\le p_{\text{zul}},\qquad H_1=0{,}5\,P \]</div>
+        <p>m ist die Mutterhöhe. Richtwerte p<sub>zul</sub>: Stahl/Bronze 10 … 15 N/mm², Stahl/Grauguss 5 … 7, Stahl/Stahl (selten bewegt) bis 25 N/mm². Mutterhöhe meist 1,5 … 2,5·d.</p>
+      </div>
+      <div class="f"><h3>Trapezgewinde DIN 103 (Auswahl)</h3>
+        <div class="tbl"><table>
+          <tr><th>Tr</th><th>16×4</th><th>20×4</th><th>24×5</th><th>28×5</th><th>32×6</th><th>36×6</th><th>40×7</th><th>50×8</th></tr>
+          <tr><td>d₂</td><td>14</td><td>18</td><td>21,5</td><td>25,5</td><td>29</td><td>33</td><td>36,5</td><td>46</td></tr>
+          <tr><td>d₃</td><td>11,5</td><td>15,5</td><td>18,5</td><td>22,5</td><td>25</td><td>29</td><td>32</td><td>41</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="riementrieb" data-group="Maschinenelemente" data-title="Riementrieb" data-norm="Eytelwein · DIN 2215" data-desc="Riemenlänge, Umschlingungswinkel, Trumkräfte, Vorspannung, Wellenbelastung, Biegefrequenz" data-keys="Riementrieb Riemen Keilriemen Flachriemen Zahnriemen Umschlingungswinkel Trumkraft Vorspannung Wellenbelastung Riemenlänge Eytelwein Fliehkraft" hidden>
+  <p class="lede">Offener Riementrieb mit zwei Scheiben. Für Keilriemen wird die Reibung über die Keilwirkung erhöht (Keilwinkel 38°). Die Fliehkraft belastet beide Trume zusätzlich, entlastet aber die Scheiben.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="riementrieb"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Geometrie</h3>
+        <div class="eq">\[ \beta_1=180^\circ-2\arcsin\frac{d_2-d_1}{2a},\qquad L\approx2a+\frac\pi2(d_1+d_2)+\frac{(d_2-d_1)^2}{4a} \]</div>
+        <p>Der Umschlingungswinkel an der kleinen Scheibe ist maßgebend. Er sollte über 120° liegen, sonst rutscht der Riemen leicht.</p>
+      </div>
+      <div class="f"><h3>Kräfte</h3>
+        <div class="eq">\[ F_u=\frac{P}{v},\qquad \frac{F_1}{F_2}=e^{\mu'\beta},\qquad F_1=F_u\,\frac{m}{m-1},\qquad F_2=\frac{F_u}{m-1},\qquad m=e^{\mu'\beta} \]</div>
+        <div class="eq">\[ \mu'_{\text{Keil}}=\frac{\mu}{\sin(\alpha_K/2)},\qquad F_f=m'\,v^2,\qquad F_W=\sqrt{F_1^2+F_2^2-2F_1F_2\cos\beta_1} \]</div>
+        <p>F<sub>1</sub> ist die Kraft im ziehenden Trum, F<sub>2</sub> im losen Trum. Die Wellenbelastung ist oft das Zwei- bis Dreifache der Umfangskraft und bestimmt die Lagerauslegung.</p>
+      </div>
+      <div class="f"><h3>Biegefrequenz</h3>
+        <div class="eq">\[ f_B=\frac{z\,v}{L} \]</div>
+        <p>z ist die Zahl der Scheiben. Grenzwerte: Normalkeilriemen ≈ 30 s⁻¹, Schmalkeilriemen ≈ 100 s⁻¹, Flachriemen bis 100 s⁻¹. Hohe Biegefrequenz verkürzt die Lebensdauer.</p>
+      </div>
+      <div class="f"><h3>Mindestdurchmesser (Richtwerte)</h3>
+        <p>Schmalkeilriemen SPZ 63 mm, SPA 90 mm, SPB 140 mm, SPC 224 mm. Der Betriebsfaktor (1,0 … 1,8 je nach Antrieb und Laufzeit) wird auf die Leistung aufgeschlagen.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="kettentrieb" data-group="Maschinenelemente" data-title="Kettentrieb" data-norm="DIN 8187 · ISO 606" data-desc="Kettenrad-Geometrie, Gliederzahl, Achsabstand, Kettenkräfte, Polygoneffekt, statische Sicherheit" data-keys="Kettentrieb Rollenkette Kettenrad Teilung Gliederzahl Achsabstand Polygoneffekt Kettenzugkraft Fliehkraft Bruchkraft DIN 8187" hidden>
+  <p class="lede">Einfach-Rollenkette nach DIN 8187 (europäische Bauart B). Die Gliederzahl wird auf eine gerade Zahl gerundet, damit kein gekröpftes Glied nötig ist; der Achsabstand wird daraus zurückgerechnet.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="kettentrieb"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Kettenrad</h3>
+        <div class="eq">\[ d=\frac{p}{\sin(180^\circ/z)},\qquad d_a\approx p\left(0{,}54+\cot\frac{180^\circ}{z}\right) \]</div>
+        <p>Kleine Zähnezahlen verstärken den Polygoneffekt: Die Kette läuft auf einem Vieleck und ihre Geschwindigkeit schwankt um \(1-\cos(180^\circ/z_1)\). Empfohlen sind z<sub>1</sub> ≥ 17, bei Stößen ≥ 21, und ungerade Zähnezahlen für gleichmäßigen Verschleiß.</p>
+      </div>
+      <div class="f"><h3>Gliederzahl und Achsabstand</h3>
+        <div class="eq">\[ X=\frac{2a}{p}+\frac{z_1+z_2}{2}+\left(\frac{z_2-z_1}{2\pi}\right)^2\frac pa \]</div>
+        <div class="eq">\[ a=\frac p4\left[X-\frac{z_1+z_2}2+\sqrt{\left(X-\frac{z_1+z_2}2\right)^2-8\left(\frac{z_2-z_1}{2\pi}\right)^2}\right] \]</div>
+        <p>Empfohlener Achsabstand 30 … 50 Teilungen. Ein Spannrad oder verstellbarer Achsabstand gleicht die Längung durch Verschleiß aus (Austausch bei ca. 2 … 3 %).</p>
+      </div>
+      <div class="f"><h3>Kräfte</h3>
+        <div class="eq">\[ F_t=\frac{P}{v},\qquad F_f=q\,v^2,\qquad F_W\approx1{,}05\ldots1{,}1\,F_t,\qquad S_{st}=\frac{F_B}{F_t+F_f} \]</div>
+        <p>q ist die Kettenmasse je Meter, F<sub>B</sub> die Bruchkraft. Die Auslegung erfolgt nach Leistungsdiagrammen des Herstellers (DIN ISO 10823) mit Einflussfaktoren für Stoß, Zähnezahl und Achsabstand.</p>
+      </div>
+      <div class="f"><h3>Rollenketten DIN 8187 (Auswahl)</h3>
+        <div class="tbl"><table>
+          <tr><th>Kette</th><th>06B</th><th>08B</th><th>10B</th><th>12B</th><th>16B</th><th>20B</th><th>24B</th></tr>
+          <tr><td>Teilung p in mm</td><td>9,525</td><td>12,7</td><td>15,875</td><td>19,05</td><td>25,4</td><td>31,75</td><td>38,1</td></tr>
+          <tr><td>Bruchkraft in kN</td><td>9</td><td>18</td><td>22,4</td><td>29</td><td>60</td><td>95</td><td>160</td></tr>
+          <tr><td>q in kg/m</td><td>0,41</td><td>0,70</td><td>0,95</td><td>1,25</td><td>2,70</td><td>3,60</td><td>6,70</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= NACHSCHLAGEN (neu) ======================= -->
+<section class="topic" id="stoffdaten" data-group="Nachschlagen" data-title="Stoffdaten" data-norm="VDI-Wärmeatlas (Richtwerte)" data-desc="Flüssigkeiten, Gase, Wärmeleitfähigkeit, Wärmeausdehnung, elektrochemische Spannungsreihe" data-keys="Stoffdaten Stoffwerte Flüssigkeit Gas Dichte Viskosität Wärmekapazität Wärmeleitfähigkeit Wärmeausdehnung Spannungsreihe Korrosion Kontaktkorrosion" hidden>
+  <p class="lede">Richtwerte bei 20 °C und 1,013 bar, sofern nicht anders angegeben. Stoffwerte von Wasser und Luft temperaturabhängig siehe „Kennzahlen &amp; Stoffwerte“.</p>
+  <div class="topic-body">
+    <article class="sheet">
+      <h2>Tabellen</h2>
+      <div class="f"><h3>Flüssigkeiten</h3>
+        <div class="tbl"><table>
+          <tr><th>Stoff</th><th>ρ in kg/m³</th><th>ν in mm²/s</th><th>c<sub>p</sub> in kJ/(kg·K)</th><th>λ in W/(m·K)</th><th>Siedepunkt in °C</th></tr>
+          <tr><td class="t">Wasser</td><td>998</td><td>1,00</td><td>4,18</td><td>0,60</td><td>100</td></tr>
+          <tr><td class="t">Ethylenglykol-Wasser 34 %</td><td>1050</td><td>2,8</td><td>3,6</td><td>0,45</td><td>104</td></tr>
+          <tr><td class="t">Ethanol</td><td>789</td><td>1,52</td><td>2,43</td><td>0,17</td><td>78</td></tr>
+          <tr><td class="t">Benzin</td><td>720 … 775</td><td>0,6</td><td>2,0</td><td>0,13</td><td>30 … 210</td></tr>
+          <tr><td class="t">Dieselkraftstoff</td><td>820 … 845</td><td>3 … 5</td><td>2,0</td><td>0,13</td><td>170 … 380</td></tr>
+          <tr><td class="t">Hydrauliköl HLP 46</td><td>870</td><td>≈ 130 (46 bei 40 °C)</td><td>1,9</td><td>0,13</td><td>–</td></tr>
+          <tr><td class="t">Motoröl SAE 15W-40</td><td>880</td><td>≈ 300 (≈ 105 bei 40 °C)</td><td>1,9</td><td>0,14</td><td>–</td></tr>
+          <tr><td class="t">Glycerin</td><td>1260</td><td>1180</td><td>2,4</td><td>0,29</td><td>290</td></tr>
+          <tr><td class="t">Quecksilber</td><td>13 546</td><td>0,114</td><td>0,14</td><td>8,3</td><td>357</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Gase (Dichte im Normzustand 0 °C, 1,013 bar)</h3>
+        <div class="tbl"><table>
+          <tr><th>Gas</th><th>ρ<sub>n</sub> in kg/m³</th><th>M in kg/kmol</th><th>κ</th><th>λ bei 0 °C in W/(m·K)</th></tr>
+          <tr><td class="t">Luft</td><td>1,293</td><td>28,96</td><td>1,40</td><td>0,0244</td></tr>
+          <tr><td class="t">Stickstoff</td><td>1,250</td><td>28,01</td><td>1,40</td><td>0,0240</td></tr>
+          <tr><td class="t">Sauerstoff</td><td>1,429</td><td>32,00</td><td>1,40</td><td>0,0245</td></tr>
+          <tr><td class="t">Kohlendioxid</td><td>1,977</td><td>44,01</td><td>1,29</td><td>0,0146</td></tr>
+          <tr><td class="t">Wasserstoff</td><td>0,0899</td><td>2,016</td><td>1,41</td><td>0,172</td></tr>
+          <tr><td class="t">Helium</td><td>0,1785</td><td>4,003</td><td>1,67</td><td>0,143</td></tr>
+          <tr><td class="t">Argon</td><td>1,784</td><td>39,95</td><td>1,67</td><td>0,0163</td></tr>
+          <tr><td class="t">Methan</td><td>0,717</td><td>16,04</td><td>1,31</td><td>0,0302</td></tr>
+          <tr><td class="t">Propan</td><td>2,01</td><td>44,10</td><td>1,13</td><td>0,0151</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Feste Stoffe: Wärmeleitfähigkeit und -ausdehnung</h3>
+        <div class="tbl"><table>
+          <tr><th>Stoff</th><th>λ in W/(m·K)</th><th>α in 10⁻⁶/K</th><th>c in kJ/(kg·K)</th></tr>
+          <tr><td class="t">Kupfer</td><td>390</td><td>16,5</td><td>0,39</td></tr>
+          <tr><td class="t">Aluminium</td><td>160 … 230</td><td>23</td><td>0,90</td></tr>
+          <tr><td class="t">Messing</td><td>110</td><td>19</td><td>0,38</td></tr>
+          <tr><td class="t">Baustahl</td><td>50</td><td>12</td><td>0,46</td></tr>
+          <tr><td class="t">Edelstahl austenitisch</td><td>15</td><td>16</td><td>0,50</td></tr>
+          <tr><td class="t">Grauguss</td><td>45 … 55</td><td>10</td><td>0,50</td></tr>
+          <tr><td class="t">Glas</td><td>0,8 … 1,0</td><td>9</td><td>0,8</td></tr>
+          <tr><td class="t">Beton</td><td>1,0 … 2,1</td><td>10 … 12</td><td>0,9</td></tr>
+          <tr><td class="t">Holz (quer zur Faser)</td><td>0,13 … 0,2</td><td>30 … 40</td><td>1,6</td></tr>
+          <tr><td class="t">PE, PP</td><td>0,2 … 0,4</td><td>100 … 200</td><td>1,8</td></tr>
+          <tr><td class="t">PU-Hartschaum</td><td>0,025 … 0,03</td><td>50 … 80</td><td>1,4</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Elektrochemische Spannungsreihe (Normalpotenzial in V)</h3>
+        <div class="tbl"><table>
+          <tr><th>Au</th><th>Ag</th><th>Cu</th><th>H₂</th><th>Pb</th><th>Sn</th><th>Ni</th><th>Fe</th><th>Cr</th><th>Zn</th><th>Al</th><th>Mg</th></tr>
+          <tr><td>+1,50</td><td>+0,80</td><td>+0,34</td><td>0</td><td>−0,13</td><td>−0,14</td><td>−0,25</td><td>−0,44</td><td>−0,74</td><td>−0,76</td><td>−1,66</td><td>−2,37</td></tr>
+        </table></div>
+        <p>Berühren sich zwei Metalle in einem Elektrolyten (Feuchtigkeit, Salzwasser), korrodiert das unedlere. Kritisch sind große Potenzialunterschiede und eine kleine Fläche des unedlen Partners, etwa Stahlschrauben in Kupferblech oder Aluminium mit Edelstahl. Das praktische Verhalten in Meerwasser weicht von der Normalreihe ab (Aluminium und Edelstahl bilden Passivschichten).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="kennzeichnung" data-group="Nachschlagen" data-title="Kennzeichnungen" data-norm="EN 60529 · DIN 2403 · ATEX" data-desc="IP-Schutzarten, Ex-Kennzeichnung, Farbkennzeichnung von Rohrleitungen" data-keys="IP Schutzart IP65 IP67 Ex Explosionsschutz ATEX Zone Rohrleitung Farbkennzeichnung DIN 2403 Kennzeichnung" hidden>
+  <p class="lede">Häufig gebrauchte Kennzeichnungssysteme aus Anlagenbau und Elektrotechnik.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="ipcode"></div>
+    <article class="sheet">
+      <h2>Tabellen</h2>
+      <div class="f"><h3>IP-Schutzarten (EN 60529)</h3>
+        <div class="tbl"><table>
+          <tr><th>Ziffer</th><th>1. Ziffer: Fremdkörper, Berührung</th><th>2. Ziffer: Wasser</th></tr>
+          <tr><td>0</td><td class="t">kein Schutz</td><td class="t">kein Schutz</td></tr>
+          <tr><td>1</td><td class="t">Fremdkörper ≥ 50 mm, Handrücken</td><td class="t">senkrecht fallendes Tropfwasser</td></tr>
+          <tr><td>2</td><td class="t">≥ 12,5 mm, Finger</td><td class="t">Tropfwasser bis 15° Neigung</td></tr>
+          <tr><td>3</td><td class="t">≥ 2,5 mm, Werkzeug</td><td class="t">Sprühwasser bis 60°</td></tr>
+          <tr><td>4</td><td class="t">≥ 1 mm, Draht</td><td class="t">Spritzwasser aus allen Richtungen</td></tr>
+          <tr><td>5</td><td class="t">staubgeschützt</td><td class="t">Strahlwasser</td></tr>
+          <tr><td>6</td><td class="t">staubdicht</td><td class="t">starkes Strahlwasser</td></tr>
+          <tr><td>7</td><td class="t">–</td><td class="t">zeitweiliges Untertauchen (1 m, 30 min)</td></tr>
+          <tr><td>8</td><td class="t">–</td><td class="t">dauerndes Untertauchen (nach Vereinbarung)</td></tr>
+          <tr><td>9K</td><td class="t">–</td><td class="t">Hochdruck- und Dampfstrahlreinigung</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Explosionsschutz (ATEX)</h3>
+        <div class="tbl"><table>
+          <tr><th>Zone (Gas / Staub)</th><th>explosionsfähige Atmosphäre</th><th>Gerätekategorie</th></tr>
+          <tr><td>0 / 20</td><td class="t">ständig, langzeitig oder häufig</td><td>1G / 1D</td></tr>
+          <tr><td>1 / 21</td><td class="t">gelegentlich im Normalbetrieb</td><td>2G / 2D</td></tr>
+          <tr><td>2 / 22</td><td class="t">selten und kurzzeitig</td><td>3G / 3D</td></tr>
+        </table></div>
+        <p>Beispiel einer Kennzeichnung: <b>II 2G Ex db IIB T4 Gb</b>. II: Gerätegruppe (nicht Bergbau), 2G: Kategorie für Zone 1, Ex db: Zündschutzart druckfeste Kapselung, IIB: Explosionsgruppe (IIA &lt; IIB &lt; IIC, Wasserstoff ist IIC), T4: höchste Oberflächentemperatur 135 °C (T1 450, T2 300, T3 200, T4 135, T5 100, T6 85 °C), Gb: Geräteschutzniveau.</p>
+      </div>
+      <div class="f"><h3>Rohrleitungen nach Durchflussstoff (DIN 2403)</h3>
+        <div class="tbl"><table>
+          <tr><th>Stoff</th><th>Gruppenfarbe</th><th>Stoff</th><th>Gruppenfarbe</th></tr>
+          <tr><td class="t">Wasser</td><td class="t">Grün</td><td class="t">Säuren</td><td class="t">Orange</td></tr>
+          <tr><td class="t">Wasserdampf</td><td class="t">Rot</td><td class="t">Laugen</td><td class="t">Violett</td></tr>
+          <tr><td class="t">Luft</td><td class="t">Grau</td><td class="t">brennbare Flüssigkeiten</td><td class="t">Braun (Zusatzfarbe Rot)</td></tr>
+          <tr><td class="t">brennbare Gase</td><td class="t">Gelb (Zusatzfarbe Rot)</td><td class="t">nicht brennbare Flüssigkeiten</td><td class="t">Braun (Zusatzfarbe Schwarz)</td></tr>
+          <tr><td class="t">nicht brennbare Gase</td><td class="t">Gelb (Zusatzfarbe Schwarz)</td><td class="t">Sauerstoff</td><td class="t">Blau</td></tr>
+        </table></div>
+        <p>Die Kennzeichnung besteht aus Schild oder Band mit Gruppenfarbe, Durchflussrichtung (Pfeil) und Stoffname; für Gefahrstoffe zusätzlich GHS-Symbole.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="ausgleich" data-group="Nachschlagen" data-title="Ausgleichsrechnung" data-norm="Gauß" data-desc="Polynom durch Messpunkte nach der Methode der kleinsten Fehlerquadrate" data-keys="Ausgleichsrechnung Regression Polynom kleinste Quadrate Messwerte Kurvenanpassung Fit Approximation Bestimmtheitsmaß Kennlinie" hidden>
+  <p class="lede">Werte durch Semikolon oder Leerzeichen trennen, Dezimalkomma ist erlaubt. Für Kennlinien aus Messwerten (Pumpe, Feder, Sensor) reicht meist Grad 1 bis 3.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="ausgleich"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Prinzip</h3>
+        <div class="eq">\[ y(x)=\sum_{k=0}^{m}a_k\,x^k,\qquad \sum_i\left(y_i-y(x_i)\right)^2\to\min \]</div>
+        <p>Die Koeffizienten werden so gewählt, dass die Summe der quadrierten Abweichungen am kleinsten ist. Das führt auf ein lineares Gleichungssystem (Normalgleichungen).</p>
+      </div>
+      <div class="f"><h3>Normalgleichungen</h3>
+        <div class="eq">\[ \left(\mathbf X^T\mathbf X\right)\mathbf a=\mathbf X^T\mathbf y,\qquad X_{ik}=x_i^k \]</div>
+        <p>Für die Gerade ergibt sich \(a_1=\dfrac{n\sum x_iy_i-\sum x_i\sum y_i}{n\sum x_i^2-(\sum x_i)^2}\), \(a_0=\bar y-a_1\bar x\).</p>
+      </div>
+      <div class="f"><h3>Bestimmtheitsmaß</h3>
+        <div class="eq">\[ R^2=1-\frac{\sum(y_i-\hat y_i)^2}{\sum(y_i-\bar y)^2} \]</div>
+        <p>R² = 1 heißt, alle Punkte liegen auf der Kurve. Ein hoher Grad bringt immer ein besseres R², führt aber zu Überanpassung: Zwischen den Messpunkten schwingt das Polynom. Mindestens doppelt so viele Punkte wie Koeffizienten verwenden.</p>
+      </div>
+    </article>
+  </div>
+</section>

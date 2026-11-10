@@ -207,7 +207,7 @@ function buildCalc(root) {
         }
       } else {
         ctl = document.createElement('input');
-        ctl.type = 'text'; ctl.inputMode = 'decimal'; ctl.autocomplete = 'off'; ctl.spellcheck = false;
+        ctl.type = 'text'; ctl.inputMode = f.text ? 'text' : 'decimal'; ctl.autocomplete = 'off'; ctl.spellcheck = false;
         ctl.setAttribute('autocorrect', 'off');
       }
       ctl.id = id;
@@ -230,7 +230,7 @@ function buildCalc(root) {
   const sel = id => { const e = document.getElementById(name + '-' + id); return e ? e.value : ''; };
   function run() {
     for (const c of conds) c.node.hidden = !c.f.when(sel, get);
-    for (const { f, ctl, wrap } of inputs) wrap.classList.toggle('bad', !f.opts && ctl.value.trim() !== '' && !isFinite(parseNum(ctl.value)));
+    for (const { f, ctl, wrap } of inputs) wrap.classList.toggle('bad', !f.opts && !f.text && ctl.value.trim() !== '' && !isFinite(parseNum(ctl.value)));
     try {
       const r = spec.compute(get, sel) || {};
       renderOut(out, r);

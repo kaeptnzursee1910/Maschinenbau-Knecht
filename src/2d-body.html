@@ -1,0 +1,471 @@
+
+<!-- ======================= ERWEITERUNG: FESTIGKEIT ======================= -->
+<section class="topic" id="abgesetztewelle" data-group="Festigkeitslehre" data-title="Abgesetzte Welle" data-norm="numerische Integration" data-desc="Biegelinie, Lagerneigung und Spannungen einer Welle mit bis zu vier Durchmesserstufen" data-keys="abgesetzte Welle Wellenabsatz Durchbiegung Lagerneigung Biegelinie Stufenwelle FEM numerisch" hidden>
+  <p class="lede">Welle auf zwei Lagern an den Enden mit bis zu vier Abschnitten unterschiedlichen Durchmessers und zwei Querkräften. Die Biegelinie wird numerisch aus der Krümmung M/(E·I(x)) integriert, so wie es ein Balkenelement-Programm tut.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="abgesetztewelle"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Krümmung bei veränderlichem Querschnitt</h3>
+        <div class="eq">\[ w''(x)=-\frac{M_b(x)}{E\,I(x)},\qquad I(x)=\frac{\pi\,d(x)^4}{64} \]</div>
+        <p>Bei einer abgesetzten Welle springt I an jedem Absatz. Geschlossene Lösungen werden dann unhandlich, deshalb integriert man abschnittsweise oder numerisch. Zweimal integrieren und die Konstanten so bestimmen, dass w an beiden Lagern null ist.</p>
+      </div>
+      <div class="f"><h3>Mohrsches Verfahren (Hilfsträger)</h3>
+        <p>Die reduzierte Momentenfläche \(M_b/(EI)\) wird als Belastung auf einen gedachten Träger gleicher Lagerung gelegt. Dessen Querkraft ist die Neigung, sein Moment die Durchbiegung der Welle. Das ist die Handrechnung hinter dem Programm.</p>
+      </div>
+      <div class="f"><h3>Spannungen an den Absätzen</h3>
+        <div class="eq">\[ \sigma_b(x)=\frac{32\,M_b(x)}{\pi\,d(x)^3} \]</div>
+        <p>Die höchste Spannung liegt nicht unbedingt beim größten Moment, sondern dort, wo M groß und d klein ist, meist direkt an einem Absatz. Dort wirkt zusätzlich die Kerbwirkung (β<sub>k</sub> ≈ 1,5 … 2,5 je nach Übergangsradius).</p>
+      </div>
+      <div class="f"><h3>Grenzwerte</h3>
+        <p>Neigung in Rillenkugellagern ≤ 2 … 10′ (0,0006 … 0,003 rad), in Zylinderrollenlagern ≤ 3′ (0,001 rad), in Gleitlagern ≈ 0,0003 rad. Durchbiegung unter Zahnrädern ≤ 0,01·m<sub>n</sub>.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="hertz" data-group="Festigkeitslehre" data-title="Hertzsche Pressung" data-norm="Hertz" data-desc="Kontaktfläche, Pressung und Abplattung bei Punkt- und Linienberührung" data-keys="Hertz Hertzsche Pressung Kontakt Punktberührung Linienberührung Kugel Zylinder Wälzkontakt Abplattung Flächenpressung" hidden>
+  <p class="lede">Elastischer Kontakt zweier gekrümmter Körper. Für eine Ebene als Gegenkörper den Radius 0 eingeben (unendlich groß); für eine Hohlfläche (konkav) einen negativen Radius.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="hertz"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Ersatzgrößen</h3>
+        <div class="eq">\[ \frac{1}{E^*}=\frac{1-\nu_1^2}{E_1}+\frac{1-\nu_2^2}{E_2},\qquad \frac1R=\frac1{r_1}+\frac1{r_2} \]</div>
+        <p>Beide Körper werden durch einen starren Körper mit Ersatzradius R und einen elastischen Halbraum mit Ersatzmodul E* ersetzt. In älteren deutschen Quellen steht oft \(E=2E_1E_2/(E_1+E_2)\) mit eigenen Vorfaktoren; die Ergebnisse sind gleich.</p>
+      </div>
+      <div class="f"><h3>Punktberührung (Kugel)</h3>
+        <div class="eq">\[ a=\sqrt[3]{\frac{3FR}{4E^*}},\qquad p_{\max}=\frac{3F}{2\pi a^2},\qquad \delta=\frac{a^2}{R} \]</div>
+        <p>a ist der Radius der kreisförmigen Kontaktfläche, δ die gegenseitige Annäherung. Die Pressung steigt nur mit F<sup>1/3</sup>.</p>
+      </div>
+      <div class="f"><h3>Linienberührung (Zylinder)</h3>
+        <div class="eq">\[ b=\sqrt{\frac{4FR}{\pi\,l\,E^*}},\qquad p_{\max}=\frac{2F}{\pi\,b\,l} \]</div>
+        <p>b ist die halbe Breite des Kontaktstreifens, l die tragende Länge. Hier wächst die Pressung mit √F. Die Formel ist Grundlage der Flankenpressung bei Zahnrädern und der Linienlast in Rollenlagern.</p>
+      </div>
+      <div class="f"><h3>Beanspruchung unter der Oberfläche</h3>
+        <p>Die größte Schubspannung liegt unter der Oberfläche: Punktkontakt τ<sub>max</sub> ≈ 0,31·p<sub>max</sub> in der Tiefe ≈ 0,48·a, Linienkontakt τ<sub>max</sub> ≈ 0,30·p<sub>max</sub> in ≈ 0,78·b. Dort beginnen Grübchen (Pittings). Gehärtete Wälzlagerstähle ertragen p<sub>max</sub> bis ca. 4200 N/mm² statisch, Zahnflanken aus Einsatzstahl ca. 1500 N/mm² dauerhaft.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="platten" data-group="Festigkeitslehre" data-title="Platten" data-norm="Kirchhoff" data-desc="Spannung und Durchbiegung von Kreis- und Rechteckplatten unter Flächenlast" data-keys="Platte Kreisplatte Rechteckplatte Deckel Boden Flächenlast Plattensteifigkeit Kirchhoff Durchbiegung Druck" hidden>
+  <p class="lede">Dünne Platten (Dicke klein gegen die Spannweite, Durchbiegung kleiner als etwa die halbe Dicke) unter gleichmäßigem Druck. Die Beiwerte der Rechteckplatte gelten für ν = 0,3, b ist die kürzere Seite.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="platten"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Plattensteifigkeit</h3>
+        <div class="eq">\[ K=\frac{E\,h^3}{12\,(1-\nu^2)} \]</div>
+        <p>Die Plattensteifigkeit ersetzt EI des Balkens. Der Faktor 1/(1 − ν²) entsteht, weil die Querdehnung in der Platte behindert ist.</p>
+      </div>
+      <div class="f"><h3>Kreisplatte unter Druck p</h3>
+        <div class="eq">\[ \text{gelenkig:}\quad \sigma_{\max}=\frac{3(3+\nu)}{8}\,\frac{p\,r^2}{h^2}\ \text{(Mitte)},\qquad w_{\max}=\frac{(5+\nu)\,p\,r^4}{64\,(1+\nu)\,K} \]</div>
+        <div class="eq">\[ \text{eingespannt:}\quad \sigma_{\max}=\frac34\,\frac{p\,r^2}{h^2}\ \text{(Rand)},\qquad w_{\max}=\frac{p\,r^4}{64\,K} \]</div>
+        <p>Die Einspannung senkt die Durchbiegung auf rund ein Viertel. Die größte Spannung wandert dabei von der Mitte an den Rand.</p>
+      </div>
+      <div class="f"><h3>Rechteckplatte a × b (a ≥ b)</h3>
+        <div class="eq">\[ \sigma_{\max}=\beta\,\frac{p\,b^2}{h^2},\qquad w_{\max}=\alpha\,\frac{p\,b^4}{E\,h^3} \]</div>
+        <div class="tbl"><table>
+          <tr><th>a/b</th><th>1</th><th>1,2</th><th>1,4</th><th>1,6</th><th>1,8</th><th>2</th><th>3</th><th>∞</th></tr>
+          <tr><td class="t">β gelenkig</td><td>0,287</td><td>0,376</td><td>0,453</td><td>0,517</td><td>0,569</td><td>0,610</td><td>0,713</td><td>0,750</td></tr>
+          <tr><td class="t">α gelenkig</td><td>0,0444</td><td>0,0616</td><td>0,0770</td><td>0,0906</td><td>0,1017</td><td>0,1110</td><td>0,1335</td><td>0,1421</td></tr>
+          <tr><td class="t">β eingespannt</td><td>0,308</td><td>0,383</td><td>0,436</td><td>0,468</td><td>0,487</td><td>0,497</td><td>0,500</td><td>0,500</td></tr>
+          <tr><td class="t">α eingespannt</td><td>0,0138</td><td>0,0188</td><td>0,0226</td><td>0,0251</td><td>0,0267</td><td>0,0277</td><td>0,0284</td><td>0,0284</td></tr>
+        </table></div>
+        <p>Ab a/b ≈ 3 verhält sich die Platte wie ein Plattenstreifen der Breite b. Werte nach Roark/Timoshenko.</p>
+      </div>
+      <div class="f"><h3>Membranwirkung</h3>
+        <p>Wird die Durchbiegung größer als etwa h/2, trägt die Platte zusätzlich als Membran. Die linearen Formeln liegen dann auf der sicheren Seite, überschätzen aber die Durchbiegung.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="behaelter" data-group="Festigkeitslehre" data-title="Behälter & Rohre unter Druck" data-norm="Kesselformel · Lamé · EN 13480" data-desc="Spannungen dünn- und dickwandiger Zylinder, erforderliche Wanddicke, Beuldruck" data-keys="Druckbehälter Rohr Kesselformel Lamé dickwandig dünnwandig Innendruck Außendruck Wanddicke Beulen Tangentialspannung Kugelbehälter" hidden>
+  <p class="lede">Zylindrischer Behälter oder Rohr unter Innen- oder Außendruck. Der Rechner vergleicht die einfache Kesselformel mit der exakten Lösung nach Lamé und gibt die Mindestwanddicke nach dem Ansatz der EN 13480-3 an.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="behaelter"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Dünnwandig (Kesselformel)</h3>
+        <div class="eq">\[ \sigma_t=\frac{p\,d_m}{2\,s},\qquad \sigma_a=\frac{p\,d_m}{4\,s},\qquad \text{Kugel:}\ \sigma=\frac{p\,d_m}{4\,s} \]</div>
+        <p>Die Umfangsspannung ist doppelt so groß wie die Längsspannung. Darum platzen Rohre längs auf und Kugelbehälter brauchen bei gleichem Druck nur die halbe Wanddicke. Gültig etwa bis D<sub>a</sub>/D<sub>i</sub> ≤ 1,2.</p>
+      </div>
+      <div class="f"><h3>Dickwandig (Lamé), Innendruck</h3>
+        <div class="eq">\[ \sigma_t(r)=\frac{p_i\,r_i^2}{r_a^2-r_i^2}\left(1+\frac{r_a^2}{r^2}\right),\qquad \sigma_r(r)=\frac{p_i\,r_i^2}{r_a^2-r_i^2}\left(1-\frac{r_a^2}{r^2}\right) \]</div>
+        <p>Die Spannungen sind an der Innenfaser am größten. Ab einem bestimmten Druck hilft mehr Wanddicke kaum noch, weil die äußeren Schichten wenig tragen. Abhilfe sind Schrumpfverbände oder Autofrettage.</p>
+      </div>
+      <div class="f"><h3>Mindestwanddicke (EN 13480-3, Ansatz)</h3>
+        <div class="eq">\[ e=\frac{p\,D_a}{2\,f\,z+p}+c \]</div>
+        <dl><dt>f</dt><dd>zulässige Spannung (z. B. R<sub>p0,2,T</sub>/1,5)</dd><dt>z</dt><dd>Schweißnahtfaktor 0,7 … 1</dd><dt>c</dt><dd>Zuschläge für Korrosion und Wanddickentoleranz</dd></dl>
+      </div>
+      <div class="f"><h3>Beulen unter Außendruck</h3>
+        <div class="eq">\[ p_k=\frac{2E}{1-\nu^2}\left(\frac{s}{d_m}\right)^3\quad\text{(langes Rohr, ohne Versteifung)} \]</div>
+        <p>Dünne Rohre versagen bei Unterdruck nicht durch Fließen, sondern durch Einbeulen. Sicherheit gegen Beulen ≥ 3, wegen Unrundheiten oft mehr. Versteifungsringe verkürzen die Beullänge.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= QUERSCHNITTE ======================= -->
+<section class="topic" id="profile" data-group="Querschnitte &amp; Profile" data-title="Stahlbauprofile IPE & HEB" data-norm="EN 10365" data-desc="Querschnittswerte von I-Trägern, Biegespannung und leichtestes Profil für ein Moment" data-keys="IPE HEB Träger Doppel-T Profil Stahlbau Walzprofil Widerstandsmoment Profiltabelle Biegeträger Auswahl" hidden>
+  <p class="lede">Profilwerte gerundet nach Herstellertabellen (mit Ausrundungen). Der Rechner prüft ein gewähltes Profil und sucht das leichteste IPE- und HEB-Profil, das ein Biegemoment mit der zulässigen Spannung trägt.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="profile"></div>
+    <article class="sheet">
+      <h2>Tabellen &amp; Erklärungen</h2>
+      <div class="f"><h3>Profilauswahl</h3>
+        <div class="eq">\[ W_{y,\text{erf}}=\frac{M_b}{\sigma_{\text{zul}}},\qquad I_{y,\text{erf}}=\frac{c\,F\,l^3}{E\,f_{\text{zul}}} \]</div>
+        <p>Erst nach Festigkeit (W) vorwählen, dann die Durchbiegung prüfen; bei langen Trägern bestimmt oft die Steifigkeit (I) das Profil. IPE sind schlank und für Biegung um die starke Achse wirtschaftlich, HEB (Breitflansch) eignen sich für Stützen und zweiachsige Biegung.</p>
+      </div>
+      <div class="f"><h3>IPE (mittelbreite I-Träger)</h3><div class="tbl" data-gen="ipe"></div></div>
+      <div class="f"><h3>HEB (Breitflanschträger)</h3><div class="tbl" data-gen="heb"></div></div>
+      <div class="f"><h3>Kippen</h3>
+        <p>Schlanke I-Träger können seitlich ausweichen und verdrehen, bevor die Biegespannung erreicht ist (Biegedrillknicken). Nachweis nach EN 1993-1-1; konstruktiv helfen Querverbände oder ein gehaltener Druckgurt.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="torsionq" data-group="Querschnitte &amp; Profile" data-title="Torsion nicht kreisförmiger Querschnitte" data-norm="Saint-Venant" data-desc="Torsionsträgheitsmoment, Schubspannung und Verdrehwinkel für Rechteck, Dreieck und offene Profile" data-keys="Torsion Rechteck Vierkant Dreieck offenes Profil Torsionsträgheitsmoment Torsionswiderstandsmoment Wölbung dünnwandig" hidden>
+  <p class="lede">Bei nicht kreisförmigen Querschnitten verwölbt sich der Querschnitt, I<sub>p</sub> darf nicht verwendet werden. Die Rechteckbeiwerte werden zwischen den Tabellenwerten nach Saint-Venant interpoliert.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="torsionq"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Allgemein</h3>
+        <div class="eq">\[ \tau_{\max}=\frac{T}{W_t},\qquad \varphi=\frac{T\,l}{G\,I_t} \]</div>
+        <p>I<sub>t</sub> und W<sub>t</sub> sind Querschnittswerte, die nur für den Kreis mit I<sub>p</sub> und W<sub>p</sub> übereinstimmen. Beim Rechteck liegt τ<sub>max</sub> in der Mitte der langen Seite, die Ecken sind spannungsfrei.</p>
+      </div>
+      <div class="f"><h3>Rechteck h × b (h ≥ b)</h3>
+        <div class="eq">\[ I_t=c_1\,h\,b^3,\qquad W_t=c_2\,h\,b^2 \]</div>
+        <div class="tbl"><table>
+          <tr><th>h/b</th><th>1</th><th>1,5</th><th>2</th><th>3</th><th>4</th><th>6</th><th>10</th><th>∞</th></tr>
+          <tr><td>c₁</td><td>0,141</td><td>0,196</td><td>0,229</td><td>0,263</td><td>0,281</td><td>0,299</td><td>0,312</td><td>0,333</td></tr>
+          <tr><td>c₂</td><td>0,208</td><td>0,231</td><td>0,246</td><td>0,267</td><td>0,282</td><td>0,299</td><td>0,312</td><td>0,333</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Gleichseitiges Dreieck, Seite a</h3>
+        <div class="eq">\[ I_t=\frac{\sqrt3}{80}\,a^4,\qquad W_t=\frac{a^3}{20} \]</div>
+      </div>
+      <div class="f"><h3>Dünnwandig offen (I, U, L, Flachstahl)</h3>
+        <div class="eq">\[ I_t\approx\frac{\eta}{3}\sum h_i\,t_i^3,\qquad \tau_{\max}=\frac{T}{I_t}\,t_{\max} \]</div>
+        <p>η ≈ 1 für einfache Rechteckzusammensetzungen, bei Walzprofilen wegen der Ausrundungen 1,1 … 1,3. Offene Profile sind torsionsweich: Ein geschlitztes Rohr ist bei gleichem Material um Größenordnungen weicher als ein geschlossenes.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= ANTRIEBSTECHNIK ======================= -->
+<section class="topic" id="antrieb" data-group="Antriebstechnik" data-title="Antrieb & Kupplung" data-norm="Antriebsstrang" data-desc="Nenn- und Anlaufmoment, Hochlaufzeit, Kupplungsmoment beim Anfahren, Eigenfrequenz des Zweimassensystems" data-keys="Antrieb Kupplung Anlaufmoment Hochlauf Beschleunigungsmoment Motor Kupplungsmoment Zweimassenschwinger Torsionsschwingung Drehsteifigkeit" hidden>
+  <p class="lede">Motor treibt über eine Kupplung eine Arbeitsmaschine an. Alle Trägheitsmomente auf die Motorwelle reduziert. Das Kupplungsmoment beim Anfahren ergibt sich aus der Aufteilung des Beschleunigungsmoments auf beide Massen.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="antrieb"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Moment und Leistung</h3>
+        <div class="eq">\[ T_N=\frac{P_N}{2\pi n},\qquad T_B=T_A-T_L,\qquad t_H=\frac{(J_M+J_L)\,\omega}{T_A-T_L} \]</div>
+        <p>T<sub>A</sub> ist das mittlere Anlaufmoment des Motors (Drehstrom-Asynchronmotor typisch 1,5 … 2,5·T<sub>N</sub>), T<sub>L</sub> das Lastmoment.</p>
+      </div>
+      <div class="f"><h3>Kupplungsmoment beim Anfahren</h3>
+        <div class="eq">\[ \text{ohne Last:}\ T_K=T_A\,\frac{J_L}{J_M+J_L},\qquad \text{unter Last:}\ T_K=T_L+(T_A-T_L)\,\frac{J_L}{J_M+J_L} \]</div>
+        <p>Die Kupplung muss den Anteil des Beschleunigungsmoments übertragen, der die Lastseite beschleunigt. Stöße und Schwingungen erhöhen das Spitzenmoment; Kupplungshersteller rechnen mit Stoß- und Anlauffaktoren (1,5 … 3).</p>
+      </div>
+      <div class="f"><h3>Zweimassen-Torsionsschwinger</h3>
+        <div class="eq">\[ \omega_e=\sqrt{c_t\,\frac{J_1+J_2}{J_1\,J_2}},\qquad n_{\text{krit}}=\frac{60\,\omega_e}{2\pi\,i} \]</div>
+        <p>c<sub>t</sub> ist die Drehsteifigkeit von Welle und Kupplung in Reihe. Die Drehzahl, bei der eine Erregerordnung i die Eigenfrequenz trifft, muss ausreichend weit von der Betriebsdrehzahl liegen (typisch ±20 %). Elastische Kupplungen senken c<sub>t</sub> und verschieben die Resonanz unter die Betriebsdrehzahl.</p>
+      </div>
+      <div class="f"><h3>Reduktion auf die Motorwelle</h3>
+        <div class="eq">\[ J_{\text{red}}=J_1+\sum\frac{J_k}{i_k^2}+\sum m_j\left(\frac{v_j}{\omega_M}\right)^2,\qquad T_{L,\text{red}}=\frac{T_L}{i\,\eta} \]</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="unwucht" data-group="Antriebstechnik" data-title="Unwucht & Auswuchtgüte" data-norm="DIN ISO 21940-11" data-desc="Zulässige Restunwucht nach Gütestufe, Fliehkraft einer Unwucht" data-keys="Unwucht Auswuchten Auswuchtgüte Gütestufe G6,3 G2,5 Restunwucht Fliehkraft Rotor Exzentrizität ISO 1940" hidden>
+  <p class="lede">Starre Rotoren. Die Gütestufe G gibt die zulässige Schwerpunktgeschwindigkeit e·ω in mm/s an. Die zulässige Restunwucht wird bei zwei Ausgleichsebenen meist hälftig aufgeteilt.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="unwucht"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Unwucht und Fliehkraft</h3>
+        <div class="eq">\[ U=m_u\,r=m\,e,\qquad F=U\,\omega^2=m_u\,r\,\omega^2 \]</div>
+        <p>Eine Unwucht ist eine Masse außerhalb der Drehachse. Die Fliehkraft wächst mit dem Quadrat der Drehzahl: 10 g auf 100 mm Radius erzeugen bei 3000 min⁻¹ fast 100 N umlaufende Lagerkraft.</p>
+      </div>
+      <div class="f"><h3>Zulässige Restunwucht</h3>
+        <div class="eq">\[ e_{\text{zul}}=\frac{G}{\omega},\qquad U_{\text{zul}}=m\,e_{\text{zul}} \]</div>
+        <div class="tbl"><table>
+          <tr><th>Gütestufe</th><th>Beispiele</th></tr>
+          <tr><td>G 40</td><td class="t">Pkw-Räder und Felgen, Kurbelwellen langsamer Motoren</td></tr>
+          <tr><td>G 16</td><td class="t">Gelenkwellen, Teile von Brechern und Landmaschinen</td></tr>
+          <tr><td>G 6,3</td><td class="t">Ventilatoren, Pumpenlaufräder, Schwungräder, allgemeiner Maschinenbau, E-Motor-Rotoren</td></tr>
+          <tr><td>G 2,5</td><td class="t">Gas- und Dampfturbinen, Turboverdichter, Werkzeugmaschinenantriebe, Rotoren mit Sonderanforderungen</td></tr>
+          <tr><td>G 1</td><td class="t">Schleifmaschinenantriebe, Tonbandantriebe</td></tr>
+          <tr><td>G 0,4</td><td class="t">Kreisel, Präzisionsschleifspindeln</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Statische und dynamische Unwucht</h3>
+        <p>Statische Unwucht verschiebt den Schwerpunkt aus der Achse und lässt sich auf Schneiden erkennen. Dynamische Unwucht (Momentenunwucht) kippt die Hauptträgheitsachse und zeigt sich erst beim Drehen; sie braucht zwei Ausgleichsebenen. Faustregel: Scheibenförmige Rotoren mit b/D &lt; 0,2 genügen einer Ebene.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="gelenkwelle" data-group="Antriebstechnik" data-title="Gelenkwelle" data-norm="Kardangelenk" data-desc="Ungleichförmigkeit des Kreuzgelenks, Momentschwankung, W- und Z-Anordnung, kritische Drehzahl des Rohrs" data-keys="Gelenkwelle Kardanwelle Kreuzgelenk Kardangelenk Beugungswinkel Ungleichförmigkeit Z-Anordnung W-Anordnung kritische Drehzahl" hidden>
+  <p class="lede">Ein einzelnes Kreuzgelenk überträgt bei Beugung keine gleichförmige Drehbewegung. Zwei Gelenke in Z- oder W-Anordnung mit gleichem Beugungswinkel und richtig ausgerichteten Gabeln heben den Fehler auf.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="gelenkwelle"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Übertragungsverhalten eines Kreuzgelenks</h3>
+        <div class="eq">\[ \frac{\omega_2}{\omega_1}=\frac{\cos\beta}{1-\sin^2\beta\,\sin^2\varphi_1},\qquad \cos\beta\le\frac{\omega_2}{\omega_1}\le\frac{1}{\cos\beta} \]</div>
+        <p>Die Abtriebswelle läuft zweimal pro Umdrehung schneller und langsamer. Das Moment schwankt im Kehrwert: \(T_1\cos\beta\le T_2\le T_1/\cos\beta\).</p>
+      </div>
+      <div class="f"><h3>Ungleichförmigkeitsgrad</h3>
+        <div class="eq">\[ U=\frac{\omega_{2,\max}-\omega_{2,\min}}{\omega_1}=\tan\beta\,\sin\beta \]</div>
+        <p>Bei 10° Beugung sind es rund 3 %, bei 20° schon 12 %. Die Winkelbeschleunigung der Abtriebsseite erregt Torsionsschwingungen und belastet Lager und Getriebe.</p>
+      </div>
+      <div class="f"><h3>Gleichlauf mit zwei Gelenken</h3>
+        <p>Bedingungen: beide Beugungswinkel gleich, beide inneren Gabeln in einer Ebene, alle drei Wellen in einer Ebene. In Z-Anordnung sind An- und Abtrieb parallel versetzt, in W-Anordnung schneiden sie sich. Die Zwischenwelle läuft trotzdem ungleichförmig, ihre Masse sollte klein sein.</p>
+      </div>
+      <div class="f"><h3>Kritische Biegedrehzahl des Rohrs</h3>
+        <div class="eq">\[ n_{\text{krit}}=\frac{30}{\pi}\,\frac{\pi^2}{L^2}\sqrt{\frac{E\,I}{\rho\,A}}=\frac{30\pi}{L^2}\sqrt{\frac{E\,(D^2+d^2)}{16\,\rho}} \]</div>
+        <p>Gelenkig gelagertes Rohr. Die Betriebsdrehzahl soll unter etwa 70 % von n<sub>krit</sub> bleiben. Abhilfe: größerer Rohrdurchmesser, kürzere Welle oder Zwischenlager.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="isolierung" data-group="Antriebstechnik" data-title="Elastische Lagerung" data-norm="Schwingungsisolierung" data-desc="Eigenfrequenz, Isoliergrad und Steifigkeit von Gummi-Metall-Lagern" data-keys="Schwingungsisolierung elastische Lagerung Gummilager Gummifeder Isoliergrad Eigenfrequenz Einfederung Aggregat Maschinenlagerung Formfaktor" hidden>
+  <p class="lede">Eine Maschine auf mehreren gleichen elastischen Lagern, betrachtet in vertikaler Richtung. Die Lagersteifigkeit gibst du direkt ein oder rechnest sie aus einem quaderförmigen Gummielement.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="isolierung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Eigenfrequenz der Lagerung</h3>
+        <div class="eq">\[ f_0=\frac{1}{2\pi}\sqrt{\frac{c_{\text{ges}}}{m}}\approx\frac{15{,}8}{\sqrt{s_{\text{st}}\,[\mathrm{mm}]}}\ \mathrm{Hz} \]</div>
+        <p>Mit der statischen Einfederung s<sub>st</sub> lässt sich die Eigenfrequenz direkt abschätzen. Für dynamisch beanspruchten Gummi ist die Steifigkeit um den Faktor 1,2 … 1,8 höher als statisch.</p>
+      </div>
+      <div class="f"><h3>Übertragungsfaktor und Isoliergrad</h3>
+        <div class="eq">\[ V_T=\sqrt{\frac{1+(2D\eta)^2}{(1-\eta^2)^2+(2D\eta)^2}},\qquad i=1-V_T,\qquad \eta=\frac{f_{\text{err}}}{f_0} \]</div>
+        <p>Isoliert wird erst oberhalb von η = √2. Für gute Isolierung (i ≥ 80 %) braucht man η ≥ 2,5 … 3. Beim Hochlaufen wird die Resonanz durchfahren; Dämpfung begrenzt dort die Ausschläge, verschlechtert aber die Isolierung bei hohen Drehzahlen.</p>
+      </div>
+      <div class="f"><h3>Druckfeder aus Gummi (Quader)</h3>
+        <div class="eq">\[ k=\frac{a\,b}{2\,h\,(a+b)},\qquad E_c=3G\,(1+2k^2),\qquad c=\frac{E_c\,a\,b}{h} \]</div>
+        <p>Der Formfaktor k ist das Verhältnis von belasteter zu freier Fläche. Je flacher das Element, desto steifer wird es bei Druck, weil der Gummi seitlich nicht ausweichen kann. Schubmodul nach Härte: 40 Shore A ≈ 0,45 N/mm², 50 ≈ 0,64, 60 ≈ 0,95, 70 ≈ 1,4 N/mm².</p>
+      </div>
+      <div class="f"><h3>Zulässige Beanspruchung</h3>
+        <p>Richtwerte für Naturkautschuk: Druck statisch 0,5 … 1 N/mm² (bezogen auf die belastete Fläche), Schub ≤ 0,3 N/mm², Schubverformung ≤ 30 … 50 %. Gummi kriecht: Nach einigen Jahren kommen 10 … 20 % zur statischen Einfederung hinzu.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= THERMODYNAMIK ======================= -->
+<section class="topic" id="waermeuebergang" data-group="Thermodynamik" data-title="Wärmeübergangskoeffizient" data-norm="VDI-Wärmeatlas" data-desc="α aus Nußelt-Korrelationen für erzwungene und freie Konvektion an Platte, Rohr und Zylinder" data-keys="Wärmeübergangskoeffizient Wärmeübergangszahl Nusselt Konvektion erzwungen frei Gnielinski Churchill Rayleigh Grashof Platte Rohr Zylinder" hidden>
+  <p class="lede">Stoffwerte von Luft und Wasser werden bei der mittleren Temperatur aus Fluid und Wand ausgewertet. L ist die überströmte Länge (Platte), die Höhe (senkrechte Wand) oder der Durchmesser (Rohr, Zylinder).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="waermeuebergang"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Vorgehen</h3>
+        <div class="eq">\[ \alpha=\frac{Nu\,\lambda}{L},\qquad Nu=f(Re,Pr)\ \text{bzw.}\ f(Ra,Pr),\qquad Ra=\frac{g\,\beta\,\Delta T\,L^3}{\nu^2}\,Pr \]</div>
+        <p>Erzwungene Konvektion wird durch die Reynolds-Zahl bestimmt, freie Konvektion durch die Rayleigh-Zahl. Für ideale Gase ist β = 1/T.</p>
+      </div>
+      <div class="f"><h3>Längs angeströmte Platte (mittlere Nu)</h3>
+        <div class="eq">\[ Nu_{\text{lam}}=0{,}664\,Re^{1/2}Pr^{1/3},\qquad Nu_{\text{turb}}=\frac{0{,}037\,Re^{0{,}8}Pr}{1+2{,}443\,Re^{-0{,}1}(Pr^{2/3}-1)},\qquad Nu=\sqrt{Nu_{\text{lam}}^2+Nu_{\text{turb}}^2} \]</div>
+      </div>
+      <div class="f"><h3>Rohr innen</h3>
+        <div class="eq">\[ \text{laminar, ausgebildet:}\ Nu=3{,}66,\qquad \text{turbulent (Gnielinski):}\ Nu=\frac{(\xi/8)(Re-1000)Pr}{1+12{,}7\sqrt{\xi/8}\,(Pr^{2/3}-1)},\ \ \xi=(1{,}8\log_{10}Re-1{,}5)^{-2} \]</div>
+        <p>Gnielinski gilt für 2300 &lt; Re &lt; 10⁶ und 0,1 &lt; Pr &lt; 1000. Für kurze Rohre kommt der Einlauffaktor \(1+(d/L)^{2/3}\) dazu.</p>
+      </div>
+      <div class="f"><h3>Quer angeströmter Zylinder (Churchill-Bernstein)</h3>
+        <div class="eq">\[ Nu=0{,}3+\frac{0{,}62\,Re^{1/2}Pr^{1/3}}{\left[1+(0{,}4/Pr)^{2/3}\right]^{1/4}}\left[1+\left(\frac{Re}{282\,000}\right)^{5/8}\right]^{4/5} \]</div>
+      </div>
+      <div class="f"><h3>Freie Konvektion (Churchill-Chu)</h3>
+        <div class="eq">\[ \text{senkrechte Wand:}\ Nu=\left\{0{,}825+\frac{0{,}387\,Ra^{1/6}}{\left[1+(0{,}492/Pr)^{9/16}\right]^{8/27}}\right\}^2 \]</div>
+        <div class="eq">\[ \text{waagrechter Zylinder:}\ Nu=\left\{0{,}6+\frac{0{,}387\,Ra^{1/6}}{\left[1+(0{,}559/Pr)^{9/16}\right]^{8/27}}\right\}^2 \]</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="strahlung" data-group="Thermodynamik" data-title="Wärmestrahlung" data-norm="Stefan-Boltzmann" data-desc="Strahlungsaustausch zwischen Flächen, äquivalenter Wärmeübergangskoeffizient, Emissionsgrade" data-keys="Strahlung Wärmestrahlung Emissionsgrad Stefan-Boltzmann Strahlungsaustausch grauer Strahler Strahlungsschutzschirm Wärmeabstrahlung" hidden>
+  <p class="lede">Strahlungsaustausch zwischen zwei grauen Flächen. Für einen Körper in einem großen Raum zählt nur sein eigener Emissionsgrad.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="strahlung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Schwarzer und grauer Strahler</h3>
+        <div class="eq">\[ \dot q_s=\sigma\,T^4,\qquad \dot q=\varepsilon\,\sigma\,T^4,\qquad \sigma=5{,}670\cdot10^{-8}\ \mathrm{W/(m^2K^4)} \]</div>
+        <p>Die Abstrahlung wächst mit der vierten Potenz der absoluten Temperatur. Deshalb dominiert Strahlung bei hohen Temperaturen (Öfen, Abgasleitungen), während bei Raumtemperatur Konvektion und Strahlung etwa gleich viel beitragen.</p>
+      </div>
+      <div class="f"><h3>Strahlungsaustausch</h3>
+        <div class="eq">\[ \dot Q_{12}=\varepsilon_{12}\,\sigma\,A_1\,(T_1^4-T_2^4) \]</div>
+        <div class="eq">\[ \text{kleiner Körper im großen Raum:}\ \varepsilon_{12}=\varepsilon_1,\qquad \text{parallele Platten:}\ \varepsilon_{12}=\frac{1}{1/\varepsilon_1+1/\varepsilon_2-1} \]</div>
+        <div class="eq">\[ \text{umschlossener Körper:}\ \varepsilon_{12}=\frac{1}{1/\varepsilon_1+(A_1/A_2)(1/\varepsilon_2-1)} \]</div>
+      </div>
+      <div class="f"><h3>Äquivalenter Wärmeübergangskoeffizient</h3>
+        <div class="eq">\[ \alpha_{\text{Str}}=\frac{\dot Q_{12}}{A_1\,(T_1-T_2)}\approx4\,\varepsilon_{12}\,\sigma\,T_m^3 \]</div>
+        <p>So lässt sich Strahlung zu α<sub>Konv</sub> addieren. Bei 20 °C und ε = 0,9 ergibt sich α<sub>Str</sub> ≈ 5 W/(m²·K).</p>
+      </div>
+      <div class="f"><h3>Emissionsgrade (Richtwerte)</h3>
+        <div class="tbl"><table>
+          <tr><th>Oberfläche</th><th>ε</th><th>Oberfläche</th><th>ε</th></tr>
+          <tr><td class="t">Aluminium poliert</td><td>0,04 … 0,06</td><td class="t">Stahl verzinkt, blank</td><td>0,2 … 0,3</td></tr>
+          <tr><td class="t">Aluminium oxidiert</td><td>0,2 … 0,3</td><td class="t">Stahl oxidiert</td><td>0,8</td></tr>
+          <tr><td class="t">Kupfer poliert</td><td>0,03</td><td class="t">Edelstahl blank</td><td>0,15 … 0,3</td></tr>
+          <tr><td class="t">Lack, beliebige Farbe</td><td>0,85 … 0,95</td><td class="t">Beton, Ziegel, Putz</td><td>0,9 … 0,95</td></tr>
+          <tr><td class="t">Wasser, Eis</td><td>0,95</td><td class="t">Glas</td><td>0,9</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="abkuehlung" data-group="Thermodynamik" data-title="Abkühlen & Einfrieren" data-norm="Newton" data-desc="Temperaturverlauf eines Behälters über der Zeit, Abkühlzeit, Einfrierzeit von Wasser in Rohrleitungen" data-keys="Abkühlung Aufheizung Behälter Zeitkonstante Newton Abkühlgesetz Einfrieren Rohrleitung Frost Wärmeverlust instationär" hidden>
+  <p class="lede">Ein gut durchmischter Inhalt (Behälter, Rohr) kühlt über die Wand an die Umgebung ab. Instationär, aber mit einheitlicher Temperatur im Inneren (Blockkapazität).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="abkuehlung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Exponentielles Abkühlen</h3>
+        <div class="eq">\[ \vartheta(t)=\vartheta_U+(\vartheta_0-\vartheta_U)\,e^{-t/\tau},\qquad \tau=\frac{m\,c}{k\,A} \]</div>
+        <p>Nach einer Zeitkonstanten τ ist der Temperaturunterschied zur Umgebung auf 37 % gefallen, nach 3τ auf 5 %. Die Zeit bis zu einer Zieltemperatur folgt aus \(t=\tau\ln\frac{\vartheta_0-\vartheta_U}{\vartheta-\vartheta_U}\).</p>
+        <p class="tip"><b>Gültigkeit:</b> Die Annahme einer einheitlichen Innentemperatur gilt, solange die Biot-Zahl \(Bi=\alpha L/\lambda\) unter etwa 0,1 liegt oder der Inhalt gerührt wird.</p>
+      </div>
+      <div class="f"><h3>Einfrieren einer Wasserleitung</h3>
+        <div class="eq">\[ t_1=\frac{m'\,c}{k_l}\ln\frac{\vartheta_0-\vartheta_U}{0-\vartheta_U},\qquad t_2=\frac{m'\,r}{k_l\,(0-\vartheta_U)} \]</div>
+        <dl><dt>m'</dt><dd>Wassermasse je Meter Rohr</dd><dt>k<sub>l</sub></dt><dd>längenbezogener Wärmedurchgangskoeffizient in W/(m·K), siehe Wärmedurchgang</dd><dt>r</dt><dd>Erstarrungswärme von Wasser, 334 kJ/kg</dd></dl>
+        <p>t<sub>1</sub> ist die Zeit bis 0 °C, t<sub>2</sub> die Zeit, bis alles Wasser gefroren ist. Die Rohrwand und der Wärmeinhalt der Dämmung sind vernachlässigt, die Rechnung liegt damit auf der sicheren Seite.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="feuchteluft" data-group="Thermodynamik" data-title="Feuchte Luft" data-norm="Magnus · Mollier" data-desc="Sättigungsdampfdruck, Wassergehalt, Taupunkt, Enthalpie und Zustandsänderung beim Erwärmen oder Kühlen" data-keys="feuchte Luft Luftfeuchtigkeit relative Feuchte Taupunkt Wassergehalt Magnus Mollier h-x Enthalpie Kondensat Sättigung Klimatechnik" hidden>
+  <p class="lede">Ideale Mischung aus trockener Luft und Wasserdampf. Der Sättigungsdampfdruck folgt der Magnus-Formel über Wasser (−45 … +60 °C). Zustand 2 entsteht durch Erwärmen oder Kühlen bei gleichem Druck.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="feuchteluft"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Sättigungsdampfdruck (Magnus)</h3>
+        <div class="eq">\[ p_s(\vartheta)=611{,}2\ \mathrm{Pa}\cdot\exp\left(\frac{17{,}62\,\vartheta}{243{,}12+\vartheta}\right) \]</div>
+      </div>
+      <div class="f"><h3>Feuchtemaße</h3>
+        <div class="eq">\[ \varphi=\frac{p_D}{p_s},\qquad x=0{,}622\,\frac{p_D}{p-p_D}\ \left[\tfrac{\mathrm{kg\ Wasser}}{\mathrm{kg\ trockene\ Luft}}\right],\qquad \rho_D=\frac{p_D}{R_D\,T} \]</div>
+        <p>x (Wassergehalt) bleibt beim reinen Erwärmen oder Kühlen konstant, solange kein Wasser ausfällt. φ dagegen sinkt beim Erwärmen stark. R<sub>D</sub> = 461,5 J/(kg·K).</p>
+      </div>
+      <div class="f"><h3>Taupunkt</h3>
+        <div class="eq">\[ \vartheta_\tau=\frac{243{,}12\,\ln(p_D/611{,}2)}{17{,}62-\ln(p_D/611{,}2)} \]</div>
+        <p>Kühlt man unter den Taupunkt, kondensiert Wasser. Oberflächen kälter als ϑ<sub>τ</sub> beschlagen; das ist die Ursache von Schwitzwasser an kalten Leitungen.</p>
+      </div>
+      <div class="f"><h3>Enthalpie (je kg trockene Luft)</h3>
+        <div class="eq">\[ h_{1+x}=c_{pL}\,\vartheta+x\,(r_0+c_{pD}\,\vartheta)=1{,}006\,\vartheta+x\,(2501+1{,}86\,\vartheta)\ \ \mathrm{kJ/kg} \]</div>
+        <p>Grundlage des h-x-Diagramms nach Mollier. Die Leistung eines Lufterhitzers ist \(\dot Q=\dot m_L\,(h_2-h_1)\).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= STRÖMUNG ======================= -->
+<section class="topic" id="hydrostatik" data-group="Strömungslehre" data-title="Hydrostatik" data-norm="Pascal · Archimedes" data-desc="Seitendruckkraft auf Wände, Auftrieb und Schwimmen, hydraulische Presse" data-keys="Hydrostatik Schweredruck Seitendruckkraft Druckmittelpunkt Auftrieb Archimedes Schwimmen hydraulische Presse Pascal Bodendruck" hidden>
+  <p class="lede">Ruhende Flüssigkeiten. Wähle die Aufgabe: Kraft auf eine senkrechte Rechteckwand, Auftrieb eines Körpers oder Kraftübersetzung einer hydraulischen Presse.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="hydrostatik"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Schweredruck</h3>
+        <div class="eq">\[ p=p_0+\rho\,g\,h \]</div>
+        <p>Der Druck hängt nur von der Tiefe ab, nicht von der Gefäßform (hydrostatisches Paradoxon). Die Bodenkraft ist deshalb \(F=\rho g h A\), auch wenn das Gefäß oben schmaler ist.</p>
+      </div>
+      <div class="f"><h3>Kraft auf eine ebene Wand</h3>
+        <div class="eq">\[ F=\rho\,g\,h_S\,A,\qquad y_D=y_S+\frac{I_S}{y_S\,A} \]</div>
+        <p>h<sub>S</sub> ist die Tiefe des Flächenschwerpunkts, y gemessen in der Wandebene ab der Flüssigkeitsoberfläche. Der Druckmittelpunkt D liegt immer tiefer als der Schwerpunkt; für ein Rechteck, das an der Oberfläche beginnt, in 2/3 der Höhe.</p>
+      </div>
+      <div class="f"><h3>Auftrieb</h3>
+        <div class="eq">\[ F_A=\rho_F\,g\,V_{\text{verdrängt}},\qquad \text{Schwimmen, wenn }\rho_K\lt\rho_F,\qquad \frac{V_{\text{eingetaucht}}}{V}=\frac{\rho_K}{\rho_F} \]</div>
+        <p>Stabil schwimmt ein Körper, wenn das Metazentrum über dem Schwerpunkt liegt.</p>
+      </div>
+      <div class="f"><h3>Hydraulische Presse</h3>
+        <div class="eq">\[ \frac{F_2}{F_1}=\frac{A_2}{A_1},\qquad s_2=s_1\,\frac{A_1}{A_2} \]</div>
+        <p>Kraft wird gewonnen, Weg geht verloren; die Arbeit bleibt (ohne Verluste) gleich.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="druckmessung" data-group="Strömungslehre" data-title="Druck- & Durchflussmessung" data-norm="DIN EN ISO 5167" data-desc="U-Rohr- und Schrägrohrmanometer, Prandtl-Rohr, Normblende" data-keys="Druckmessung U-Rohr Manometer Schrägrohrmanometer Prandtl Pitot Staudruck Blende Durchflussmessung Wirkdruck ISO 5167" hidden>
+  <p class="lede">Klassische Messverfahren der Strömungstechnik. Die Blendenrechnung verwendet einen festen Durchflusskoeffizienten C und vernachlässigt die Expansion; für eine normgerechte Auslegung gibt ISO 5167 C abhängig von Re und β an.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="druckmessung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>U-Rohr und Schrägrohr</h3>
+        <div class="eq">\[ \Delta p=(\rho_M-\rho_F)\,g\,\Delta h,\qquad \text{Schrägrohr:}\ \Delta h=l\,\sin\alpha \]</div>
+        <p>ρ<sub>M</sub> ist die Dichte der Messflüssigkeit, ρ<sub>F</sub> die des Mediums über ihr. Bei Gasen kann ρ<sub>F</sub> vernachlässigt werden. Das Schrägrohr streckt die Ablesung und eignet sich für kleine Drücke.</p>
+      </div>
+      <div class="f"><h3>Prandtl-Rohr</h3>
+        <div class="eq">\[ v=\sqrt{\frac{2\,(p_{\text{ges}}-p_{\text{stat}})}{\rho}} \]</div>
+        <p>Das Prandtl-Rohr misst Gesamtdruck (Stirnbohrung) und statischen Druck (seitliche Bohrungen) und liefert so den Staudruck. Für den Volumenstrom in Kanälen misst man an mehreren Punkten nach festen Schemata (Schwerlinienverfahren) und mittelt.</p>
+      </div>
+      <div class="f"><h3>Blende</h3>
+        <div class="eq">\[ q_m=\frac{C}{\sqrt{1-\beta^4}}\,\varepsilon\,\frac{\pi d^2}{4}\sqrt{2\,\Delta p\,\rho},\qquad \beta=\frac dD \]</div>
+        <p>C ≈ 0,6 für scharfkantige Blenden, ≈ 0,98 für Venturirohre. ε ist die Expansionszahl (Flüssigkeiten 1). Der bleibende Druckverlust einer Blende beträgt etwa \((1-\beta^{1,9})\,\Delta p\).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="kvwert" data-group="Strömungslehre" data-title="Kv-Wert von Armaturen" data-norm="VDI/VDE 2173" data-desc="Kv aus Durchfluss und Druckverlust für Flüssigkeiten und Gase, Umrechnung in ζ und Cv, Reihen- und Parallelschaltung" data-keys="Kv Kvs Ventil Durchflusskoeffizient Cv Zeta Armatur Regelventil Gas Flüssigkeit kritisch Reihenschaltung Parallelschaltung" hidden>
+  <p class="lede">Der Kv-Wert ist der Wasserdurchfluss in m³/h bei 1 bar Druckabfall. Er ermöglicht die Auslegung von Ventilen ohne Kenntnis der inneren Geometrie.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="kvwert"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Flüssigkeiten</h3>
+        <div class="eq">\[ K_v=\dot V\sqrt{\frac{\rho/1000}{\Delta p}}\qquad [\dot V\ \mathrm{in\ m^3/h},\ \Delta p\ \mathrm{in\ bar}] \]</div>
+      </div>
+      <div class="f"><h3>Gase</h3>
+        <div class="eq">\[ \text{unterkritisch } (p_2\gt p_1/2):\quad K_v=\frac{\dot V_n}{514}\sqrt{\frac{\rho_n\,T_1}{\Delta p\,p_2}} \]</div>
+        <div class="eq">\[ \text{überkritisch } (p_2\le p_1/2):\quad K_v=\frac{\dot V_n}{257\,p_1}\sqrt{\rho_n\,T_1} \]</div>
+        <p>V̇<sub>n</sub> im Normzustand in m³/h, ρ<sub>n</sub> in kg/m³, T<sub>1</sub> in K, Drücke absolut in bar. Im überkritischen Bereich erreicht das Gas in der Engstelle Schallgeschwindigkeit; ein weiteres Absenken von p<sub>2</sub> erhöht den Durchfluss nicht mehr.</p>
+      </div>
+      <div class="f"><h3>Umrechnungen</h3>
+        <div class="eq">\[ \zeta=0{,}0016\,\frac{d^4}{K_v^2}\ (d\ \mathrm{in\ mm}),\qquad C_v=1{,}156\,K_v \]</div>
+        <div class="eq">\[ \text{Reihe:}\ \frac{1}{K_{v}^2}=\sum\frac{1}{K_{v,i}^2},\qquad \text{parallel:}\ K_v=\sum K_{v,i} \]</div>
+        <p>Regelventile werden so ausgelegt, dass der Betriebspunkt bei etwa 70 % des K<sub>vs</sub> (Kv bei vollem Hub) liegt.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="zeta" data-group="Strömungslehre" data-title="Verlustbeiwerte ζ" data-norm="Borda-Carnot · Weisbach" data-desc="ζ für Erweiterung, Verengung, Rohrbogen und Kniestück mit Druckverlust" data-keys="Zeta Verlustbeiwert Widerstandsbeiwert Erweiterung Verengung Borda Carnot Rohrbogen Krümmer Knie Kniestück Einzelwiderstand" hidden>
+  <p class="lede">Einzelverluste in Rohrleitungen. ζ bezieht sich auf die angegebene Geschwindigkeit (bei Querschnittsänderungen auf den kleineren Querschnitt). Bogenwerte sind Richtwerte für glatte Rohre und hohe Re.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="zeta"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Definition</h3>
+        <div class="eq">\[ \Delta p=\zeta\,\frac{\rho}{2}\,v^2 \]</div>
+      </div>
+      <div class="f"><h3>Plötzliche Erweiterung (Borda-Carnot)</h3>
+        <div class="eq">\[ \zeta_1=\left(1-\frac{A_1}{A_2}\right)^2\quad\text{bezogen auf }v_1 \]</div>
+        <p>Der Strahl löst sich ab und vermischt sich verlustreich. Ein Diffusor mit kleinem Öffnungswinkel (≤ 8°) gewinnt dagegen einen Teil des Staudrucks zurück.</p>
+      </div>
+      <div class="f"><h3>Plötzliche Verengung</h3>
+        <div class="eq">\[ \zeta_2\approx0{,}5\left(1-\frac{A_2}{A_1}\right)^{0{,}75}\quad\text{bezogen auf }v_2 \]</div>
+        <p>Der Grenzfall A<sub>2</sub>/A<sub>1</sub> → 0 ist der scharfkantige Eintritt aus einem Behälter mit ζ = 0,5.</p>
+      </div>
+      <div class="f"><h3>Rohrbogen und Kniestück</h3>
+        <div class="eq">\[ \zeta_{\text{Bogen}}=k_\delta\,\zeta_{90}(R/d),\qquad \zeta_{\text{Knie}}=0{,}946\sin^2\frac\delta2+2{,}05\sin^4\frac\delta2 \]</div>
+        <div class="tbl"><table>
+          <tr><th>R/d</th><th>1</th><th>1,5</th><th>2</th><th>3</th><th>4</th><th>6</th><th>10</th></tr>
+          <tr><td>ζ₉₀</td><td>0,21</td><td>0,17</td><td>0,14</td><td>0,12</td><td>0,11</td><td>0,09</td><td>0,11</td></tr>
+        </table></div>
+        <p>Umlenkwinkelfaktor k<sub>δ</sub>: 30° 0,4; 45° 0,6; 60° 0,78; 90° 1; 180° 1,4. Die Kniestück-Formel nach Weisbach gilt für scharfkantige Umlenkungen ohne Radius. Zwei dicht aufeinanderfolgende Bögen beeinflussen sich gegenseitig.</p>
+      </div>
+    </article>
+  </div>
+</section>
