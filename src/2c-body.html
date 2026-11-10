@@ -1,0 +1,428 @@
+
+<!-- ======================= TOLERANZEN ======================= -->
+<section class="topic" id="passung" data-group="Toleranzen & Passungen" data-title="ISO-Passungen" data-norm="DIN EN ISO 286" data-desc="Grenzabmaße für Bohrung und Welle, Spiel oder Übermaß, Toleranzfeldbild" data-keys="Passung Toleranz ISO 286 Grundtoleranz IT Grundabmaß Bohrung Welle Spiel Übermaß Übergangspassung Einheitsbohrung H7 g6 h6 k6 s6" hidden>
+  <p class="lede">Grenzabmaße nach ISO 286 für Nennmaße bis 500 mm. Die Toleranzfelder sind maßstäblich zur Nulllinie gezeichnet: Bohrung blau, Welle bernsteinfarben.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="passung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Grundbegriffe</h3>
+        <div class="eq">\[ G_o=N+ES,\qquad G_u=N+EI,\qquad T=ES-EI=G_o-G_u \]</div>
+        <dl>
+          <dt>N</dt><dd>Nennmaß</dd>
+          <dt>ES, EI</dt><dd>oberes und unteres Abmaß der Bohrung (bei der Welle klein: es, ei)</dd>
+          <dt>T</dt><dd>Toleranz, immer positiv</dd>
+        </dl>
+        <p>Ein ISO-Toleranzkurzzeichen wie <b>H7</b> besteht aus dem Grundabmaß (Buchstabe, legt die Lage zur Nulllinie fest) und dem Toleranzgrad (Zahl, legt die Breite fest). Großbuchstaben stehen für Bohrungen (Innenmaße), Kleinbuchstaben für Wellen (Außenmaße).</p>
+      </div>
+      <div class="f"><h3>Grundtoleranzen</h3>
+        <div class="eq">\[ i=0{,}45\sqrt[3]{D}+0{,}001\,D\quad[\mu\mathrm m],\qquad D=\sqrt{D_1D_2}\ \text{(Nennmaßbereich)} \]</div>
+        <div class="tbl"><table>
+          <tr><th>Grad</th><th>IT5</th><th>IT6</th><th>IT7</th><th>IT8</th><th>IT9</th><th>IT10</th><th>IT11</th></tr>
+          <tr><td>Vielfaches von i</td><td>7</td><td>10</td><td>16</td><td>25</td><td>40</td><td>64</td><td>100</td></tr>
+        </table></div>
+        <p>Die Toleranzgrade wachsen ab IT6 mit dem Faktor 1,6 je Stufe. IT5 bis IT7 sind typisch für Lager- und Passungsstellen, IT8 bis IT11 für Gleitflächen und grobe Passungen, IT12 bis IT16 für Rohteile und Freimaße.</p>
+      </div>
+      <div class="f"><h3>Spiel und Übermaß</h3>
+        <div class="eq">\[ P_{SH}=G_{oB}-G_{uW}=ES-ei,\qquad P_{SM}=G_{uB}-G_{oW}=EI-es \]</div>
+        <p>Positive Werte sind Spiel, negative Werte Übermaß. Spielpassung: auch das Mindestspiel ist ≥ 0. Übermaßpassung: auch das Höchstspiel ist ≤ 0, die Teile müssen gefügt werden (Pressen, Schrumpfen). Übergangspassung: je nach Ist-Maßen Spiel oder Übermaß.</p>
+        <p class="tip"><b>Einheitsbohrung:</b> Im Maschinenbau wird meist die Bohrung mit H (EI = 0) gefertigt und die Passungsart über die Welle eingestellt, weil Bohrungen schwerer zu fertigen und zu prüfen sind. Einheitswelle (h) nutzt man bei gezogenem Blankstahl und langen glatten Wellen.</p>
+      </div>
+      <div class="f"><h3>Bewährte Passungen (Einheitsbohrung)</h3>
+        <div class="tbl"><table>
+          <tr><th>Passung</th><th>Art</th><th>Anwendung</th></tr>
+          <tr><td>H7/u6, H7/s6</td><td class="t">Übermaß</td><td class="t">Pressverbände ohne Zusatzsicherung, Bronzekränze, Kupplungen auf Wellenenden</td></tr>
+          <tr><td>H7/r6</td><td class="t">Übermaß</td><td class="t">Lagerbuchsen, Zahnräder mit leichtem Übermaß</td></tr>
+          <tr><td>H7/n6</td><td class="t">Übergang</td><td class="t">Zahnräder und Kupplungen mit Passfeder, fest sitzend</td></tr>
+          <tr><td>H7/k6</td><td class="t">Übergang</td><td class="t">Riemenscheiben, Zahnräder, Wälzlager-Innenringe bei Umfangslast</td></tr>
+          <tr><td>H7/h6</td><td class="t">Spiel ≈ 0</td><td class="t">Zentrierungen, Stellringe, von Hand verschiebbar</td></tr>
+          <tr><td>H7/g6</td><td class="t">Spiel klein</td><td class="t">Gleitlager mit hoher Genauigkeit, verschiebbare Räder, Kolben</td></tr>
+          <tr><td>H7/f7</td><td class="t">Spiel</td><td class="t">Gleitlager allgemein, Getriebewellen in Lagerbuchsen</td></tr>
+          <tr><td>H8/e8</td><td class="t">Spiel groß</td><td class="t">mehrfach gelagerte Wellen, Hebellager</td></tr>
+          <tr><td>H11/d9, H11/c11</td><td class="t">Spiel sehr groß</td><td class="t">Landmaschinen, Scharniere, Teile mit Verschmutzung</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="iso2768" data-group="Toleranzen & Passungen" data-title="Allgemeintoleranzen" data-norm="ISO 2768-1" data-desc="Grenzabmaße für Längen, Winkel, Rundungen und Fasen ohne Toleranzangabe" data-keys="Allgemeintoleranz Freimaßtoleranz ISO 2768 mittel fein grob Winkel Fase Rundung Tolerierungsgrundsatz ISO 8015 Hüllbedingung" hidden>
+  <p class="lede">Für Maße ohne eigene Toleranz gilt die im Schriftfeld genannte Allgemeintoleranz, z. B. „ISO 2768-mK“. Der Rechner zeigt die Grenzabmaße aller vier Toleranzklassen.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="iso2768"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Längenmaße (ISO 2768-1)</h3>
+        <div class="tbl"><table>
+          <tr><th>Nennmaß in mm</th><th>f (fein)</th><th>m (mittel)</th><th>c (grob)</th><th>v (sehr grob)</th></tr>
+          <tr><td>0,5 … 3</td><td>±0,05</td><td>±0,1</td><td>±0,2</td><td>–</td></tr>
+          <tr><td>über 3 … 6</td><td>±0,05</td><td>±0,1</td><td>±0,3</td><td>±0,5</td></tr>
+          <tr><td>über 6 … 30</td><td>±0,1</td><td>±0,2</td><td>±0,5</td><td>±1</td></tr>
+          <tr><td>über 30 … 120</td><td>±0,15</td><td>±0,3</td><td>±0,8</td><td>±1,5</td></tr>
+          <tr><td>über 120 … 400</td><td>±0,2</td><td>±0,5</td><td>±1,2</td><td>±2,5</td></tr>
+          <tr><td>über 400 … 1000</td><td>±0,3</td><td>±0,8</td><td>±2</td><td>±4</td></tr>
+          <tr><td>über 1000 … 2000</td><td>±0,5</td><td>±1,2</td><td>±3</td><td>±6</td></tr>
+          <tr><td>über 2000 … 4000</td><td>–</td><td>±2</td><td>±4</td><td>±8</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Rundungshalbmesser und Fasenhöhen</h3>
+        <div class="tbl"><table>
+          <tr><th>Nennmaß in mm</th><th>f, m</th><th>c, v</th></tr>
+          <tr><td>0,5 … 3</td><td>±0,2</td><td>±0,4</td></tr>
+          <tr><td>über 3 … 6</td><td>±0,5</td><td>±1</td></tr>
+          <tr><td>über 6</td><td>±1</td><td>±2</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Winkelmaße (nach Länge des kürzeren Schenkels)</h3>
+        <div class="tbl"><table>
+          <tr><th>Schenkel in mm</th><th>bis 10</th><th>10 … 50</th><th>50 … 120</th><th>120 … 400</th><th>über 400</th></tr>
+          <tr><td>f, m</td><td>±1°</td><td>±0°30′</td><td>±0°20′</td><td>±0°10′</td><td>±0°5′</td></tr>
+          <tr><td>c</td><td>±1°30′</td><td>±1°</td><td>±0°30′</td><td>±0°15′</td><td>±0°10′</td></tr>
+          <tr><td>v</td><td>±3°</td><td>±2°</td><td>±1°</td><td>±0°30′</td><td>±0°20′</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Form und Lage (ISO 2768-2)</h3>
+        <p>Der zweite Buchstabe (H, K oder L) legt Allgemeintoleranzen für Geradheit, Ebenheit, Rechtwinkligkeit, Symmetrie und Lauf fest. K ist die übliche Wahl im Maschinenbau. ISO 2768-2 wurde 2022 ohne Nachfolger zurückgezogen, steht aber noch auf sehr vielen Zeichnungen.</p>
+      </div>
+      <div class="f"><h3>Tolerierungsgrundsatz</h3>
+        <p>Nach ISO 8015 gilt das Unabhängigkeitsprinzip: Maß-, Form- und Lagetoleranzen werden jeweils für sich geprüft. Soll ein Passmaß zusätzlich die Form begrenzen, wird die Hüllbedingung mit Ⓔ hinter dem Maß eingetragen (z. B. Ø40 H7 Ⓔ). Bei Zeichnungen nach dem alten DIN 7167 galt die Hüllbedingung automatisch.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="masskette" data-group="Toleranzen & Passungen" data-title="Maßketten" data-norm="Worst Case · RSS" data-desc="Schließmaß mit arithmetischer und statistischer Toleranzrechnung" data-keys="Maßkette Toleranzkette Schließmaß Toleranzrechnung arithmetisch statistisch worst case RSS Montage Spiel" hidden>
+  <p class="lede">Bis zu sechs Einzelmaße. Richtung + heißt: das Maß vergrößert das Schließmaß, Richtung − verkleinert es. Abmaße in mm; Zeilen mit Nennmaß 0 werden ignoriert. Beispiel: Axialspiel einer Welle zwischen zwei Gehäuseschultern.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="masskette"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Schließmaß</h3>
+        <div class="eq">\[ M_0=\sum M_{i,+}-\sum M_{i,-} \]</div>
+        <p>Eine Maßkette ist ein geschlossener Zug von Maßen. Das Schließmaß ist das Maß, das sich bei der Montage einstellt (Spiel, Überstand, Abstand). Positiv sind Maße, die das Schließmaß vergrößern.</p>
+      </div>
+      <div class="f"><h3>Arithmetisch (Worst Case)</h3>
+        <div class="eq">\[ G_{o,0}=\sum G_{o,+}-\sum G_{u,-},\qquad G_{u,0}=\sum G_{u,+}-\sum G_{o,-},\qquad T_0=\sum T_i \]</div>
+        <p>Garantiert, dass jede Kombination von Einzelteilen passt (100 % Austauschbarkeit). Bei vielen Gliedern wird T<sub>0</sub> groß, die Einzeltoleranzen müssen dann sehr eng werden.</p>
+      </div>
+      <div class="f"><h3>Statistisch (quadratische Addition)</h3>
+        <div class="eq">\[ T_{0,s}=\sqrt{\sum T_i^2},\qquad C_0=\sum C_{i,+}-\sum C_{i,-},\qquad C_i=N_i+\frac{ES_i+EI_i}{2} \]</div>
+        <p>Annahme: unabhängige, normalverteilte Maße, deren Toleranz jeweils ±3σ entspricht, und zentrierte Fertigung. Dann liegt das Schließmaß mit 99,73 % Wahrscheinlichkeit in \(C_0\pm T_{0,s}/2\). Für wenige Glieder oder nicht zentrierte Prozesse ist das zu optimistisch; ein Korrekturfaktor 1,2 … 1,5 auf T<sub>0,s</sub> ist üblich.</p>
+      </div>
+      <div class="f"><h3>Vorgehen</h3>
+        <p>1. Schließmaß festlegen (die Funktionsgröße). 2. Den kürzesten Maßzug von einer Seite des Schließmaßes zur anderen suchen, jedes Glied nur einmal. 3. Richtung jedes Glieds bestimmen. 4. Rechnen und mit der Funktionsanforderung vergleichen. Passt es nicht: Toleranzen enger, Ausgleichselement (Passscheibe) oder andere Bemaßung.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= MASCHINENELEMENTE ======================= -->
+<section class="topic" id="schraube" data-group="Maschinenelemente" data-title="Schraubenverbindungen" data-norm="VDI 2230 · ISO 898-1" data-desc="Zulässige Montagevorspannkraft und Anziehdrehmoment für metrische Regelgewinde" data-keys="Schraube Schraubenverbindung VDI 2230 Vorspannkraft Anziehdrehmoment Anziehmoment Gewinde Festigkeitsklasse 8.8 10.9 12.9 Kraftverhältnis Verspannungsschaubild Spannungsquerschnitt" hidden>
+  <p class="lede">Montagevorspannkraft bei Ausnutzung ν der Dehngrenze durch die Vergleichsspannung aus Zug und Gewindetorsion (VDI 2230, Schaftschraube). Sechskantschraube, mittlerer Kopfauflagedurchmesser aus Schlüsselweite und Durchgangsbohrung „mittel“.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="schraube"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Anziehdrehmoment</h3>
+        <div class="eq">\[ M_A=F_M\left(0{,}16\,P+0{,}58\,d_2\,\mu_G+\frac{D_{Km}}{2}\,\mu_K\right) \]</div>
+        <dl>
+          <dt>0,16 P</dt><dd>Anteil, der die Schraube tatsächlich längt (Steigung)</dd>
+          <dt>0,58 d₂ μ<sub>G</sub></dt><dd>Reibung im Gewinde (60°-Flanken)</dd>
+          <dt>D<sub>Km</sub> μ<sub>K</sub>/2</dt><dd>Reibung unter dem Kopf, \(D_{Km}=(d_w+d_h)/2\)</dd>
+        </dl>
+        <p>Rund 85 … 90 % des Anziehmoments werden durch Reibung verbraucht. Deshalb streut die Vorspannkraft bei drehmomentgesteuertem Anziehen stark.</p>
+      </div>
+      <div class="f"><h3>Zulässige Montagevorspannkraft</h3>
+        <div class="eq">\[ F_{M,\text{zul}}=\frac{A_0\,\nu\,R_{p0,2}}{\sqrt{1+3\left[\frac32\,\frac{d_2}{d_0}\left(\frac{P}{\pi d_2}+1{,}155\,\mu_{G}\right)\right]^2}} \]</div>
+        <p>A<sub>0</sub> ist der Spannungsquerschnitt A<sub>S</sub> mit \(d_0=d_S=(d_2+d_3)/2\). ν = 0,9 ist der Standard der VDI 2230. Der Nenner berücksichtigt, dass das Gewindemoment die Schraube zusätzlich auf Torsion belastet.</p>
+      </div>
+      <div class="f"><h3>Verspannungsschaubild</h3>
+        <div class="eq">\[ \Phi=\frac{\delta_P}{\delta_S+\delta_P},\qquad F_{SA}=\Phi\,n\,F_A,\qquad F_{PA}=(1-\Phi n)\,F_A,\qquad F_{KR}=F_V-F_{PA} \]</div>
+        <p>Schraube (Nachgiebigkeit δ<sub>S</sub>) und verspannte Platten (δ<sub>P</sub>) wirken als Federn. Von einer Betriebskraft F<sub>A</sub> bekommt die Schraube nur den kleinen Anteil Φ; die Platten werden um den Rest entlastet. Die Restklemmkraft F<sub>KR</sub> muss größer als null bleiben bzw. die geforderte Klemmkraft erreichen. Nachgiebige, lange Schrauben (Dehnschrauben) senken Φ und damit die Wechselbelastung.</p>
+      </div>
+      <div class="f"><h3>Vorspannkraftverluste und Streuung</h3>
+        <div class="eq">\[ F_Z=\frac{f_Z}{\delta_S+\delta_P},\qquad \alpha_A=\frac{F_{M,\max}}{F_{M,\min}} \]</div>
+        <p>Setzen der Trennfugen (f<sub>Z</sub> ≈ 3 … 11 µm) mindert die Vorspannung. Anziehfaktor α<sub>A</sub>: Drehmomentschlüssel 1,4 … 1,6, Drehwinkel- oder streckgrenzgesteuert 1,1 … 1,2, Schlagschrauber 2,5 … 4.</p>
+      </div>
+      <div class="f"><h3>Festigkeitsklassen (ISO 898-1)</h3>
+        <p>Die Bezeichnung <b>8.8</b> bedeutet R<sub>m</sub> = 8·100 = 800 N/mm² und R<sub>e</sub> = 0,8·800 = 640 N/mm². Dauerhaltbarkeit schlussvergüteter Schrauben (VDI 2230): \(\sigma_{ASV}\approx0{,}85\,(150/d+45)\) N/mm², schlussgewalzt deutlich höher.</p>
+        <div class="tbl"><table>
+          <tr><th>Gewinde</th><th>P</th><th>d₂</th><th>d₃</th><th>A<sub>S</sub> in mm²</th><th>SW</th><th>d<sub>h</sub> mittel</th></tr>
+          <tr><td>M6</td><td>1</td><td>5,350</td><td>4,773</td><td>20,1</td><td>10</td><td>6,6</td></tr>
+          <tr><td>M8</td><td>1,25</td><td>7,188</td><td>6,466</td><td>36,6</td><td>13</td><td>9</td></tr>
+          <tr><td>M10</td><td>1,5</td><td>9,026</td><td>8,160</td><td>58,0</td><td>16</td><td>11</td></tr>
+          <tr><td>M12</td><td>1,75</td><td>10,863</td><td>9,853</td><td>84,3</td><td>18</td><td>13,5</td></tr>
+          <tr><td>M16</td><td>2</td><td>14,701</td><td>13,546</td><td>157</td><td>24</td><td>17,5</td></tr>
+          <tr><td>M20</td><td>2,5</td><td>18,376</td><td>16,933</td><td>245</td><td>30</td><td>22</td></tr>
+          <tr><td>M24</td><td>3</td><td>22,051</td><td>20,319</td><td>353</td><td>36</td><td>26</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="welle" data-group="Maschinenelemente" data-title="Wellen" data-norm="DIN 743 (vereinfacht)" data-desc="Biege- und Torsionsspannung, Vergleichsspannung, Sicherheit und Mindestdurchmesser" data-keys="Welle Achse Wellendurchmesser Vergleichsspannung Anstrengungsverhältnis Biegung Torsion Überschlag Mindestdurchmesser DIN 743" hidden>
+  <p class="lede">Statischer Nachweis an einer glatten Vollwelle und Überschlagsdurchmesser. Für den Dauerfestigkeitsnachweis an Kerben (Absätze, Nuten) nimm den Rechner „Schwingfestigkeit“ oder DIN 743.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="welle"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Nennspannungen</h3>
+        <div class="eq">\[ \sigma_b=\frac{M_b}{W_b}=\frac{32\,M_b}{\pi d^3},\qquad \tau_t=\frac{T}{W_t}=\frac{16\,T}{\pi d^3} \]</div>
+        <p>Bei umlaufender Welle und ruhender Last ist die Biegung immer wechselnd (R = −1). Die Torsion ist bei konstantem Antrieb ruhend oder schwellend.</p>
+      </div>
+      <div class="f"><h3>Vergleichsspannung mit Anstrengungsverhältnis</h3>
+        <div class="eq">\[ \sigma_v=\sqrt{\sigma_b^2+3\,(\alpha_0\,\tau_t)^2},\qquad \alpha_0=\frac{\sigma_{\text{zul}}}{1{,}73\,\tau_{\text{zul}}} \]</div>
+        <p>α<sub>0</sub> gleicht unterschiedliche Lastfälle von Biegung und Torsion an: α<sub>0</sub> ≈ 0,7 für wechselnde Biegung mit ruhender oder schwellender Torsion, α<sub>0</sub> = 1 wenn beide denselben Lastfall haben.</p>
+      </div>
+      <div class="f"><h3>Überschlägiger Durchmesser</h3>
+        <div class="eq">\[ d\ge\sqrt[3]{\frac{16\,T}{\pi\,\tau_{t,\text{zul}}}}\qquad\text{bzw.}\qquad d\ge\sqrt[3]{\frac{32\,M_v}{\pi\,\sigma_{\text{zul}}}},\quad M_v=\sqrt{M_b^2+0{,}75\,(\alpha_0T)^2} \]</div>
+        <p>Am Anfang des Entwurfs sind die Biegemomente meist unbekannt, weil Lagerabstände noch fehlen. Dann rechnet man nur mit Torsion und einem niedrigen τ<sub>zul</sub> ≈ 10 … 25 N/mm² für Stahl, das die Biegung pauschal mit abdeckt.</p>
+      </div>
+      <div class="f"><h3>Gestaltung</h3>
+        <p>Kerben (Absätze, Nuten, Querbohrungen) bestimmen die Dauerfestigkeit, nicht der Nenndurchmesser. Große Übergangsradien, Entlastungskerben und Freistiche nach DIN 509 senken die Kerbwirkung. Neben der Festigkeit sind Durchbiegung (Zahneingriff, Lagerneigung) und kritische Drehzahl (Betrieb außerhalb ±20 % von n<sub>krit</sub>) zu prüfen.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="passfeder" data-group="Maschinenelemente" data-title="Passfederverbindung" data-norm="DIN 6885 · DIN 6892" data-desc="Passfederabmessungen aus dem Wellendurchmesser, Flächenpressung, tragende Länge" data-keys="Passfeder Welle-Nabe-Verbindung DIN 6885 Flächenpressung Nut Nabe formschlüssig" hidden>
+  <p class="lede">Hohe Form A nach DIN 6885-1, Abmessungen werden aus dem Wellendurchmesser gewählt. Nachweis der Flächenpressung an der Nabe (vereinfachte Methode C nach DIN 6892).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="passfeder"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Flächenpressung</h3>
+        <div class="eq">\[ p=\frac{2\,T}{d\,(h-t_1)\,l_{tr}\,i\,\varphi}\le p_{\text{zul}} \]</div>
+        <dl>
+          <dt>h − t₁</dt><dd>tragende Höhe in der Nabe</dd>
+          <dt>l<sub>tr</sub></dt><dd>tragende Länge; Form A (rundstirnig): l<sub>tr</sub> = l − b, Form B (geradstirnig): l<sub>tr</sub> = l</dd>
+          <dt>i, φ</dt><dd>Anzahl Passfedern und Traganteil: φ = 1 bei einer, φ = 0,75 bei zwei Federn</dd>
+        </dl>
+        <p>Die Passfeder überträgt das Moment formschlüssig über ihre Seitenflanken. Maßgebend ist meist die Nabe, weil sie aus dem weicheren Werkstoff ist. Die tragende Länge sollte 1,6·d nicht überschreiten, weil die Last sonst ungleichmäßig verteilt ist.</p>
+      </div>
+      <div class="f"><h3>Zulässige Pressung (Richtwerte, ruhende Last)</h3>
+        <p>Nabe aus Stahl oder Stahlguss: p<sub>zul</sub> ≈ 0,9·R<sub>e</sub> der Nabe als Grenze, praktisch 90 … 150 N/mm². Nabe aus Grauguss: 50 … 70 N/mm². Bei Stößen und Wechselmomenten Werte deutlich reduzieren oder einen Betriebsfaktor auf T anwenden.</p>
+      </div>
+      <div class="f"><h3>Abmessungen nach DIN 6885-1</h3>
+        <div class="tbl"><table>
+          <tr><th>Welle d über … bis</th><th>b × h</th><th>t₁ (Welle)</th><th>t₂ (Nabe)</th></tr>
+          <tr><td>10 … 12</td><td>4 × 4</td><td>2,5</td><td>1,8</td></tr>
+          <tr><td>12 … 17</td><td>5 × 5</td><td>3</td><td>2,3</td></tr>
+          <tr><td>17 … 22</td><td>6 × 6</td><td>3,5</td><td>2,8</td></tr>
+          <tr><td>22 … 30</td><td>8 × 7</td><td>4</td><td>3,3</td></tr>
+          <tr><td>30 … 38</td><td>10 × 8</td><td>5</td><td>3,3</td></tr>
+          <tr><td>38 … 44</td><td>12 × 8</td><td>5</td><td>3,3</td></tr>
+          <tr><td>44 … 50</td><td>14 × 9</td><td>5,5</td><td>3,8</td></tr>
+          <tr><td>50 … 58</td><td>16 × 10</td><td>6</td><td>4,3</td></tr>
+          <tr><td>58 … 65</td><td>18 × 11</td><td>7</td><td>4,4</td></tr>
+          <tr><td>65 … 75</td><td>20 × 12</td><td>7,5</td><td>4,9</td></tr>
+          <tr><td>75 … 85</td><td>22 × 14</td><td>9</td><td>5,4</td></tr>
+          <tr><td>85 … 95</td><td>25 × 14</td><td>9</td><td>5,4</td></tr>
+          <tr><td>95 … 110</td><td>28 × 16</td><td>10</td><td>6,4</td></tr>
+          <tr><td>110 … 130</td><td>32 × 18</td><td>11</td><td>7,4</td></tr>
+        </table></div>
+        <p>Passfederlängen nach Normreihe: 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32, 36, 40, 45, 50, 56, 63, 70, 80, 90, 100, 110, 125, 140, 160, 180, 200 mm. Passungen: Wellennut N9 (fest) oder P9, Nabennut JS9 (fest) oder P9.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="pressverband" data-group="Maschinenelemente" data-title="Pressverband" data-norm="DIN 7190-1" data-desc="Fugendruck, übertragbares Moment, Nabenspannung und Fügetemperatur für zylindrische Pressverbände" data-keys="Pressverband Querpressverband Schrumpfverband Übermaß Fugendruck Fügetemperatur Rutschmoment Welle-Nabe-Verbindung Glättung DIN 7190" hidden>
+  <p class="lede">Elastisch ausgelegter zylindrischer Pressverband aus Vollwelle oder Hohlwelle und Nabe. Das Übermaß kommt aus einer ISO-Passung oder wird direkt eingegeben. Glättung: 0,8·(Rz<sub>A</sub> + Rz<sub>I</sub>).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="pressverband"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Wirksames Übermaß und Fugendruck</h3>
+        <div class="eq">\[ Ü_w=Ü-0{,}8\,(Rz_A+Rz_I),\qquad \xi=\frac{Ü_w}{D_F},\qquad p_F=\frac{\xi}{K} \]</div>
+        <div class="eq">\[ K=\frac1{E_A}\left(\frac{1+Q_A^2}{1-Q_A^2}+\nu_A\right)+\frac1{E_I}\left(\frac{1+Q_I^2}{1-Q_I^2}-\nu_I\right),\quad Q_A=\frac{D_F}{D_{aA}},\ Q_I=\frac{D_{iI}}{D_F} \]</div>
+        <p>Beim Fügen werden Rauheitsspitzen eingeebnet, deshalb ist das wirksame Übermaß kleiner als das gemessene. Q<sub>A</sub> und Q<sub>I</sub> sind die Durchmesserverhältnisse von Außenteil (Nabe) und Innenteil (Welle); für die Vollwelle ist Q<sub>I</sub> = 0. Das kleinste Übermaß der Passung liefert das sicher übertragbare Moment, das größte die höchste Bauteilbeanspruchung.</p>
+      </div>
+      <div class="f"><h3>Übertragbare Belastung</h3>
+        <div class="eq">\[ T_{\text{rutsch}}=p_F\,\pi\,D_F^2\,l_F\,\frac{\mu}{2},\qquad F_{ax}=p_F\,\pi\,D_F\,l_F\,\mu \]</div>
+        <p>Haftbeiwerte (DIN 7190) Stahl/Stahl: Längspressverband trocken ≈ 0,1, Querpressverband (Schrumpfen) trocken ≈ 0,15 … 0,2, entfettet bis 0,2. Bei gleichzeitigem Moment und Axialkraft wird mit der resultierenden Umfangskraft gerechnet.</p>
+      </div>
+      <div class="f"><h3>Beanspruchung der Nabe</h3>
+        <div class="eq">\[ \sigma_{t,Ai}=p_F\,\frac{1+Q_A^2}{1-Q_A^2},\qquad \sigma_{v,Ai}=\frac{2\,p_F}{1-Q_A^2}\le\frac{R_{eA}}{S_F} \]</div>
+        <p>Die Nabe ist an der Bohrung am höchsten beansprucht (Tangentialzug plus Radialdruck). Die Vergleichsspannung nach Schubspannungshypothese darf die Streckgrenze mit Sicherheit nicht überschreiten, sonst wird der Pressverband elastisch-plastisch und das Übermaß teilweise abgebaut.</p>
+      </div>
+      <div class="f"><h3>Fügetemperatur beim Schrumpfen</h3>
+        <div class="eq">\[ \vartheta_A=\vartheta_U+\frac{Ü_{\max}+S_ü}{\alpha_A\,D_F},\qquad S_ü\approx0{,}001\,D_F \]</div>
+        <p>S<sub>ü</sub> ist das Fügespiel, damit sich die Nabe ohne Kraft aufschieben lässt. Für Stahl α = 11·10⁻⁶ K⁻¹. Anlasstemperatur vergüteter Naben (ca. 300 °C) nicht überschreiten; alternativ die Welle unterkühlen (Trockeneis −78 °C, Stickstoff −196 °C).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="waelzlager" data-group="Maschinenelemente" data-title="Wälzlager-Lebensdauer" data-norm="ISO 281" data-desc="Äquivalente Belastung, nominelle und modifizierte Lebensdauer, erforderliche Tragzahl" data-keys="Wälzlager Kugellager Rollenlager Lebensdauer Tragzahl dynamische äquivalente Belastung L10 ISO 281 Zuverlässigkeit" hidden>
+  <p class="lede">Nominelle Lebensdauer nach ISO 281. X und Y stehen im Lagerkatalog und hängen bei Rillenkugellagern vom Verhältnis F<sub>a</sub>/C<sub>0</sub> ab. Für reine Radiallast gilt X = 1, Y = 0.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="waelzlager"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Nominelle Lebensdauer</h3>
+        <div class="eq">\[ L_{10}=\left(\frac{C}{P}\right)^p\quad[10^6\ \text{Umdrehungen}],\qquad L_{10h}=\frac{10^6}{60\,n}\,L_{10}\quad[\mathrm h] \]</div>
+        <p>L<sub>10</sub> ist die Lebensdauer, die 90 % einer größeren Anzahl gleicher Lager erreichen oder überschreiten. Lebensdauerexponent p = 3 für Kugellager (Punktberührung), p = 10/3 für Rollenlager (Linienberührung). Eine doppelte Last bedeutet bei Kugellagern ein Achtel der Lebensdauer.</p>
+      </div>
+      <div class="f"><h3>Dynamisch äquivalente Belastung</h3>
+        <div class="eq">\[ P=X\,F_r+Y\,F_a \]</div>
+        <p>P ist eine gedachte reine Radiallast mit derselben Wirkung auf die Lebensdauer. Beispiel Rillenkugellager: Ist \(F_a/F_r\le e\), gilt X = 1, Y = 0; sonst X = 0,56 und Y ≈ 1 … 2 aus dem Katalog. Bei Schrägkugel- und Kegelrollenlagern in O- oder X-Anordnung kommen die inneren Axialkräfte aus der Lagerneigung dazu.</p>
+      </div>
+      <div class="f"><h3>Modifizierte Lebensdauer</h3>
+        <div class="eq">\[ L_{nm}=a_1\,a_{ISO}\,L_{10} \]</div>
+        <div class="tbl"><table>
+          <tr><th>Zuverlässigkeit</th><th>90 %</th><th>95 %</th><th>96 %</th><th>97 %</th><th>98 %</th><th>99 %</th></tr>
+          <tr><td>a₁</td><td>1</td><td>0,64</td><td>0,55</td><td>0,47</td><td>0,37</td><td>0,25</td></tr>
+        </table></div>
+        <p>a<sub>ISO</sub> berücksichtigt Schmierung (Viskositätsverhältnis κ), Verunreinigung und Ermüdungsgrenzlast. Er liegt zwischen 0,1 bei schlechter Schmierung und Schmutz und bis zu 50 bei idealen Bedingungen; Werte aus den Herstellerdiagrammen.</p>
+      </div>
+      <div class="f"><h3>Statische Tragsicherheit</h3>
+        <div class="eq">\[ S_0=\frac{C_0}{P_0} \]</div>
+        <p>Für langsam drehende, stehende oder schwenkende Lager. Richtwerte S<sub>0</sub> ≥ 1 bei ruhigem Betrieb, ≥ 1,5 … 2 bei Stößen, ≥ 2 … 4 bei hohen Anforderungen an Laufruhe.</p>
+      </div>
+      <div class="f"><h3>Richtwerte für die geforderte Lebensdauer</h3>
+        <div class="tbl"><table>
+          <tr><th>Einsatz</th><th>L<sub>10h</sub> in h</th></tr>
+          <tr><td class="t">Haushaltsgeräte, selten benutzte Geräte</td><td>300 … 3000</td></tr>
+          <tr><td class="t">Elektrowerkzeuge, kurzzeitiger Betrieb</td><td>3000 … 8000</td></tr>
+          <tr><td class="t">Maschinen im 8-Stunden-Betrieb</td><td>10 000 … 25 000</td></tr>
+          <tr><td class="t">Maschinen im 24-Stunden-Betrieb</td><td>40 000 … 50 000</td></tr>
+          <tr><td class="t">Großanlagen, Wasserwerke, Kraftwerke</td><td>60 000 … 100 000</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="zahnrad" data-group="Maschinenelemente" data-title="Stirnräder" data-norm="DIN 3960 · DIN 780" data-desc="Verzahnungsgeometrie, Achsabstand, Überdeckung und Zahnkräfte für Null-Räder" data-keys="Zahnrad Stirnrad Verzahnung Modul Teilkreis Kopfkreis Fußkreis Grundkreis Achsabstand Übersetzung Überdeckung Schrägverzahnung Zahnkraft Evolvente Unterschnitt" hidden>
+  <p class="lede">Evolventen-Außenverzahnung ohne Profilverschiebung (Null-Radpaar), Normalprofil nach DIN 867 mit α<sub>n</sub> = 20°, Kopfspiel 0,25·m<sub>n</sub>. Für β = 0 ist die Verzahnung gerade.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="zahnrad"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Grundgrößen</h3>
+        <div class="eq">\[ m_t=\frac{m_n}{\cos\beta},\qquad d=m_t\,z,\qquad \tan\alpha_t=\frac{\tan\alpha_n}{\cos\beta},\qquad d_b=d\cos\alpha_t \]</div>
+        <div class="eq">\[ d_a=d+2m_n\,(1+x),\qquad d_f=d-2m_n\,(1{,}25-x),\qquad a=\frac{d_1+d_2}{2},\qquad i=\frac{z_2}{z_1} \]</div>
+        <p>Der Modul m = p/π ist die zentrale Größe; er ist genormt (DIN 780 Reihe 1: 1; 1,25; 1,5; 2; 2,5; 3; 4; 5; 6; 8; 10; 12; 16; 20 mm). Der Grundkreis d<sub>b</sub> ist der Kreis, von dem die Evolvente abgewickelt wird.</p>
+      </div>
+      <div class="f"><h3>Überdeckung</h3>
+        <div class="eq">\[ \varepsilon_\alpha=\frac{\sqrt{r_{a1}^2-r_{b1}^2}+\sqrt{r_{a2}^2-r_{b2}^2}-a\sin\alpha_t}{\pi\,m_t\cos\alpha_t},\qquad \varepsilon_\beta=\frac{b\sin\beta}{\pi\,m_n} \]</div>
+        <p>Die Profilüberdeckung ε<sub>α</sub> gibt an, wie viele Zahnpaare im Mittel gleichzeitig im Eingriff sind. Sie muss über 1 liegen, üblich sind 1,2 … 1,8 bei Geradverzahnung. Schrägverzahnung erhöht die Gesamtüberdeckung \(\varepsilon_\gamma=\varepsilon_\alpha+\varepsilon_\beta\) und damit die Laufruhe.</p>
+      </div>
+      <div class="f"><h3>Zahnkräfte</h3>
+        <div class="eq">\[ F_t=\frac{2\,T_1}{d_1},\qquad F_r=F_t\tan\alpha_t,\qquad F_a=F_t\tan\beta \]</div>
+        <p>Die Axialkraft der Schrägverzahnung muss von den Lagern aufgenommen werden; bei Doppelschrägverzahnung heben sich die Axialkräfte auf. Üblich ist β = 8 … 20°.</p>
+      </div>
+      <div class="f"><h3>Unterschnitt</h3>
+        <div class="eq">\[ z_g=\frac{2}{\sin^2\alpha}\approx17,\qquad z_g'\approx14\ \text{(praktisch)},\qquad z_n=\frac{z}{\cos^3\beta} \]</div>
+        <p>Unterhalb der Grenzzähnezahl schneidet das Werkzeug den Zahnfuß frei, der Zahn wird geschwächt. Abhilfe ist eine positive Profilverschiebung \(x\ge(14-z)/17\). Bei Schrägverzahnung zählt die Ersatzzähnezahl z<sub>n</sub>.</p>
+      </div>
+      <div class="f"><h3>Tragfähigkeit</h3>
+        <p>Der Nachweis nach DIN 3990 / ISO 6336 prüft die Zahnfußspannung (Bruch) und die Flankenpressung (Grübchen) mit zahlreichen Faktoren für Anwendung, Dynamik, Breitenlast- und Stirnlastverteilung. Überschlägig: Zahnbreite b ≈ 10 … 25·m<sub>n</sub>, Ritzel mindestens 17 Zähne.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="feder" data-group="Maschinenelemente" data-title="Schraubendruckfeder" data-norm="DIN EN 13906-1" data-desc="Federrate, Federweg, Schubspannung mit Spannungskorrektur, Blocklänge" data-keys="Feder Schraubenfeder Druckfeder Federrate Federsteifigkeit Federweg Bergsträsser Wickelverhältnis Blocklänge Federarbeit" hidden>
+  <p class="lede">Zylindrische Schraubendruckfeder aus Runddraht, kaltgeformt, Enden angelegt und geschliffen (zwei inaktive Windungen).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="feder"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Federrate und Federweg</h3>
+        <div class="eq">\[ R=\frac{F}{s}=\frac{G\,d^4}{8\,D^3\,n},\qquad W=\tfrac12\,F\,s \]</div>
+        <dl>
+          <dt>d</dt><dd>Drahtdurchmesser</dd>
+          <dt>D</dt><dd>mittlerer Windungsdurchmesser (D<sub>e</sub> − d)</dd>
+          <dt>n</dt><dd>Anzahl federnder Windungen</dd>
+        </dl>
+        <p>Der Draht wird auf Torsion beansprucht, deshalb steht der Schubmodul G in der Formel. Die Federrate reagiert sehr empfindlich auf d (vierte Potenz) und D (dritte Potenz).</p>
+      </div>
+      <div class="f"><h3>Schubspannung und Spannungskorrektur</h3>
+        <div class="eq">\[ \tau=\frac{8\,F\,D}{\pi\,d^3},\qquad \tau_k=k\,\tau,\qquad k=\frac{w+0{,}5}{w-0{,}75},\qquad w=\frac Dd \]</div>
+        <p>Der Korrekturfaktor k nach Bergsträsser erfasst die ungleichmäßige Spannungsverteilung durch die Drahtkrümmung (innen höher). Für statische Belastung genügt τ, für schwingende ist τ<sub>k</sub> maßgebend. Wickelverhältnis w möglichst 4 … 20.</p>
+      </div>
+      <div class="f"><h3>Länge und Knicken</h3>
+        <div class="eq">\[ n_t=n+2,\qquad L_c\approx n_t\,d,\qquad s_c=L_0-L_c \]</div>
+        <p>L<sub>c</sub> ist die Blocklänge, bei der alle Windungen anliegen. Zwischen größter Arbeitslänge und Blocklänge soll eine Summe der Mindestabstände S<sub>a</sub> bleiben. Lange, schlanke Federn knicken aus; bei L<sub>0</sub>/D über ca. 2,6 (beidseitig geführt eben) Führung über Dorn oder Hülse vorsehen.</p>
+      </div>
+      <div class="f"><h3>Werkstoffe</h3>
+        <p>Patentiert-gezogener Federstahldraht (EN 10270-1, Sorte DH): G = 81 500 N/mm², R<sub>m</sub> ≈ 1600 … 2200 N/mm² je nach Drahtdurchmesser. Nichtrostender Federdraht X10CrNi18-8: G = 70 000 N/mm². Zulässige statische Schubspannung etwa τ<sub>zul</sub> ≈ 0,5·R<sub>m</sub>.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= NACHSCHLAGEN ======================= -->
+<section class="topic" id="werkstoffe" data-group="Nachschlagen" data-title="Werkstoffkennwerte" data-norm="EN 10025 · 10083 · 1706" data-desc="Elastizitätsmodul, Festigkeit, Dichte und Wärmedehnung gängiger Konstruktionswerkstoffe" data-keys="Werkstoff Werkstoffkennwerte Stahl Aluminium Gusseisen Titan Kunststoff E-Modul Streckgrenze Zugfestigkeit Dichte Wärmeausdehnung S235 S355 C45 42CrMo4" hidden>
+  <p class="lede">Richtwerte bei Raumtemperatur. Festigkeiten von Vergütungsstählen gelten für kleine Abmessungen (bis 16 mm) und sinken mit dem Durchmesser. Für eine Auslegung immer das Werkstoffdatenblatt oder die Norm verwenden.</p>
+  <div class="topic-body">
+    <article class="sheet">
+      <h2>Tabelle</h2>
+      <div class="f">
+        <div class="tbl"><table>
+          <tr><th>Werkstoff</th><th>E in GPa</th><th>ν</th><th>ρ in kg/m³</th><th>R<sub>e</sub>/R<sub>p0,2</sub> in MPa</th><th>R<sub>m</sub> in MPa</th><th>α in 10⁻⁶/K</th><th>λ in W/(m·K)</th></tr>
+          <tr><td class="t">S235JR (Baustahl)</td><td>210</td><td>0,30</td><td>7850</td><td>235</td><td>360 … 510</td><td>12</td><td>50</td></tr>
+          <tr><td class="t">S355J2 (Baustahl)</td><td>210</td><td>0,30</td><td>7850</td><td>355</td><td>470 … 630</td><td>12</td><td>50</td></tr>
+          <tr><td class="t">E295 (Maschinenbaustahl)</td><td>210</td><td>0,30</td><td>7850</td><td>295</td><td>470 … 610</td><td>12</td><td>50</td></tr>
+          <tr><td class="t">E335 (Maschinenbaustahl)</td><td>210</td><td>0,30</td><td>7850</td><td>335</td><td>570 … 710</td><td>12</td><td>50</td></tr>
+          <tr><td class="t">C45E +QT (vergütet)</td><td>210</td><td>0,30</td><td>7850</td><td>490</td><td>700 … 850</td><td>11,5</td><td>45</td></tr>
+          <tr><td class="t">42CrMo4 +QT</td><td>210</td><td>0,30</td><td>7850</td><td>900</td><td>1100 … 1300</td><td>11,5</td><td>42</td></tr>
+          <tr><td class="t">16MnCr5 (einsatzgehärtet, Kern)</td><td>210</td><td>0,30</td><td>7850</td><td>≈ 600</td><td>≈ 900</td><td>11,5</td><td>44</td></tr>
+          <tr><td class="t">X5CrNi18-10 (1.4301)</td><td>200</td><td>0,30</td><td>7900</td><td>210</td><td>520 … 720</td><td>16</td><td>15</td></tr>
+          <tr><td class="t">EN-GJL-250 (Grauguss)</td><td>103 … 118</td><td>0,26</td><td>7200</td><td>–</td><td>250</td><td>10</td><td>48</td></tr>
+          <tr><td class="t">EN-GJS-400-15 (Sphäroguss)</td><td>169</td><td>0,275</td><td>7100</td><td>250</td><td>400</td><td>12,5</td><td>36</td></tr>
+          <tr><td class="t">EN AW-6082 T6</td><td>70</td><td>0,33</td><td>2700</td><td>260</td><td>310</td><td>23</td><td>170</td></tr>
+          <tr><td class="t">EN AW-7075 T6</td><td>72</td><td>0,33</td><td>2810</td><td>470</td><td>540</td><td>23</td><td>130</td></tr>
+          <tr><td class="t">CuZn39Pb3 (Messing)</td><td>96</td><td>0,35</td><td>8470</td><td>250</td><td>430</td><td>21</td><td>113</td></tr>
+          <tr><td class="t">Ti-6Al-4V</td><td>114</td><td>0,34</td><td>4430</td><td>880</td><td>950</td><td>8,6</td><td>7</td></tr>
+          <tr><td class="t">PA 6 (trocken)</td><td>2,8</td><td>0,40</td><td>1140</td><td>–</td><td>80</td><td>80</td><td>0,25</td></tr>
+          <tr><td class="t">POM</td><td>2,8</td><td>0,35</td><td>1410</td><td>–</td><td>65</td><td>110</td><td>0,31</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Werkstoffbezeichnung (Kurzname)</h3>
+        <p><b>S235</b>: Stahlbau, Mindeststreckgrenze 235 MPa. <b>E295</b>: Maschinenbau, Mindeststreckgrenze 295 MPa. <b>C45</b>: unlegierter Stahl mit 0,45 % C. <b>42CrMo4</b>: niedrig legiert, 0,42 % C, Cr = 4/4 = 1 %, Mo in Spuren (Multiplikator 4 für Cr, Mn, Ni, Si, Co, W; 10 für Mo, Al, Cu, V, Ti). <b>X5CrNi18-10</b>: hochlegiert (X), 0,05 % C, 18 % Cr, 10 % Ni. <b>+QT</b> vergütet, <b>+N</b> normalgeglüht.</p>
+      </div>
+      <div class="f"><h3>Faustwerte Dauerfestigkeit (Stahl)</h3>
+        <div class="eq">\[ \sigma_{bW}\approx0{,}5\,R_m,\qquad \sigma_{zdW}\approx0{,}4\,R_m,\qquad \tau_{tW}\approx0{,}3\,R_m \]</div>
+        <p>Gelten für polierte, ungekerbte Proben. Für Bauteile sind Kerbwirkung, Größe und Oberfläche zu berücksichtigen (siehe Schwingfestigkeit).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="einheiten" data-group="Nachschlagen" data-title="Einheiten & Konstanten" data-norm="SI" data-desc="Umrechnung von Druck, Kraft, Moment, Energie, Leistung, Temperatur, Viskosität" data-keys="Einheiten Umrechnung SI bar Pascal psi PS kW Nm kWh Kelvin Fahrenheit Konstanten Vorsätze" hidden>
+  <p class="lede">Wähle Einheit und Wert; der Rechner zeigt denselben Wert in allen Einheiten derselben Größe.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="einheiten"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Nützliche Identitäten</h3>
+        <div class="eq">\[ 1\ \tfrac{\mathrm N}{\mathrm{mm}^2}=1\ \mathrm{MPa}=10\ \mathrm{bar},\qquad 1\ \mathrm{bar}=10^5\ \mathrm{Pa},\qquad 1\ \mathrm J=1\ \mathrm{N\,m}=1\ \mathrm{W\,s} \]</div>
+        <p>Bei Rechnungen in der Festigkeitslehre ist das System N, mm, MPa konsistent: Kräfte in N, Längen in mm, Spannungen und E-Modul in N/mm², Momente in N·mm. Wer in N·m rechnet, muss mit 1000 umrechnen.</p>
+      </div>
+      <div class="f"><h3>Physikalische Konstanten</h3>
+        <div class="tbl"><table>
+          <tr><th>Größe</th><th>Wert</th></tr>
+          <tr><td class="t">Normfallbeschleunigung g<sub>n</sub></td><td>9,80665 m/s²</td></tr>
+          <tr><td class="t">universelle Gaskonstante R<sub>m</sub></td><td>8,314 J/(mol·K)</td></tr>
+          <tr><td class="t">Stefan-Boltzmann-Konstante σ</td><td>5,670·10⁻⁸ W/(m²·K⁴)</td></tr>
+          <tr><td class="t">Normdruck p<sub>n</sub></td><td>1,01325 bar</td></tr>
+          <tr><td class="t">Normtemperatur T<sub>n</sub></td><td>273,15 K</td></tr>
+          <tr><td class="t">Avogadro-Konstante N<sub>A</sub></td><td>6,022·10²³ 1/mol</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>SI-Vorsätze</h3>
+        <div class="tbl"><table>
+          <tr><th>Vorsatz</th><th>T</th><th>G</th><th>M</th><th>k</th><th>m</th><th>µ</th><th>n</th><th>p</th></tr>
+          <tr><td>Faktor</td><td>10¹²</td><td>10⁹</td><td>10⁶</td><td>10³</td><td>10⁻³</td><td>10⁻⁶</td><td>10⁻⁹</td><td>10⁻¹²</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+  </div></main>
+</div>

@@ -1,0 +1,369 @@
+
+<!-- ======================= KINETIK ======================= -->
+<section class="topic" id="schwinger" data-group="Kinetik" data-title="Einmassenschwinger" data-norm="Schwingungslehre" data-desc="Eigenfrequenz, Dämpfungsgrad, Vergrößerungsfunktion und Amplitude bei Krafterregung" data-keys="Schwingung Eigenfrequenz Dämpfung Lehrsches Dämpfungsmaß Resonanz Vergrößerungsfunktion Feder Masse Dekrement kritische Drehzahl" hidden>
+  <p class="lede">Feder-Masse-Dämpfer-System mit harmonischer Krafterregung F(t) = F̂ cos Ωt. Die Kurvenschar zeigt die Vergrößerungsfunktion für verschiedene Dämpfungsgrade, der Punkt den aktuellen Betriebszustand.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="schwinger"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Bewegungsgleichung</h3>
+        <div class="eq">\[ m\,\ddot x+d\,\dot x+c\,x=\hat F\cos\Omega t\qquad\Longleftrightarrow\qquad \ddot x+2D\omega_0\,\dot x+\omega_0^2\,x=\frac{\hat F}{m}\cos\Omega t \]</div>
+      </div>
+      <div class="f"><h3>Eigenkreisfrequenz und Dämpfung</h3>
+        <div class="eq">\[ \omega_0=\sqrt{\frac{c}{m}},\qquad f_0=\frac{\omega_0}{2\pi},\qquad D=\frac{d}{2\sqrt{c\,m}},\qquad \omega_d=\omega_0\sqrt{1-D^2} \]</div>
+        <p>D &lt; 1: gedämpfte Schwingung, D = 1: aperiodischer Grenzfall (schnellstes Abklingen ohne Überschwingen), D &gt; 1: Kriechfall. Stahlkonstruktionen haben typischerweise D ≈ 0,005 … 0,02.</p>
+        <p>Über die statische Absenkung unter Eigengewicht gilt \(\omega_0=\sqrt{g/f_{\text{st}}}\). Daraus folgt die kritische Drehzahl einer Welle: \(n_{\text{krit}}\approx 946/\sqrt{f_{\text{st}}\,[\mathrm{mm}]}\) in min⁻¹.</p>
+      </div>
+      <div class="f"><h3>Erzwungene Schwingung</h3>
+        <div class="eq">\[ \eta=\frac{\Omega}{\omega_0},\qquad V=\frac{1}{\sqrt{(1-\eta^2)^2+(2D\eta)^2}},\qquad \hat x=V\,\frac{\hat F}{c},\qquad \tan\psi=\frac{2D\eta}{1-\eta^2} \]</div>
+        <p>V ist das Verhältnis von dynamischer zu statischer Auslenkung. In der Resonanz (η ≈ 1) wird V ≈ 1/(2D). Oberhalb von η = √2 ist V &lt; 1, das Fundament wird entlastet: das ist der Bereich der Schwingungsisolierung. Die Phase ψ ist der Nacheilwinkel der Auslenkung gegenüber der Kraft und beträgt in der Resonanz 90°.</p>
+      </div>
+      <div class="f"><h3>Logarithmisches Dekrement</h3>
+        <div class="eq">\[ \Lambda=\ln\frac{x_n}{x_{n+1}}=\frac{2\pi D}{\sqrt{1-D^2}} \]</div>
+        <p>So bestimmt man die Dämpfung aus einem Ausschwingversuch: zwei aufeinanderfolgende Maxima messen, Λ ausrechnen, nach D auflösen.</p>
+      </div>
+      <div class="f"><h3>Federschaltungen</h3>
+        <div class="eq">\[ \text{parallel:}\ c=c_1+c_2,\qquad \text{in Reihe:}\ \frac1c=\frac1{c_1}+\frac1{c_2} \]</div>
+        <p>Typische Federsteifigkeiten: Zugstab \(EA/l\), Kragarm \(3EI/l^3\), Einfeldträger mittig \(48EI/l^3\), Torsionsstab \(GI_p/l\).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="traegheit" data-group="Kinetik" data-title="Massenträgheit & Rotation" data-norm="Drallsatz" data-desc="Masse, Massenträgheitsmoment, Rotationsenergie und Hochlaufzeit von Grundkörpern" data-keys="Massenträgheitsmoment Trägheitsmoment Steiner Rotation Drallsatz Hochlauf Schwungrad Rotationsenergie Zylinder Kugel" hidden>
+  <p class="lede">Grundkörper aus homogenem Werkstoff, Drehachse durch den Schwerpunkt (Zylinder: Längsachse). Mit dem Achsabstand s wird nach Steiner verschoben.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="traegheit"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Definition und Steiner</h3>
+        <div class="eq">\[ J=\int_m r^2\,\mathrm dm,\qquad J_A=J_S+m\,s^2,\qquad i=\sqrt{\frac{J}{m}} \]</div>
+        <p>i ist der Trägheitsradius: der Abstand, in dem man die ganze Masse konzentrieren müsste, um dasselbe J zu erhalten.</p>
+      </div>
+      <div class="f"><h3>Grundkörper</h3>
+        <div class="tbl"><table>
+          <tr><th>Körper</th><th>Achse</th><th>J<sub>S</sub></th></tr>
+          <tr><td class="t">Vollzylinder, Radius r</td><td class="t">Längsachse</td><td>\(\tfrac12 m r^2\)</td></tr>
+          <tr><td class="t">Hohlzylinder r<sub>a</sub>, r<sub>i</sub></td><td class="t">Längsachse</td><td>\(\tfrac12 m (r_a^2+r_i^2)\)</td></tr>
+          <tr><td class="t">dünnwandiger Ring</td><td class="t">Längsachse</td><td>\(m r^2\)</td></tr>
+          <tr><td class="t">Vollzylinder, Länge l</td><td class="t">quer durch S</td><td>\(\tfrac1{12} m (3r^2+l^2)\)</td></tr>
+          <tr><td class="t">Kugel</td><td class="t">durch S</td><td>\(\tfrac25 m r^2\)</td></tr>
+          <tr><td class="t">dünner Stab, Länge l</td><td class="t">quer durch S</td><td>\(\tfrac1{12} m l^2\)</td></tr>
+          <tr><td class="t">Quader a × b</td><td class="t">parallel zu c</td><td>\(\tfrac1{12} m (a^2+b^2)\)</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Drallsatz und Energie</h3>
+        <div class="eq">\[ J\,\ddot\varphi=\sum M,\qquad E_{\text{rot}}=\tfrac12 J\,\omega^2,\qquad t_H=\frac{J\,\omega}{T_A-T_L} \]</div>
+        <p>t<sub>H</sub> ist die Hochlaufzeit bei konstantem Beschleunigungsmoment T<sub>A</sub> gegen ein konstantes Lastmoment T<sub>L</sub>.</p>
+      </div>
+      <div class="f"><h3>Reduktion über ein Getriebe</h3>
+        <div class="eq">\[ J_{\text{red}}=J_1+\frac{J_2}{i^2},\qquad i=\frac{n_1}{n_2},\qquad m_{\text{red}}=J\,\frac{\omega^2}{v^2} \]</div>
+        <p>Ein Trägheitsmoment auf der langsamen Seite wirkt auf die Motorwelle um den Faktor 1/i² verkleinert. Translatorische Massen werden über die Energiegleichheit umgerechnet.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="stoss" data-group="Kinetik" data-title="Impuls, Energie & Stoß" data-norm="Newton" data-desc="Gerader zentraler Stoß mit Stoßzahl, Energieverlust, Grundgesetze der Kinetik" data-keys="Stoß Impuls Impulssatz Energie Arbeitssatz Stoßzahl elastisch plastisch Newton Leistung Kinematik" hidden>
+  <p class="lede">Gerader zentraler Stoß zweier Körper. Geschwindigkeiten sind vorzeichenbehaftet (positiv nach rechts). Mit e = 1 ist der Stoß ideal elastisch, mit e = 0 ideal plastisch.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="stoss"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Kinematik</h3>
+        <div class="eq">\[ v=\dot s,\quad a=\dot v,\qquad \text{bei } a=\text{konst.:}\quad v=v_0+a t,\quad s=s_0+v_0t+\tfrac12at^2,\quad v^2=v_0^2+2a(s-s_0) \]</div>
+        <div class="eq">\[ \text{Kreisbewegung:}\quad v=r\omega,\qquad a_t=r\dot\omega,\qquad a_n=\frac{v^2}{r}=r\omega^2 \]</div>
+      </div>
+      <div class="f"><h3>Grundgesetz, Impuls- und Arbeitssatz</h3>
+        <div class="eq">\[ m\,\vec a=\sum\vec F,\qquad m\vec v_2-m\vec v_1=\int_{t_1}^{t_2}\vec F\,\mathrm dt,\qquad E_{k2}-E_{k1}=W_{12} \]</div>
+        <p>Der Impulssatz eignet sich, wenn Kräfte über der Zeit bekannt sind oder sich herauskürzen (Stoß). Der Arbeitssatz eignet sich, wenn Kräfte über dem Weg bekannt sind. Bei nur konservativen Kräften gilt Energieerhaltung \(E_k+E_p=\text{konst.}\)</p>
+        <p class="tip"><b>Leistung:</b> \(P=F\,v=T\,\omega\). Wirkungsgrad \(\eta=P_{ab}/P_{zu}\); hintereinander geschaltete Wirkungsgrade multiplizieren sich.</p>
+      </div>
+      <div class="f"><h3>Gerader zentraler Stoß</h3>
+        <div class="eq">\[ e=-\frac{v_1'-v_2'}{v_1-v_2} \]</div>
+        <div class="eq">\[ v_1'=\frac{m_1v_1+m_2v_2-e\,m_2(v_1-v_2)}{m_1+m_2},\qquad v_2'=\frac{m_1v_1+m_2v_2+e\,m_1(v_1-v_2)}{m_1+m_2} \]</div>
+        <div class="eq">\[ \Delta E=\frac{(1-e^2)\,m_1m_2\,(v_1-v_2)^2}{2\,(m_1+m_2)} \]</div>
+        <p>Der Gesamtimpuls bleibt immer erhalten, die kinetische Energie nur beim elastischen Stoß. Typische Stoßzahlen: Stahl auf Stahl ≈ 0,6 … 0,8, Holz ≈ 0,5, Blei ≈ 0,2.</p>
+      </div>
+      <div class="f"><h3>Relativkinematik und Starrkörper</h3>
+        <div class="eq">\[ \vec v_P=\vec v_A+\vec\omega\times\vec r_{AP},\qquad \vec a_P=\vec a_A+\dot{\vec\omega}\times\vec r_{AP}+\vec\omega\times(\vec\omega\times\vec r_{AP}) \]</div>
+        <p>Der Momentanpol ist der Punkt mit v = 0; er liegt auf den Senkrechten zu allen Geschwindigkeitsvektoren. Beim rollenden Rad ist es der Aufstandspunkt.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= THERMODYNAMIK ======================= -->
+<section class="topic" id="zustand" data-group="Thermodynamik" data-title="Ideales Gas & Zustandsänderungen" data-norm="1. und 2. Hauptsatz" data-desc="Isochor, isobar, isotherm, isentrop, polytrop: Endzustand, Arbeit, Wärme, Entropie" data-keys="ideales Gas Zustandsänderung isobar isochor isotherm isentrop adiabat polytrop Volumenänderungsarbeit technische Arbeit Wärme Entropie Enthalpie Hauptsatz" hidden>
+  <p class="lede">Geschlossenes System mit idealem Gas und konstanten spezifischen Wärmekapazitäten. Vorzeichen: Zugeführte Wärme und Arbeit sind positiv. Das p-V-Diagramm zeigt die Volumenänderungsarbeit als Fläche unter der Kurve.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="zustand"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Thermische und kalorische Zustandsgleichung</h3>
+        <div class="eq">\[ p\,V=m\,R_i\,T,\qquad c_p-c_v=R_i,\qquad \kappa=\frac{c_p}{c_v},\qquad c_v=\frac{R_i}{\kappa-1} \]</div>
+        <div class="eq">\[ \Delta U=m\,c_v\,\Delta T,\qquad \Delta H=m\,c_p\,\Delta T \]</div>
+        <p>R<sub>i</sub> = R<sub>m</sub>/M mit R<sub>m</sub> = 8,314 J/(mol·K). Luft: R<sub>i</sub> = 287 J/(kg·K), κ = 1,4. Temperaturen immer in Kelvin einsetzen.</p>
+      </div>
+      <div class="f"><h3>Erster Hauptsatz</h3>
+        <div class="eq">\[ \text{geschlossen:}\quad Q_{12}+W_{12}=U_2-U_1,\qquad W_{V,12}=-\int_1^2p\,\mathrm dV \]</div>
+        <div class="eq">\[ \text{offen, stationär:}\quad \dot Q+P_t=\dot m\left[h_2-h_1+\tfrac12(c_2^2-c_1^2)+g(z_2-z_1)\right],\qquad W_{t,12}=\int_1^2V\,\mathrm dp \]</div>
+        <p>Die Volumenänderungsarbeit gilt für geschlossene Systeme (Kolben), die technische Arbeit für Maschinen mit Durchfluss (Verdichter, Turbine). Im p-V-Diagramm ist W<sub>V</sub> die Fläche unter der Kurve zur V-Achse, W<sub>t</sub> die Fläche zur p-Achse.</p>
+      </div>
+      <div class="f"><h3>Polytrope als allgemeiner Fall</h3>
+        <div class="eq">\[ p\,V^n=\text{konst.},\qquad \frac{T_2}{T_1}=\left(\frac{p_2}{p_1}\right)^{\frac{n-1}{n}}=\left(\frac{V_1}{V_2}\right)^{n-1} \]</div>
+        <div class="eq">\[ W_{V,12}=\frac{m\,R_i}{n-1}\,(T_2-T_1),\qquad W_{t,12}=n\,W_{V,12},\qquad Q_{12}=m\,c_v\,\frac{n-\kappa}{n-1}\,(T_2-T_1) \]</div>
+        <div class="tbl"><table>
+          <tr><th>Zustandsänderung</th><th>n</th><th>W<sub>V,12</sub></th><th>Q<sub>12</sub></th></tr>
+          <tr><td class="t">isochor (V = konst.)</td><td>∞</td><td>0</td><td>\(m c_v (T_2-T_1)\)</td></tr>
+          <tr><td class="t">isobar (p = konst.)</td><td>0</td><td>\(-p(V_2-V_1)\)</td><td>\(m c_p (T_2-T_1)\)</td></tr>
+          <tr><td class="t">isotherm (T = konst.)</td><td>1</td><td>\(m R_i T\ln\dfrac{p_2}{p_1}\)</td><td>\(-W_{V,12}\)</td></tr>
+          <tr><td class="t">isentrop (adiabat, reversibel)</td><td>κ</td><td>\(m c_v (T_2-T_1)\)</td><td>0</td></tr>
+          <tr><td class="t">polytrop</td><td>n</td><td>\(\dfrac{mR_i}{n-1}(T_2-T_1)\)</td><td>\(mc_v\dfrac{n-\kappa}{n-1}(T_2-T_1)\)</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Entropie</h3>
+        <div class="eq">\[ S_2-S_1=m\left(c_p\ln\frac{T_2}{T_1}-R_i\ln\frac{p_2}{p_1}\right)=m\left(c_v\ln\frac{T_2}{T_1}+R_i\ln\frac{V_2}{V_1}\right) \]</div>
+        <p>Der zweite Hauptsatz verlangt für ein adiabates System \(\Delta S\ge0\). Bei reversiblen Prozessen ist \(\mathrm dQ=T\,\mathrm dS\), die Wärme ist im T-s-Diagramm die Fläche unter der Kurve.</p>
+      </div>
+      <div class="f"><h3>Gaskonstanten</h3>
+        <div class="tbl"><table>
+          <tr><th>Gas</th><th>M in kg/kmol</th><th>R<sub>i</sub> in J/(kg·K)</th><th>c<sub>p</sub> in J/(kg·K)</th><th>κ</th></tr>
+          <tr><td class="t">Luft</td><td>28,96</td><td>287,1</td><td>1005</td><td>1,40</td></tr>
+          <tr><td class="t">Stickstoff N₂</td><td>28,01</td><td>296,8</td><td>1039</td><td>1,40</td></tr>
+          <tr><td class="t">Sauerstoff O₂</td><td>32,00</td><td>259,8</td><td>917</td><td>1,40</td></tr>
+          <tr><td class="t">Kohlendioxid CO₂</td><td>44,01</td><td>188,9</td><td>844</td><td>1,29</td></tr>
+          <tr><td class="t">Wasserstoff H₂</td><td>2,016</td><td>4124</td><td>14 300</td><td>1,41</td></tr>
+          <tr><td class="t">Helium</td><td>4,003</td><td>2077</td><td>5193</td><td>1,67</td></tr>
+          <tr><td class="t">Argon</td><td>39,95</td><td>208,1</td><td>520</td><td>1,67</td></tr>
+          <tr><td class="t">Methan CH₄</td><td>16,04</td><td>518,3</td><td>2220</td><td>1,31</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="kreisprozess" data-group="Thermodynamik" data-title="Kreisprozesse" data-norm="Vergleichsprozesse" data-desc="Otto, Diesel, Joule und Carnot: Zustandspunkte, Wärme, Arbeit, Wirkungsgrad" data-keys="Kreisprozess Otto Diesel Joule Brayton Carnot Wirkungsgrad Verdichtungsverhältnis Gasturbine Mitteldruck Wärmepumpe Kältemaschine" hidden>
+  <p class="lede">Ideale Vergleichsprozesse mit Luft als idealem Gas, konstanten Stoffwerten und reversiblen Teilschritten. Angegeben werden Ansaugzustand 1 und Höchsttemperatur T<sub>3</sub>.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="kreisprozess"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Thermischer Wirkungsgrad</h3>
+        <div class="eq">\[ \eta_{\text{th}}=\frac{|w_{\text{netto}}|}{q_{\text{zu}}}=1-\frac{|q_{\text{ab}}|}{q_{\text{zu}}},\qquad \eta_C=1-\frac{T_{\min}}{T_{\max}} \]</div>
+        <p>Kein Prozess zwischen zwei Temperaturen kann den Carnot-Wirkungsgrad übertreffen. Er ist deshalb die Messlatte für alle anderen Prozesse.</p>
+      </div>
+      <div class="f"><h3>Otto-Prozess (Gleichraum)</h3>
+        <div class="eq">\[ \eta_{\text{th}}=1-\frac{1}{\varepsilon^{\kappa-1}},\qquad \varepsilon=\frac{V_1}{V_2} \]</div>
+        <p>1→2 isentrope Verdichtung, 2→3 isochore Wärmezufuhr, 3→4 isentrope Expansion, 4→1 isochore Wärmeabfuhr. Der Wirkungsgrad hängt nur vom Verdichtungsverhältnis ab; begrenzt wird ε durch Klopfen (Ottomotor ε ≈ 10 … 13).</p>
+      </div>
+      <div class="f"><h3>Diesel-Prozess (Gleichdruck)</h3>
+        <div class="eq">\[ \eta_{\text{th}}=1-\frac{1}{\varepsilon^{\kappa-1}}\cdot\frac{\varphi^\kappa-1}{\kappa\,(\varphi-1)},\qquad \varphi=\frac{V_3}{V_2} \]</div>
+        <p>Wärmezufuhr isobar. Das Einspritzverhältnis φ verschlechtert den Wirkungsgrad bei gleichem ε, Dieselmotoren erreichen aber höhere Verdichtung (ε ≈ 15 … 22). Der Seiliger-Prozess kombiniert isochore und isobare Wärmezufuhr.</p>
+      </div>
+      <div class="f"><h3>Joule-Prozess (Gasturbine)</h3>
+        <div class="eq">\[ \eta_{\text{th}}=1-\frac{1}{\pi^{(\kappa-1)/\kappa}},\qquad \pi=\frac{p_2}{p_1} \]</div>
+        <p>Isentrope Verdichtung, isobare Wärmezufuhr, isentrope Expansion, isobare Wärmeabfuhr. Ein großer Teil der Turbinenarbeit wird vom Verdichter verbraucht (Rückarbeitsverhältnis). Bei gegebener T<sub>3</sub> ist die Nutzarbeit bei \(T_2=\sqrt{T_1T_3}\) maximal.</p>
+      </div>
+      <div class="f"><h3>Mitteldruck</h3>
+        <div class="eq">\[ p_m=\frac{w_{\text{netto}}}{v_1-v_2} \]</div>
+        <p>Der Mitteldruck ist der konstante Druck, der über den Hub dieselbe Arbeit leisten würde. Er ist ein Maß für die Ausnutzung des Hubraums: \(P=p_m\,V_H\,n/2\) beim Viertakter.</p>
+      </div>
+      <div class="f"><h3>Linkslaufende Prozesse</h3>
+        <div class="eq">\[ \varepsilon_K=\frac{\dot Q_0}{P},\qquad \varepsilon_{WP}=\frac{|\dot Q|}{P}=\varepsilon_K+1,\qquad \varepsilon_{WP,C}=\frac{T}{T-T_0} \]</div>
+        <p>Leistungszahlen von Kältemaschine und Wärmepumpe. Je kleiner der Temperaturhub, desto höher die Leistungszahl.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="waermeleitung" data-group="Thermodynamik" data-title="Wärmedurchgang" data-norm="Fourier" data-desc="Mehrschichtige ebene Wand und Rohrwand: k-Wert, Wärmestrom, Temperaturverlauf" data-keys="Wärmeleitung Wärmeübergang Wärmedurchgang k-Wert U-Wert Fourier Isolierung Rohr Dämmung Wärmestrom Strahlung" hidden>
+  <p class="lede">Stationäre Wärmeleitung durch bis zu vier Schichten mit Wärmeübergang auf beiden Seiten. Schichten mit Dicke 0 werden ignoriert. Beim Rohr gelten alle Werte je Meter Rohrlänge, innen ist Schicht 1.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="waermeleitung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Fourier und Newton</h3>
+        <div class="eq">\[ \dot q=-\lambda\,\frac{\mathrm dT}{\mathrm dx},\qquad \dot Q_{\text{Leitung}}=\frac{\lambda\,A}{s}\,\Delta T,\qquad \dot Q_{\text{Übergang}}=\alpha\,A\,(T_F-T_W) \]</div>
+        <p>λ ist eine Stoffgröße, α hängt von Strömung und Fluid ab und wird über Nußelt-Korrelationen bestimmt: \(\alpha=Nu\,\lambda_F/L\).</p>
+      </div>
+      <div class="f"><h3>Ebene Wand: Reihenschaltung der Widerstände</h3>
+        <div class="eq">\[ \frac1k=\frac1{\alpha_i}+\sum_j\frac{s_j}{\lambda_j}+\frac1{\alpha_a},\qquad \dot Q=k\,A\,(T_i-T_a) \]</div>
+        <p>Wie in einem elektrischen Stromkreis addieren sich die Widerstände. Der Temperaturabfall in jeder Schicht ist proportional zu ihrem Widerstand, deshalb fällt fast die ganze Temperaturdifferenz über der Dämmung ab.</p>
+      </div>
+      <div class="f"><h3>Zylinderwand (Rohr)</h3>
+        <div class="eq">\[ \frac{1}{k_l}=\frac{1}{\alpha_i\pi d_i}+\sum_j\frac{\ln(d_{j+1}/d_j)}{2\pi\lambda_j}+\frac{1}{\alpha_a\pi d_a},\qquad \dot Q=k_l\,L\,(T_i-T_a) \]</div>
+        <p>k<sub>l</sub> ist der längenbezogene Wärmedurchgangskoeffizient in W/(m·K). Bei dünnen Rohren kann Dämmen den Wärmeverlust erhöhen, solange der Außenradius unter dem kritischen Radius \(r_{\text{krit}}=\lambda/\alpha_a\) liegt.</p>
+      </div>
+      <div class="f"><h3>Wärmestrahlung</h3>
+        <div class="eq">\[ \dot Q=\varepsilon\,\sigma\,A\left(T_1^4-T_2^4\right),\qquad \sigma=5{,}670\cdot10^{-8}\ \mathrm{\frac{W}{m^2K^4}} \]</div>
+        <p>Gilt für einen kleinen Körper in großer Umgebung. ε: blanker Stahl ≈ 0,1 … 0,3, oxidierter Stahl ≈ 0,8, Lack ≈ 0,9, poliertes Aluminium ≈ 0,05.</p>
+      </div>
+      <div class="f"><h3>Richtwerte</h3>
+        <div class="tbl"><table>
+          <tr><th>Stoff</th><th>λ in W/(m·K)</th><th>Situation</th><th>α in W/(m²·K)</th></tr>
+          <tr><td class="t">Kupfer</td><td>380</td><td class="t">Luft, freie Konvektion</td><td>3 … 25</td></tr>
+          <tr><td class="t">Aluminium</td><td>160 … 230</td><td class="t">Luft, erzwungen</td><td>25 … 250</td></tr>
+          <tr><td class="t">Baustahl</td><td>50</td><td class="t">Wasser, freie Konvektion</td><td>100 … 900</td></tr>
+          <tr><td class="t">Edelstahl</td><td>15</td><td class="t">Wasser, erzwungen</td><td>500 … 10 000</td></tr>
+          <tr><td class="t">Beton</td><td>1,0 … 2,1</td><td class="t">siedendes Wasser</td><td>2500 … 25 000</td></tr>
+          <tr><td class="t">Mineralwolle</td><td>0,035 … 0,045</td><td class="t">kondensierender Dampf</td><td>5000 … 100 000</td></tr>
+          <tr><td class="t">Luft (ruhend)</td><td>0,026</td><td></td><td></td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="waermeuebertrager" data-group="Thermodynamik" data-title="Wärmeübertrager" data-norm="NTU-Methode" data-desc="Gleich- und Gegenstrom: Austrittstemperaturen, Wärmestrom, mittlere Temperaturdifferenz" data-keys="Wärmeübertrager Wärmetauscher Gegenstrom Gleichstrom NTU LMTD logarithmische Temperaturdifferenz Betriebscharakteristik" hidden>
+  <p class="lede">Gegeben sind die Eintrittstemperaturen, Massenströme und k·A. Die Austrittstemperaturen folgen aus der Betriebscharakteristik ε(NTU, C<sub>r</sub>). Strom 1 ist der warme Strom.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="waermeuebertrager"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Energiebilanz</h3>
+        <div class="eq">\[ \dot Q=\dot C_1\,(T_1'-T_1'')=\dot C_2\,(T_2''-T_2'),\qquad \dot C=\dot m\,c_p \]</div>
+        <p>Ein Strich bezeichnet den Eintritt, zwei Striche den Austritt. Der Strom mit dem kleineren Wärmekapazitätsstrom erfährt die größere Temperaturänderung.</p>
+      </div>
+      <div class="f"><h3>Mittlere logarithmische Temperaturdifferenz</h3>
+        <div class="eq">\[ \dot Q=k\,A\,\Delta T_m,\qquad \Delta T_m=\frac{\Delta T_{\text{gr}}-\Delta T_{\text{kl}}}{\ln\left(\Delta T_{\text{gr}}/\Delta T_{\text{kl}}\right)} \]</div>
+        <p>ΔT<sub>gr</sub> und ΔT<sub>kl</sub> sind die Temperaturdifferenzen der beiden Ströme an den beiden Enden des Apparats. Die LMTD-Methode passt, wenn alle vier Temperaturen bekannt sind und die Fläche gesucht wird.</p>
+      </div>
+      <div class="f"><h3>NTU-Methode</h3>
+        <div class="eq">\[ NTU=\frac{k\,A}{\dot C_{\min}},\qquad C_r=\frac{\dot C_{\min}}{\dot C_{\max}},\qquad \varepsilon=\frac{\dot Q}{\dot C_{\min}\,(T_1'-T_2')} \]</div>
+        <div class="eq">\[ \text{Gegenstrom:}\ \varepsilon=\frac{1-e^{-NTU(1-C_r)}}{1-C_r\,e^{-NTU(1-C_r)}}\qquad \text{Gleichstrom:}\ \varepsilon=\frac{1-e^{-NTU(1+C_r)}}{1+C_r} \]</div>
+        <p>Für C<sub>r</sub> = 1 im Gegenstrom gilt ε = NTU/(1 + NTU). Diese Methode passt, wenn die Fläche bekannt ist und die Austrittstemperaturen gesucht werden. Gegenstrom ist bei gleicher Fläche immer mindestens so gut wie Gleichstrom; beim Gleichstrom kann der kalte Strom nie wärmer werden als der warme Austritt.</p>
+      </div>
+      <div class="f"><h3>Typische k-Werte</h3>
+        <p>Gas/Gas 10 … 50, Gas/Wasser 15 … 70, Wasser/Wasser (Rohrbündel) 900 … 2500, Plattenwärmeübertrager Wasser/Wasser 3000 … 7000, Dampf/Wasser 1500 … 4000 W/(m²·K).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= STRÖMUNGSLEHRE ======================= -->
+<section class="topic" id="stoffwerte" data-group="Strömungslehre" data-title="Kennzahlen & Stoffwerte" data-norm="Ähnlichkeitstheorie" data-desc="Dichte und Viskosität von Wasser und Luft, Reynolds-, Mach- und Froude-Zahl" data-keys="Reynolds Mach Froude Prandtl Nusselt Viskosität Dichte Stoffwerte Wasser Luft kinematische dynamische Schallgeschwindigkeit" hidden>
+  <p class="lede">Stoffwerte von Wasser (bei 1 bar, interpoliert aus Tabellenwerten) und trockener Luft (ideales Gas, Viskosität nach Sutherland) sowie die wichtigsten Kennzahlen für eine Anströmung mit Geschwindigkeit v und charakteristischer Länge L.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="stoffwerte"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Viskosität</h3>
+        <div class="eq">\[ \tau=\eta\,\frac{\mathrm du}{\mathrm dy},\qquad \nu=\frac{\eta}{\rho} \]</div>
+        <p>η (dynamische Viskosität, Pa·s) beschreibt die innere Reibung, ν (kinematische Viskosität, m²/s) geht in die Reynolds-Zahl ein. Bei Flüssigkeiten sinkt die Viskosität mit der Temperatur stark, bei Gasen steigt sie.</p>
+      </div>
+      <div class="f"><h3>Dimensionslose Kennzahlen</h3>
+        <div class="tbl"><table>
+          <tr><th>Kennzahl</th><th>Definition</th><th>Bedeutung</th></tr>
+          <tr><td class="t">Reynolds</td><td>\(Re=\dfrac{vL}{\nu}\)</td><td class="t">Trägheit zu Zähigkeit; Rohr: laminar bis 2300</td></tr>
+          <tr><td class="t">Mach</td><td>\(Ma=\dfrac{v}{a},\ a=\sqrt{\kappa R_iT}\)</td><td class="t">Kompressibilität; inkompressibel bis Ma ≈ 0,3</td></tr>
+          <tr><td class="t">Froude</td><td>\(Fr=\dfrac{v}{\sqrt{gL}}\)</td><td class="t">Trägheit zu Schwerkraft; Gerinne, Schiffswellen</td></tr>
+          <tr><td class="t">Euler</td><td>\(Eu=\dfrac{\Delta p}{\rho v^2}\)</td><td class="t">Druck zu Trägheit; Verlust- und Widerstandsbeiwerte</td></tr>
+          <tr><td class="t">Prandtl</td><td>\(Pr=\dfrac{\nu}{a_T}=\dfrac{\eta c_p}{\lambda}\)</td><td class="t">Impuls- zu Wärmetransport (Stoffgröße)</td></tr>
+          <tr><td class="t">Nußelt</td><td>\(Nu=\dfrac{\alpha L}{\lambda}\)</td><td class="t">dimensionsloser Wärmeübergang</td></tr>
+          <tr><td class="t">Strouhal</td><td>\(Sr=\dfrac{fL}{v}\)</td><td class="t">Wirbelablösung; Zylinder Sr ≈ 0,2</td></tr>
+        </table></div>
+        <p>Zwei Strömungen sind ähnlich, wenn sie geometrisch ähnlich sind und die maßgebenden Kennzahlen übereinstimmen. Darauf beruhen Modellversuche.</p>
+      </div>
+      <div class="f"><h3>Wasser bei 1 bar</h3>
+        <div class="tbl"><table>
+          <tr><th>ϑ in °C</th><th>ρ in kg/m³</th><th>η in mPa·s</th><th>ν in mm²/s</th></tr>
+          <tr><td>0</td><td>999,8</td><td>1,792</td><td>1,792</td></tr>
+          <tr><td>10</td><td>999,7</td><td>1,306</td><td>1,307</td></tr>
+          <tr><td>20</td><td>998,2</td><td>1,002</td><td>1,004</td></tr>
+          <tr><td>40</td><td>992,2</td><td>0,653</td><td>0,658</td></tr>
+          <tr><td>60</td><td>983,2</td><td>0,466</td><td>0,474</td></tr>
+          <tr><td>80</td><td>971,8</td><td>0,355</td><td>0,365</td></tr>
+          <tr><td>100</td><td>958,4</td><td>0,282</td><td>0,294</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Luft</h3>
+        <div class="eq">\[ \rho=\frac{p}{R_iT},\qquad \eta=\eta_0\left(\frac{T}{T_0}\right)^{3/2}\frac{T_0+S}{T+S} \]</div>
+        <p>Sutherland mit η<sub>0</sub> = 17,16 µPa·s, T<sub>0</sub> = 273,15 K, S = 110,4 K. Bei 20 °C und 1,013 bar: ρ = 1,204 kg/m³, ν = 15,1 mm²/s.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="rohr" data-group="Strömungslehre" data-title="Rohrströmung & Druckverlust" data-norm="Darcy-Weisbach · Colebrook" data-desc="Geschwindigkeit, Reynolds-Zahl, Rohrreibungszahl und Druckverlust mit Moody-Diagramm" data-keys="Rohr Rohrströmung Druckverlust Rohrreibungszahl Colebrook Moody Darcy Weisbach Hagen Poiseuille Rauheit Zeta Verlustbeiwert Pumpe laminar turbulent" hidden>
+  <p class="lede">Ausgebildete, inkompressible Strömung im Kreisrohr. Der Rechner bestimmt die Rohrreibungszahl laminar mit 64/Re und turbulent iterativ nach Colebrook-White und markiert den Betriebspunkt im Moody-Diagramm.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="rohr"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Kontinuität und Reynolds-Zahl</h3>
+        <div class="eq">\[ \dot V=A\,v=\frac{\pi d^2}{4}\,v,\qquad Re=\frac{v\,d}{\nu} \]</div>
+        <p>Laminar bis Re ≈ 2300, darüber Übergangsbereich, ab Re ≈ 4000 sicher turbulent. Bei nicht kreisförmigen Querschnitten den hydraulischen Durchmesser \(d_h=4A/U\) verwenden.</p>
+      </div>
+      <div class="f"><h3>Druckverlust (Darcy-Weisbach)</h3>
+        <div class="eq">\[ \Delta p_V=\left(\lambda\,\frac{L}{d}+\sum\zeta\right)\frac{\rho}{2}\,v^2,\qquad h_V=\frac{\Delta p_V}{\rho\,g} \]</div>
+        <p>Der erste Term sind die Reibungsverluste im geraden Rohr, der zweite die Einzelverluste in Krümmern, Ventilen und Querschnittsänderungen. Der Druckverlust steigt turbulent etwa mit v² und bei glatten Rohren mit v<sup>1,75</sup>.</p>
+      </div>
+      <div class="f"><h3>Rohrreibungszahl</h3>
+        <div class="eq">\[ \text{laminar (Hagen-Poiseuille):}\quad \lambda=\frac{64}{Re} \]</div>
+        <div class="eq">\[ \text{turbulent (Colebrook-White):}\quad \frac{1}{\sqrt\lambda}=-2\log_{10}\left(\frac{2{,}51}{Re\sqrt\lambda}+\frac{k/d}{3{,}71}\right) \]</div>
+        <div class="eq">\[ \text{explizit (Haaland):}\quad \frac{1}{\sqrt\lambda}\approx-1{,}8\log_{10}\left[\frac{6{,}9}{Re}+\left(\frac{k/d}{3{,}7}\right)^{1{,}11}\right] \]</div>
+        <p>Für hydraulisch glatte Rohre und Re &lt; 10⁵ gilt näherungsweise Blasius: \(\lambda=0{,}3164/Re^{0{,}25}\). Bei sehr hoher Re wird λ nur noch von k/d bestimmt (vollständig rau).</p>
+      </div>
+      <div class="f"><h3>Erweiterte Bernoulli-Gleichung</h3>
+        <div class="eq">\[ p_1+\frac\rho2v_1^2+\rho g z_1+\Delta p_P=p_2+\frac\rho2v_2^2+\rho g z_2+\Delta p_V \]</div>
+        <p>Δp<sub>P</sub> ist die Druckerhöhung einer Pumpe. Ihre hydraulische Leistung ist \(P_h=\dot V\,\Delta p_P\), die Antriebsleistung \(P=P_h/\eta_P\).</p>
+      </div>
+      <div class="f"><h3>Richtwerte</h3>
+        <div class="tbl"><table>
+          <tr><th>Rohr</th><th>k in mm</th><th>Einbau</th><th>ζ</th></tr>
+          <tr><td class="t">gezogen (Cu, Edelstahl, Glas)</td><td>0,0015</td><td class="t">Eintritt scharfkantig</td><td>0,5</td></tr>
+          <tr><td class="t">Kunststoff (PE, PVC)</td><td>0,007</td><td class="t">Eintritt gut gerundet</td><td>0,05</td></tr>
+          <tr><td class="t">Stahl, neu, nahtlos</td><td>0,02 … 0,05</td><td class="t">Austritt ins Freie/Behälter</td><td>1,0</td></tr>
+          <tr><td class="t">Stahl, verzinkt</td><td>0,15</td><td class="t">Bogen 90°, R/d = 2</td><td>0,15 … 0,2</td></tr>
+          <tr><td class="t">Stahl, leicht verrostet</td><td>0,15 … 0,4</td><td class="t">Kniestück 90°, scharf</td><td>1,1 … 1,3</td></tr>
+          <tr><td class="t">Gusseisen</td><td>0,25</td><td class="t">Absperrschieber offen</td><td>0,1 … 0,3</td></tr>
+          <tr><td class="t">Beton</td><td>0,3 … 3</td><td class="t">Ventil (Durchgang) offen</td><td>3 … 6</td></tr>
+          <tr><td class="t">Hydraulikschlauch</td><td>0,0016</td><td class="t">Kugelhahn offen</td><td>0,05</td></tr>
+        </table></div>
+        <p>Übliche Strömungsgeschwindigkeiten: Wasserleitung 1 … 2 m/s, Pumpensaugleitung 0,5 … 1 m/s, Hydraulik Druckleitung 3 … 6 m/s, Druckluft 6 … 15 m/s.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="bernoulli" data-group="Strömungslehre" data-title="Bernoulli, Impuls & Widerstand" data-norm="Stromfadentheorie" data-desc="Venturi-Messung, Ausfluss aus Behältern, Strömungswiderstand, Impulssatz, Hydrostatik" data-keys="Bernoulli Venturi Torricelli Ausfluss Hydrostatik Auftrieb Impulssatz Strahlkraft Widerstand cw Widerstandsbeiwert Staudruck Prandtlrohr" hidden>
+  <p class="lede">Drei typische Anwendungen der Stromfadentheorie. Wähle die Aufgabe; die Formeln zu allen drei findest du darunter.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="bernoulli"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Hydrostatik</h3>
+        <div class="eq">\[ p=p_0+\rho\,g\,h,\qquad F_A=\rho_F\,g\,V_{\text{verdrängt}},\qquad F=p_S\,A \]</div>
+        <p>Der Druck wirkt in alle Richtungen gleich und steigt linear mit der Tiefe. Die Kraft auf eine ebene Wand ist der Druck im Flächenschwerpunkt mal Fläche; der Angriffspunkt liegt tiefer als der Schwerpunkt.</p>
+      </div>
+      <div class="f"><h3>Bernoulli-Gleichung</h3>
+        <div class="eq">\[ p+\frac\rho2v^2+\rho g z=\text{konst.}\quad\text{(entlang einer Stromlinie)} \]</div>
+        <p>Gilt für stationäre, reibungsfreie, inkompressible Strömung. Die drei Terme sind statischer Druck, dynamischer Druck (Staudruck) und geodätischer Druck. Prandtl-Rohr: \(v=\sqrt{2\,(p_{\text{ges}}-p)/\rho}\).</p>
+      </div>
+      <div class="f"><h3>Ausfluss (Torricelli)</h3>
+        <div class="eq">\[ v=\varphi\sqrt{2gh},\qquad \dot V=\mu\,A\sqrt{2gh},\qquad \mu=\alpha\,\varphi \]</div>
+        <p>φ ist die Geschwindigkeitszahl (≈ 0,97), α die Kontraktionszahl des Strahls. Ausflusszahl μ: scharfkantige Öffnung ≈ 0,6, gut gerundete Düse ≈ 0,97.</p>
+      </div>
+      <div class="f"><h3>Venturi-Rohr</h3>
+        <div class="eq">\[ v_2=\sqrt{\frac{2\,\Delta p/\rho}{1-(A_2/A_1)^2}},\qquad \dot V=C\,A_2\,v_2 \]</div>
+        <p>Aus Kontinuität und Bernoulli: In der Engstelle steigt die Geschwindigkeit, der statische Druck fällt. Mit dem Durchflussbeiwert C ≈ 0,98 werden Reibung und Ungleichförmigkeit berücksichtigt. Normblenden und -düsen sind in DIN EN ISO 5167 geregelt.</p>
+      </div>
+      <div class="f"><h3>Impulssatz</h3>
+        <div class="eq">\[ \sum\vec F=\dot m\,(\vec v_{\text{aus}}-\vec v_{\text{ein}}),\qquad \text{Strahl senkrecht auf Platte:}\ F=\rho\,A\,v^2 \]</div>
+        <p>Zu den äußeren Kräften am Kontrollvolumen gehören Druckkräfte an den Schnittflächen, Gewicht und die gesuchte Haltekraft. Gut geeignet für Krümmerkräfte, Düsen und Strahlantriebe.</p>
+      </div>
+      <div class="f"><h3>Strömungswiderstand</h3>
+        <div class="eq">\[ F_W=c_W\,\frac\rho2\,v^2\,A,\qquad P=F_W\,v \]</div>
+        <div class="tbl"><table>
+          <tr><th>Körper</th><th>c<sub>W</sub></th><th>Körper</th><th>c<sub>W</sub></th></tr>
+          <tr><td class="t">Kugel (Re 10³ … 10⁵)</td><td>0,47</td><td class="t">Platte senkrecht</td><td>1,1 … 1,3</td></tr>
+          <tr><td class="t">Kugel überkritisch</td><td>0,1 … 0,2</td><td class="t">Halbkugel, offen zur Strömung</td><td>1,33</td></tr>
+          <tr><td class="t">Zylinder quer</td><td>1,0 … 1,2</td><td class="t">Stromlinienkörper</td><td>0,04 … 0,1</td></tr>
+          <tr><td class="t">Pkw</td><td>0,25 … 0,35</td><td class="t">Lkw</td><td>0,5 … 0,8</td></tr>
+        </table></div>
+        <p>A ist die Projektionsfläche senkrecht zur Anströmung (Schattenfläche).</p>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,374 @@
+
+<header class="topbar">
+  <button id="menuBtn" class="iconbtn" type="button" aria-label="Themenliste öffnen" aria-controls="side">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <a class="brand" href="#start" data-go="start">
+    <svg class="mark" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="16" cy="16" r="9"/><path d="M16 2v8M16 22v8M2 16h8M22 16h8" stroke-dasharray="3 2"/><circle cx="16" cy="16" r="2.2" fill="currentColor" stroke="none"/>
+    </svg>
+    <b>MB-Kompendium</b><span>Formeln · Rechner · Normen</span>
+  </a>
+  <span class="crumb" id="crumb"></span>
+  <span class="sp"></span>
+</header>
+
+<div class="shell">
+  <nav class="side" id="side" aria-label="Themen">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Thema oder Begriff suchen" autocomplete="off" aria-label="Themen durchsuchen">
+    </div>
+    <button class="navlink navhome" type="button" data-go="start">Übersicht</button>
+    <div id="nav"></div>
+  </nav>
+  <div class="scrim" id="scrim"></div>
+
+  <main id="main"><div class="wrap">
+
+<!-- ======================= ÜBERSICHT ======================= -->
+<section id="start" class="home">
+  <div class="home-head">
+    <h1>Maschinenbau-Kompendium</h1>
+    <p>Rechner und Formelsammlung für Technische Mechanik, Thermodynamik, Strömungslehre, Toleranzen und Maschinenelemente. Jedes Thema hat einen Rechner, der beim Tippen neu rechnet, und darunter die Formeln mit Erklärungen. Dezimalkomma und Dezimalpunkt funktionieren beide; Exponenten schreibst du als <code>2,1e5</code>.</p>
+  </div>
+  <div class="groups" id="groups"></div>
+  <p class="legend-note">Die Rechner sind mit Beispielwerten vorbelegt. Deine Eingaben bleiben in diesem Browser gespeichert; „Beispielwerte“ im Rechnerkopf stellt sie wieder her. Werkstoff- und Normwerte sind Richtwerte für Studium und Vorauslegung. Für eine Auslegung, die gebaut wird, gelten die aktuellen Normen und Herstellerangaben.</p>
+</section>
+
+<!-- ======================= STATIK ======================= -->
+<section class="topic" id="resultierende" data-group="Statik" data-title="Kräfte & Gleichgewicht" data-norm="Schnittprinzip" data-desc="Resultierende eines ebenen Kräftesystems, Gleichgewicht, Fachwerke, Schwerpunkt" data-keys="Kraft Moment Resultierende Fachwerk Ritterschnitt Nullstab Schwerpunkt Freischneiden" hidden>
+  <p class="lede">Bis zu vier Kräfte in der Ebene werden zu einer Resultierenden zusammengefasst. Winkel zählen gegen den Uhrzeigersinn ab der positiven x-Achse, das Moment ist um den Ursprung positiv gegen den Uhrzeigersinn.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="resultierende"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Gleichgewichtsbedingungen</h3>
+        <div class="eq">\[ \sum F_{x}=0,\qquad \sum F_{y}=0,\qquad \sum M^{(A)}=0 \]</div>
+        <p>Ein ebener Körper hat drei Freiheitsgrade, daher drei unabhängige Gleichungen. Im Raum sind es sechs (drei Kraft- und drei Momentensummen). Der Bezugspunkt A der Momentensumme ist frei wählbar: Lege ihn in den Schnittpunkt möglichst vieler unbekannter Kräfte, dann fallen diese aus der Gleichung heraus.</p>
+        <p class="tip"><b>Vorgehen:</b> Freischneiden, alle Lager durch Reaktionskräfte ersetzen, Koordinatensystem festlegen, Gleichungen aufstellen. Ein negatives Ergebnis heißt nur, dass die Kraft entgegen der angenommenen Richtung wirkt.</p>
+      </div>
+      <div class="f"><h3>Resultierende eines Kräftesystems</h3>
+        <div class="eq">\[ R_x=\sum_i F_i\cos\alpha_i,\qquad R_y=\sum_i F_i\sin\alpha_i,\qquad R=\sqrt{R_x^2+R_y^2},\qquad \tan\alpha_R=\frac{R_y}{R_x} \]</div>
+        <div class="eq">\[ M^{(0)}=\sum_i\left(x_i\,F_{y,i}-y_i\,F_{x,i}\right),\qquad h=\frac{M^{(0)}}{R} \]</div>
+        <p>Die Resultierende ersetzt das System statisch gleichwertig, wenn sie dieselbe Kraftsumme und dasselbe Moment um jeden Punkt hat. Ihre Wirkungslinie liegt im Abstand <i>h</i> vom Ursprung. Ist <i>R</i> = 0 und <i>M</i> ≠ 0, bleibt ein reines Kräftepaar übrig.</p>
+      </div>
+      <div class="f"><h3>Statische Bestimmtheit und Fachwerke</h3>
+        <div class="eq">\[ 2k = s + r \]</div>
+        <dl><dt>k</dt><dd>Anzahl der Knoten</dd><dt>s</dt><dd>Anzahl der Stäbe</dd><dt>r</dt><dd>Anzahl der Lagerreaktionen</dd></dl>
+        <p>Ist die Gleichung erfüllt, ist das ebene Fachwerk (bei brauchbarer Geometrie) statisch bestimmt. Ist 2k &lt; s + r, ist es statisch unbestimmt und braucht Verformungsbedingungen.</p>
+        <p><b>Knotenpunktverfahren:</b> An jedem Knoten gelten zwei Kraftgleichungen. Beginne an einem Knoten mit höchstens zwei unbekannten Stabkräften. Stabkräfte setzt man als Zug (vom Knoten weg) an.</p>
+        <p><b>Ritterschnitt:</b> Schneide durch höchstens drei Stäbe, die sich nicht alle in einem Punkt schneiden. Die Momentensumme um den Schnittpunkt zweier Stäbe liefert die dritte Stabkraft direkt.</p>
+        <p><b>Nullstäbe:</b> Ein unbelasteter Knoten mit zwei Stäben, die nicht auf einer Linie liegen, hat zwei Nullstäbe. Bei drei Stäben, von denen zwei fluchten, ist der dritte ein Nullstab.</p>
+      </div>
+      <div class="f"><h3>Schwerpunkt zusammengesetzter Flächen</h3>
+        <div class="eq">\[ x_S=\frac{\sum A_i\,x_i}{\sum A_i},\qquad y_S=\frac{\sum A_i\,y_i}{\sum A_i} \]</div>
+        <p>Zerlege die Fläche in Teilflächen mit bekanntem Schwerpunkt (Rechteck: Mitte, Dreieck: ein Drittel der Höhe von der Grundseite, Halbkreis: \(4r/3\pi\) von der geraden Kante). Ausschnitte gehen mit negativer Fläche ein. Für Linien und Körper gilt dasselbe mit Länge bzw. Volumen.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="balken" data-group="Statik" data-title="Balken & Schnittgrößen" data-norm="Schnittprinzip" data-desc="Lagerreaktionen, Querkraft- und Momentenverlauf am Einfeldträger und Kragarm" data-keys="Auflager Lager Querkraft Biegemoment Kragarm Einfeldträger Streckenlast Einzellast" hidden>
+  <p class="lede">Zwei Einzellasten und eine konstante Streckenlast über die ganze Länge. Lasten wirken positiv nach unten. Der Rechner zeichnet Querkraft- und Momentenverlauf und findet das größte Biegemoment.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="balken"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Differentielle Zusammenhänge</h3>
+        <div class="eq">\[ \frac{\mathrm dQ}{\mathrm dx}=-q(x),\qquad \frac{\mathrm dM}{\mathrm dx}=Q(x),\qquad \frac{\mathrm d^2M}{\mathrm dx^2}=-q(x) \]</div>
+        <p>Daraus folgen die Regeln zum Skizzieren: Wo <i>Q</i> = 0 ist, hat <i>M</i> ein Extremum. Eine Einzellast erzeugt einen Sprung im Querkraftverlauf und einen Knick im Momentenverlauf. Unter konstanter Streckenlast ist <i>Q</i> linear und <i>M</i> eine Parabel. Ein Einzelmoment erzeugt einen Sprung in <i>M</i>.</p>
+        <p class="tip"><b>Vorzeichen:</b> Am positiven Schnittufer (Normale in +x) zeigt eine positive Querkraft nach unten. Ein positives Biegemoment dehnt die Unterseite des Balkens. Im Rechner wird <i>M</i> positiv nach oben aufgetragen.</p>
+      </div>
+      <div class="f"><h3>Einfeldträger mit Einzellast</h3>
+        <div class="eq">\[ A=F\,\frac{b}{l},\qquad B=F\,\frac{a}{l},\qquad M_{\max}=F\,\frac{a\,b}{l} \]</div>
+        <dl><dt>a, b</dt><dd>Abstand der Last vom linken bzw. rechten Lager, a + b = l</dd></dl>
+        <p>Das Maximum liegt unter der Last. Für eine mittige Last gilt \(M_{\max}=Fl/4\).</p>
+      </div>
+      <div class="f"><h3>Einfeldträger mit konstanter Streckenlast</h3>
+        <div class="eq">\[ A=B=\frac{q\,l}{2},\qquad Q(x)=q\left(\frac l2-x\right),\qquad M(x)=\frac{q\,x}{2}\,(l-x),\qquad M_{\max}=\frac{q\,l^2}{8} \]</div>
+        <p>Zur Berechnung der Lagerkräfte ersetzt man eine Streckenlast durch ihre Resultierende <i>ql</i> im Flächenschwerpunkt der Lastfläche.</p>
+      </div>
+      <div class="f"><h3>Kragarm (Einspannung links)</h3>
+        <div class="eq">\[ F_A=F+q\,l,\qquad M_A=-\left(F\,a+\frac{q\,l^2}{2}\right) \]</div>
+        <p>Die Einspannung nimmt Kraft und Moment auf. Das betragsmäßig größte Biegemoment tritt immer an der Einspannung auf, die Oberseite ist dort gezogen (negatives <i>M</i>).</p>
+      </div>
+      <div class="f"><h3>Schnittgrößen bestimmen</h3>
+        <p>Den Balken an der Stelle <i>x</i> schneiden und am linken (oder rechten) Teil das Gleichgewicht aufstellen. Für mehrere Lastbereiche braucht man je Bereich einen Schnitt. Kontrolle: Am freien Ende und an Gelenken ist <i>M</i> = 0, am rechten Lager springt <i>Q</i> um die Lagerkraft auf null.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="reibung" data-group="Statik" data-title="Haftung & Reibung" data-norm="Coulomb, Euler-Eytelwein" data-desc="Seilreibung, Haftgrenze auf der schiefen Ebene, Selbsthemmung" data-keys="Reibung Haftung Seilreibung Euler Eytelwein schiefe Ebene Reibwinkel Selbsthemmung Reibungszahl" hidden>
+  <p class="lede">Seilreibung um einen Zylinder und ein Körper auf der schiefen Ebene. Alle Zugkräfte auf der Ebene wirken parallel zur Ebene.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="reibung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Coulombsche Reibung</h3>
+        <div class="eq">\[ H\le \mu_0\,N \quad\text{(Haften)},\qquad R=\mu\,N \quad\text{(Gleiten)},\qquad \tan\rho_0=\mu_0 \]</div>
+        <p>Beim Haften ist die Haftkraft <i>H</i> eine Reaktionskraft aus dem Gleichgewicht und nur nach oben begrenzt. Beim Gleiten ist die Reibkraft eingeprägt und wirkt der Relativbewegung entgegen. Die Resultierende aus Normal- und Haftkraft liegt innerhalb des Reibungskegels mit dem Öffnungswinkel ρ<sub>0</sub>.</p>
+      </div>
+      <div class="f"><h3>Schiefe Ebene</h3>
+        <div class="eq">\[ \text{Haften ohne Zugkraft, wenn } \tan\alpha\le\mu_0 \]</div>
+        <div class="eq">\[ F_{\text{hoch}}=G\,(\sin\alpha+\mu\cos\alpha),\qquad F_{\text{halten}}=G\,(\sin\alpha-\mu_0\cos\alpha) \]</div>
+        <p>F<sub>hoch</sub> zieht den Körper mit konstanter Geschwindigkeit nach oben, F<sub>halten</sub> ist die kleinste Kraft, die ihn gerade noch am Abrutschen hindert. Ist F<sub>halten</sub> ≤ 0, hält der Körper von selbst.</p>
+      </div>
+      <div class="f"><h3>Seilreibung (Euler-Eytelwein)</h3>
+        <div class="eq">\[ S_2=S_1\,e^{\mu\beta}\qquad\text{bzw. beim Haften}\qquad S_1\,e^{-\mu_0\beta}\le S_2\le S_1\,e^{\mu_0\beta} \]</div>
+        <dl><dt>β</dt><dd>Umschlingungswinkel im Bogenmaß</dd><dt>S₂</dt><dd>größere Seilkraft (Zugseite)</dd></dl>
+        <p>Das Verhältnis hängt nur von μ und β ab, nicht vom Durchmesser. Jede zusätzliche Windung multipliziert die haltbare Kraft mit \(e^{2\pi\mu}\). Gilt auch für Bandbremsen und Riementriebe (dort \(F_1/F_2\le e^{\mu\beta}\)).</p>
+      </div>
+      <div class="f"><h3>Selbsthemmung von Gewinden</h3>
+        <div class="eq">\[ \tan\varphi=\frac{P}{\pi d_2},\qquad \tan\rho'=\frac{\mu_G}{\cos(\beta_F/2)},\qquad \text{selbsthemmend, wenn }\varphi\le\rho' \]</div>
+        <p>φ ist der Steigungswinkel, ρ' der Reibungswinkel im Gewinde mit Flankenwinkel β<sub>F</sub> (60° beim metrischen ISO-Gewinde). Befestigungsgewinde sind selbsthemmend, Bewegungsgewinde mit großer Steigung oft nicht.</p>
+      </div>
+      <div class="f"><h3>Reibungszahlen (Richtwerte)</h3>
+        <div class="tbl"><table>
+          <tr><th>Paarung</th><th>μ₀ trocken</th><th>μ trocken</th><th>μ geschmiert</th></tr>
+          <tr><td class="t">Stahl / Stahl</td><td>0,15 … 0,3</td><td>0,1 … 0,2</td><td>0,05 … 0,1</td></tr>
+          <tr><td class="t">Stahl / Gusseisen</td><td>0,2</td><td>0,15</td><td>0,05 … 0,1</td></tr>
+          <tr><td class="t">Stahl / Bronze</td><td>0,2</td><td>0,18</td><td>0,05 … 0,1</td></tr>
+          <tr><td class="t">Stahl / PTFE</td><td>0,04</td><td>0,04</td><td>–</td></tr>
+          <tr><td class="t">Bremsbelag / Stahl</td><td>–</td><td>0,3 … 0,5</td><td>–</td></tr>
+          <tr><td class="t">Seil / Gusseisen</td><td>0,3</td><td>0,2</td><td>–</td></tr>
+          <tr><td class="t">Holz / Holz</td><td>0,4 … 0,6</td><td>0,2 … 0,4</td><td>0,08</td></tr>
+          <tr><td class="t">Gummi / Asphalt</td><td>0,7 … 0,9</td><td>0,5 … 0,8</td><td>0,3 (nass)</td></tr>
+        </table></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ======================= FESTIGKEITSLEHRE ======================= -->
+<section class="topic" id="zugstab" data-group="Festigkeitslehre" data-title="Zug, Druck & Wärmedehnung" data-norm="Hooke" data-desc="Spannung, Dehnung, Längenänderung und behinderte Wärmedehnung am Stab" data-keys="Zug Druck Spannung Dehnung Hooke Elastizitätsmodul Wärmedehnung Querkontraktion Flächenpressung Abscheren" hidden>
+  <p class="lede">Ein prismatischer Stab unter Längskraft und Temperaturänderung. Zug ist positiv. Die Spannung bei behinderter Dehnung gilt für einen beidseitig starr gehaltenen Stab ohne äußere Kraft.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="zugstab"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Spannung, Dehnung, Hookesches Gesetz</h3>
+        <div class="eq">\[ \sigma=\frac{F}{A},\qquad \varepsilon=\frac{\Delta l}{l_0},\qquad \sigma=E\,\varepsilon \]</div>
+        <p>Das Hookesche Gesetz gilt im linear-elastischen Bereich bis zur Proportionalitätsgrenze. Für Stahl ist E ≈ 210 000 N/mm², für Aluminium ≈ 70 000 N/mm².</p>
+      </div>
+      <div class="f"><h3>Längenänderung mit Temperatureinfluss</h3>
+        <div class="eq">\[ \Delta l=\frac{F\,l}{E\,A}+\alpha_T\,\Delta T\,l \]</div>
+        <div class="eq">\[ \sigma_{\text{th}}=-E\,\alpha_T\,\Delta T\quad\text{(Dehnung vollständig behindert)} \]</div>
+        <p>Wird die Wärmedehnung durch starre Einspannung verhindert, entsteht eine Druckspannung bei Erwärmung. Sie hängt nicht von Länge und Querschnitt ab. Der Term <i>EA/l</i> ist die Federsteifigkeit des Stabs.</p>
+      </div>
+      <div class="f"><h3>Querkontraktion und Schubmodul</h3>
+        <div class="eq">\[ \varepsilon_q=-\nu\,\varepsilon,\qquad G=\frac{E}{2\,(1+\nu)},\qquad \tau=G\,\gamma \]</div>
+        <p>ν ist die Querkontraktionszahl (Stahl 0,3, Aluminium 0,33, Gummi ≈ 0,5). Der Schubmodul folgt für isotrope Werkstoffe aus E und ν; für Stahl ergibt sich G ≈ 81 000 N/mm².</p>
+      </div>
+      <div class="f"><h3>Flächenpressung und Abscheren</h3>
+        <div class="eq">\[ p=\frac{F}{A_{\text{proj}}}\le p_{\text{zul}},\qquad \tau_a=\frac{F}{n\,A}\le\tau_{a,\text{zul}} \]</div>
+        <p>Bei Bolzen und Nieten ist A<sub>proj</sub> = d·s die projizierte Fläche. Beim Abscheren zählt jede Scherfuge (n Schnitte). Als Abschätzung gilt für duktilen Stahl τ<sub>aB</sub> ≈ 0,8 R<sub>m</sub>.</p>
+      </div>
+      <div class="f"><h3>Kennwerte aus dem Zugversuch</h3>
+        <dl>
+          <dt>R<sub>e</sub></dt><dd>Streckgrenze (ausgeprägte Fließgrenze, z. B. Baustahl)</dd>
+          <dt>R<sub>p0,2</sub></dt><dd>Dehngrenze bei 0,2 % bleibender Dehnung (Werkstoffe ohne ausgeprägte Streckgrenze)</dd>
+          <dt>R<sub>m</sub></dt><dd>Zugfestigkeit, Höchstkraft bezogen auf den Ausgangsquerschnitt</dd>
+          <dt>A</dt><dd>Bruchdehnung in %</dd>
+        </dl>
+        <p>Sicherheit gegen Fließen: \(S_F=R_e/\sigma\), gegen Bruch: \(S_B=R_m/\sigma\). Übliche Mindestwerte im Maschinenbau: S<sub>F</sub> ≥ 1,2 … 2, S<sub>B</sub> ≥ 2 … 4.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="querschnitt" data-group="Festigkeitslehre" data-title="Querschnittswerte" data-norm="Steiner" data-desc="Fläche, Schwerpunkt, Flächenträgheits- und Widerstandsmomente gängiger Profile" data-keys="Flächenträgheitsmoment Widerstandsmoment Steiner Schwerpunkt I-Profil T-Profil Rohr Kreisring Trägheitsradius polares" hidden>
+  <p class="lede">Die y-Achse liegt horizontal durch den Schwerpunkt und ist die Biegeachse für eine vertikale Last. Ausrundungen an Walzprofilen sind vernachlässigt; für Normprofile nimm die Tabellenwerte des Herstellers.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="querschnitt"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Definitionen</h3>
+        <div class="eq">\[ I_y=\int_A z^2\,\mathrm dA,\qquad I_z=\int_A y^2\,\mathrm dA,\qquad I_p=\int_A r^2\,\mathrm dA=I_y+I_z \]</div>
+        <div class="eq">\[ W_y=\frac{I_y}{|z|_{\max}},\qquad i_y=\sqrt{\frac{I_y}{A}} \]</div>
+        <p>Das Flächenträgheitsmoment beschreibt, wie weit die Fläche von der Achse entfernt verteilt ist; es bestimmt die Biegesteifigkeit <i>EI</i>. Das Widerstandsmoment <i>W</i> bezieht es auf die Randfaser und bestimmt die größte Biegespannung. Bei unsymmetrischen Profilen (T-Profil) ist der Randabstand oben und unten verschieden; maßgebend ist der größere.</p>
+      </div>
+      <div class="f"><h3>Satz von Steiner</h3>
+        <div class="eq">\[ I_{\bar y}=I_y+z_S^2\,A \]</div>
+        <p>Das Trägheitsmoment um eine parallel verschobene Achse wächst um Fläche mal Abstandsquadrat. Bei zusammengesetzten Querschnitten: Eigenanteile der Teilflächen plus Steineranteile bezogen auf den gemeinsamen Schwerpunkt addieren. Um die Schwerpunktachse ist das Trägheitsmoment am kleinsten.</p>
+      </div>
+      <div class="f"><h3>Grundformen</h3>
+        <div class="tbl"><table>
+          <tr><th>Querschnitt</th><th>I<sub>y</sub></th><th>W<sub>y</sub></th><th>I<sub>p</sub>, W<sub>p</sub></th></tr>
+          <tr><td class="t">Rechteck b × h</td><td>\(\dfrac{bh^3}{12}\)</td><td>\(\dfrac{bh^2}{6}\)</td><td class="t">nicht kreisförmig, I<sub>t</sub> ≠ I<sub>p</sub></td></tr>
+          <tr><td class="t">Kreis D</td><td>\(\dfrac{\pi D^4}{64}\)</td><td>\(\dfrac{\pi D^3}{32}\)</td><td>\(\dfrac{\pi D^4}{32},\ \dfrac{\pi D^3}{16}\)</td></tr>
+          <tr><td class="t">Kreisring D, d</td><td>\(\dfrac{\pi (D^4-d^4)}{64}\)</td><td>\(\dfrac{\pi (D^4-d^4)}{32D}\)</td><td>\(\dfrac{\pi (D^4-d^4)}{32},\ \dfrac{\pi (D^4-d^4)}{16D}\)</td></tr>
+          <tr><td class="t">Dreieck b, h (Schwerachse)</td><td>\(\dfrac{bh^3}{36}\)</td><td>\(\dfrac{bh^2}{24}\) (Spitze)</td><td>–</td></tr>
+        </table></div>
+        <p>Achtung: Widerstandsmomente darf man nicht addieren oder subtrahieren, Trägheitsmomente schon (um dieselbe Achse).</p>
+      </div>
+      <div class="f"><h3>Dünnwandige Hohlprofile (Torsion nach Bredt)</h3>
+        <div class="eq">\[ I_t=\frac{4A_m^2}{\oint \frac{\mathrm ds}{t}},\qquad W_t=2A_m\,t_{\min},\qquad \tau=\frac{T}{2A_m\,t} \]</div>
+        <p>A<sub>m</sub> ist die von der Wandmittellinie eingeschlossene Fläche. Geschlossene Profile sind bei Torsion um Größenordnungen steifer als offene (z. B. geschlitztes Rohr).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="biegelinie" data-group="Festigkeitslehre" data-title="Biegung & Biegelinie" data-norm="Euler-Bernoulli" data-desc="Biegespannung, Durchbiegung und Neigung für Standardlastfälle" data-keys="Biegung Durchbiegung Biegelinie Biegespannung Kragarm Einfeldträger Neigung Superposition" hidden>
+  <p class="lede">Standardlastfälle der Balkenbiegung nach der Euler-Bernoulli-Theorie (schlanker Balken, kleine Verformungen, linear-elastisch). <i>I</i> und <i>W</i> bekommst du aus dem Rechner „Querschnittswerte“.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="biegelinie"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Biegespannung</h3>
+        <div class="eq">\[ \sigma_b(z)=\frac{M_b}{I_y}\,z,\qquad \sigma_{b,\max}=\frac{M_b}{W_y} \]</div>
+        <p>Die Spannung wächst linear mit dem Abstand von der neutralen Faser, die durch den Schwerpunkt geht. Auf der neutralen Faser ist σ = 0; dort ist dafür die Schubspannung aus Querkraft am größten (Rechteck: \(\tau_{\max}=\tfrac32\,Q/A\)).</p>
+      </div>
+      <div class="f"><h3>Differentialgleichung der Biegelinie</h3>
+        <div class="eq">\[ E I\,w''(x)=-M_b(x) \]</div>
+        <p>Zweimal integrieren und die Integrationskonstanten aus den Randbedingungen bestimmen: Gelenklager w = 0, Einspannung w = 0 und w' = 0, freies Ende M = 0 und Q = 0. Bei mehreren Bereichen kommen Übergangsbedingungen dazu (w und w' stetig).</p>
+        <p class="tip"><b>Superposition:</b> Weil die Gleichung linear ist, dürfen Durchbiegungen aus mehreren Lastfällen addiert werden. So setzt man komplizierte Fälle aus Tabellenfällen zusammen.</p>
+      </div>
+      <div class="f"><h3>Standardfälle</h3>
+        <div class="tbl"><table>
+          <tr><th>Lastfall</th><th>M<sub>max</sub></th><th>f<sub>max</sub></th><th>Neigung am Lager/Ende</th></tr>
+          <tr><td class="t">Kragarm, F am Ende</td><td>\(Fl\)</td><td>\(\dfrac{Fl^3}{3EI}\)</td><td>\(\dfrac{Fl^2}{2EI}\)</td></tr>
+          <tr><td class="t">Kragarm, Streckenlast q</td><td>\(\dfrac{ql^2}{2}\)</td><td>\(\dfrac{ql^4}{8EI}\)</td><td>\(\dfrac{ql^3}{6EI}\)</td></tr>
+          <tr><td class="t">Einfeldträger, F mittig</td><td>\(\dfrac{Fl}{4}\)</td><td>\(\dfrac{Fl^3}{48EI}\)</td><td>\(\dfrac{Fl^2}{16EI}\)</td></tr>
+          <tr><td class="t">Einfeldträger, Streckenlast q</td><td>\(\dfrac{ql^2}{8}\)</td><td>\(\dfrac{5ql^4}{384EI}\)</td><td>\(\dfrac{ql^3}{24EI}\)</td></tr>
+          <tr><td class="t">Einfeldträger, F bei a (b = l − a ≤ a)</td><td>\(\dfrac{Fab}{l}\)</td><td>\(\dfrac{Fb\,(l^2-b^2)^{3/2}}{9\sqrt3\,EIl}\)</td><td>\(\varphi_A=\dfrac{Fab\,(l+b)}{6EIl}\)</td></tr>
+          <tr><td class="t">beidseitig eingespannt, q</td><td>\(\dfrac{ql^2}{12}\) (Einspannung)</td><td>\(\dfrac{ql^4}{384EI}\)</td><td>0</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Zulässige Durchbiegung (Richtwerte)</h3>
+        <p>Allgemeiner Maschinenbau f ≤ l/3000 … l/1000, Wellen mit Zahnrädern f ≤ 0,01·m (Modul), Wellen in Gleitlagern Neigung im Lager ≤ 0,0003 rad, bei Rillenkugellagern ≤ 0,001 … 0,005 rad (je nach Lagerluft).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="torsion" data-group="Festigkeitslehre" data-title="Torsion von Wellen" data-norm="Saint-Venant" data-desc="Torsionsspannung und Verdrehwinkel von Voll- und Hohlwellen" data-keys="Torsion Torsionsmoment Drehmoment Verdrehwinkel polares Widerstandsmoment Hohlwelle Leistung Drehzahl Bredt" hidden>
+  <p class="lede">Kreisförmige Voll- und Hohlwellen. Das Moment gibst du direkt ein oder lässt es aus Leistung und Drehzahl berechnen.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="torsion"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Spannung und Verdrehung</h3>
+        <div class="eq">\[ \tau(r)=\frac{T}{I_p}\,r,\qquad \tau_{\max}=\frac{T}{W_p},\qquad \varphi=\frac{T\,l}{G\,I_p} \]</div>
+        <p>Die Schubspannung steigt linear von der Achse zum Rand. Deshalb trägt der Kern einer Vollwelle wenig; eine Hohlwelle mit d/D = 0,6 hat bei gleichem Außendurchmesser rund 87 % des Widerstandsmoments bei 64 % der Masse.</p>
+      </div>
+      <div class="f"><h3>Polare Querschnittswerte</h3>
+        <div class="eq">\[ I_p=\frac{\pi}{32}\left(D^4-d^4\right),\qquad W_p=\frac{\pi}{16}\,\frac{D^4-d^4}{D} \]</div>
+        <p>Für die Vollwelle d = 0 setzen. Diese Formeln gelten nur für Kreis- und Kreisringquerschnitte. Bei anderen Querschnitten verwölbt sich der Querschnitt, dann braucht man das Torsionsträgheitsmoment I<sub>t</sub>.</p>
+      </div>
+      <div class="f"><h3>Leistung und Drehmoment</h3>
+        <div class="eq">\[ P=T\,\omega=2\pi\,n\,T,\qquad T\,[\mathrm{N\,m}]=9549\,\frac{P\,[\mathrm{kW}]}{n\,[\mathrm{min^{-1}}]} \]</div>
+      </div>
+      <div class="f"><h3>Torsionssteifigkeit</h3>
+        <div class="eq">\[ c_t=\frac{T}{\varphi}=\frac{G\,I_p}{l} \]</div>
+        <p>Wichtig für Torsionsschwingungen und Positioniergenauigkeit. Zulässige Verdrehung für Getriebewellen grob 0,25° je Meter Länge.</p>
+      </div>
+      <div class="f"><h3>Nicht kreisförmige Querschnitte</h3>
+        <div class="eq">\[ \text{offen, dünnwandig:}\quad I_t=\frac13\sum h_i\,t_i^3,\qquad \tau_{\max}=\frac{T}{I_t}\,t_{\max} \]</div>
+        <p>Für geschlossene dünnwandige Profile gilt die Bredtsche Formel (siehe Querschnittswerte).</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="mohr" data-group="Festigkeitslehre" data-title="Spannungszustand & Mohrscher Kreis" data-norm="GEH · SH · NH" data-desc="Hauptspannungen, Hauptrichtung, Vergleichsspannung nach von Mises und Tresca" data-keys="Mohr Mohrscher Kreis Hauptspannung Vergleichsspannung von Mises Tresca Gestaltänderungsenergie Schubspannungshypothese ebener Spannungszustand" hidden>
+  <p class="lede">Ebener Spannungszustand (σ<sub>z</sub> = 0). Der Kreis ist mit τ nach oben positiv gezeichnet; Punkt X ist die Schnittfläche mit Normale in x-Richtung (σ<sub>x</sub>, τ<sub>xy</sub>).</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="mohr"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Koordinatentransformation</h3>
+        <div class="eq">\[ \sigma_\xi=\frac{\sigma_x+\sigma_y}{2}+\frac{\sigma_x-\sigma_y}{2}\cos2\varphi+\tau_{xy}\sin2\varphi \]</div>
+        <div class="eq">\[ \tau_{\xi\eta}=-\frac{\sigma_x-\sigma_y}{2}\sin2\varphi+\tau_{xy}\cos2\varphi \]</div>
+        <p>Dreht man das Schnittelement um φ, laufen die Spannungen auf einem Kreis in der σ-τ-Ebene um, und zwar mit dem doppelten Winkel 2φ.</p>
+      </div>
+      <div class="f"><h3>Hauptspannungen und Hauptrichtung</h3>
+        <div class="eq">\[ \sigma_{1,2}=\frac{\sigma_x+\sigma_y}{2}\pm\sqrt{\left(\frac{\sigma_x-\sigma_y}{2}\right)^2+\tau_{xy}^2},\qquad \tan2\varphi^*=\frac{2\tau_{xy}}{\sigma_x-\sigma_y} \]</div>
+        <p>In Hauptrichtung verschwindet die Schubspannung. Die größte Schubspannung in der Ebene ist der Kreisradius und wirkt unter 45° zu den Hauptrichtungen. Wegen σ<sub>3</sub> = 0 kann die absolut größte Schubspannung auch \(\sigma_1/2\) sein, wenn σ<sub>1</sub> und σ<sub>2</sub> dasselbe Vorzeichen haben.</p>
+      </div>
+      <div class="f"><h3>Vergleichsspannungshypothesen</h3>
+        <div class="eq">\[ \text{GEH (von Mises):}\quad \sigma_v=\sqrt{\sigma_x^2+\sigma_y^2-\sigma_x\sigma_y+3\tau_{xy}^2} \]</div>
+        <div class="eq">\[ \text{SH (Tresca):}\quad \sigma_v=\sigma_{\max}-\sigma_{\min}\qquad \text{NH (Rankine):}\quad \sigma_v=\sigma_1 \]</div>
+        <p>Die Vergleichsspannung macht einen mehrachsigen Zustand mit dem einachsigen Zugversuch vergleichbar. GEH ist der Standard für duktile Metalle bei Fließen und Dauerfestigkeit. SH liegt auf der sicheren Seite (bis 15 % höher). NH eignet sich für spröde Werkstoffe wie Grauguss.</p>
+        <p class="tip"><b>Stab unter Biegung und Torsion:</b> mit σ<sub>y</sub> = 0 wird daraus \(\sigma_v=\sqrt{\sigma_b^2+3\tau_t^2}\) (GEH) bzw. \(\sqrt{\sigma_b^2+4\tau_t^2}\) (SH).</p>
+      </div>
+      <div class="f"><h3>Mohrschen Kreis konstruieren</h3>
+        <p>1. Punkte X(σ<sub>x</sub> | τ<sub>xy</sub>) und Y(σ<sub>y</sub> | −τ<sub>xy</sub>) eintragen. 2. Die Verbindungslinie schneidet die σ-Achse im Mittelpunkt σ<sub>m</sub>. 3. Kreis durch X und Y. 4. Schnittpunkte mit der σ-Achse sind σ<sub>1</sub> und σ<sub>2</sub>, der Winkel von X nach σ<sub>1</sub> ist 2φ*.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="knickung" data-group="Festigkeitslehre" data-title="Knicken" data-norm="Euler · Tetmajer" data-desc="Knicklänge, Schlankheit, Knickkraft und Sicherheit für Druckstäbe" data-keys="Knicken Knickung Euler Tetmajer Schlankheit Knicklänge Stabilität Druckstab" hidden>
+  <p class="lede">Ein gerader Druckstab mit konstantem Querschnitt. Unterhalb der Grenzschlankheit rechnet der Rechner nach Tetmajer (unelastisches Knicken), darüber nach Euler.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="knickung"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Euler-Knickkraft</h3>
+        <div class="eq">\[ F_K=\frac{\pi^2\,E\,I_{\min}}{l_k^2},\qquad l_k=\beta\,l \]</div>
+        <p>Der Stab knickt um die Achse mit dem kleinsten Flächenträgheitsmoment. Die Knickkraft hängt nicht von der Festigkeit ab, nur von Steifigkeit und Lagerung.</p>
+        <div class="tbl"><table>
+          <tr><th>Euler-Fall</th><th>Lagerung</th><th>β</th></tr>
+          <tr><td>1</td><td class="t">unten eingespannt, oben frei</td><td>2</td></tr>
+          <tr><td>2</td><td class="t">beidseitig gelenkig</td><td>1</td></tr>
+          <tr><td>3</td><td class="t">eingespannt und gelenkig</td><td>0,699</td></tr>
+          <tr><td>4</td><td class="t">beidseitig eingespannt</td><td>0,5</td></tr>
+        </table></div>
+      </div>
+      <div class="f"><h3>Schlankheitsgrad und Gültigkeit</h3>
+        <div class="eq">\[ \lambda=\frac{l_k}{i_{\min}},\qquad i_{\min}=\sqrt{\frac{I_{\min}}{A}},\qquad \sigma_K=\frac{\pi^2E}{\lambda^2},\qquad \lambda_P=\pi\sqrt{\frac{E}{\sigma_P}} \]</div>
+        <p>Euler gilt nur, solange die Knickspannung unter der Proportionalitätsgrenze σ<sub>P</sub> bleibt, also für λ ≥ λ<sub>P</sub>. Für gedrungene Stäbe überschätzt Euler die Tragfähigkeit.</p>
+      </div>
+      <div class="f"><h3>Tetmajer (unelastisches Knicken)</h3>
+        <div class="tbl"><table>
+          <tr><th>Werkstoff</th><th>E in N/mm²</th><th>λ<sub>P</sub></th><th>σ<sub>K</sub> in N/mm² für λ &lt; λ<sub>P</sub></th></tr>
+          <tr><td class="t">S235 (St 37)</td><td>210 000</td><td>104</td><td>310 − 1,14 λ</td></tr>
+          <tr><td class="t">S355 (St 52)</td><td>210 000</td><td>89</td><td>335 − 0,62 λ</td></tr>
+          <tr><td class="t">Grauguss</td><td>100 000</td><td>80</td><td>776 − 12 λ + 0,053 λ²</td></tr>
+          <tr><td class="t">Nadelholz</td><td>10 000</td><td>100</td><td>29,3 − 0,194 λ</td></tr>
+        </table></div>
+        <p>Für sehr gedrungene Stäbe (λ unter etwa 20) ist statt Knicken die Druckfestigkeit bzw. Quetschgrenze maßgebend.</p>
+      </div>
+      <div class="f"><h3>Sicherheit</h3>
+        <div class="eq">\[ S_K=\frac{F_K}{F}=\frac{\sigma_K}{\sigma_d} \]</div>
+        <p>Richtwerte im Maschinenbau: elastischer Bereich S<sub>K</sub> ≈ 3 … 6, unelastischer Bereich ≈ 2 … 4. Im Stahlbau wird nach Eurocode 3 mit Knicklinien und Imperfektionen gerechnet.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="topic" id="dauerfest" data-group="Festigkeitslehre" data-title="Schwingfestigkeit" data-norm="Haigh · Miner" data-desc="Mittel- und Ausschlagspannung, Haigh-Diagramm, Sicherheit nach Goodman, Gerber, Soderberg" data-keys="Dauerfestigkeit Schwingfestigkeit Haigh Smith Goodman Gerber Soderberg Wöhler Miner Mittelspannung Ausschlagspannung Kerbwirkung" hidden>
+  <p class="lede">Sicherheit eines schwingend belasteten Bauteils bei proportionaler Überlast (Spannungsverhältnis R bleibt gleich). σ<sub>W</sub> ist die Wechselfestigkeit des <em>Bauteils</em>, also schon um Kerbwirkung, Größe und Oberfläche abgemindert.</p>
+  <div class="topic-body">
+    <div class="calc" data-calc="dauerfest"></div>
+    <article class="sheet">
+      <h2>Formeln &amp; Erklärungen</h2>
+      <div class="f"><h3>Kenngrößen einer Schwingbelastung</h3>
+        <div class="eq">\[ \sigma_m=\frac{\sigma_o+\sigma_u}{2},\qquad \sigma_a=\frac{\sigma_o-\sigma_u}{2},\qquad R=\frac{\sigma_u}{\sigma_o} \]</div>
+        <p>R = −1: reine Wechselbelastung, R = 0: Schwellbelastung, R = 1: statisch. Zugmittelspannungen senken die ertragbare Amplitude, Druckmittelspannungen erhöhen sie.</p>
+      </div>
+      <div class="f"><h3>Mittelspannungseinfluss im Haigh-Diagramm</h3>
+        <div class="eq">\[ \text{Goodman:}\ \frac{\sigma_a}{\sigma_W}+\frac{\sigma_m}{R_m}=\frac1S\qquad \text{Soderberg:}\ \frac{\sigma_a}{\sigma_W}+\frac{\sigma_m}{R_e}=\frac1S \]</div>
+        <div class="eq">\[ \text{Gerber:}\ \frac{S\,\sigma_a}{\sigma_W}+\left(\frac{S\,\sigma_m}{R_m}\right)^2=1\qquad \text{Fließen:}\ S_F=\frac{R_e}{\sigma_m+\sigma_a} \]</div>
+        <p>Goodman ist der übliche, konservative Ansatz für Stahl. Gerber trifft Versuchsergebnisse duktiler Werkstoffe besser, Soderberg ist sehr vorsichtig. Zusätzlich muss immer die Fließgrenze eingehalten werden (Langer-Linie).</p>
+      </div>
+      <div class="f"><h3>Bauteilwechselfestigkeit</h3>
+        <div class="eq">\[ \sigma_{WK}=\frac{\sigma_W(d)}{K},\qquad K=\left(\frac{\beta_k}{K_g}+\frac{1}{K_{O}}-1\right)\frac{1}{K_V} \]</div>
+        <dl>
+          <dt>β<sub>k</sub></dt><dd>Kerbwirkungszahl (Absatz, Nut, Querbohrung)</dd>
+          <dt>K<sub>g</sub></dt><dd>geometrischer Größeneinflussfaktor (größere Bauteile ertragen weniger)</dd>
+          <dt>K<sub>O</sub></dt><dd>Oberflächenrauheitsfaktor (≤ 1)</dd>
+          <dt>K<sub>V</sub></dt><dd>Oberflächenverfestigung (Rollen, Kugelstrahlen, Einsatzhärten ≥ 1)</dd>
+        </dl>
+        <p>Schema wie bei DIN 743 und FKM-Richtlinie. Werkstoffkennwerte gelten für polierte, ungekerbte Proben mit ca. 7,5 mm Durchmesser. Faustwert für Stahl: σ<sub>bW</sub> ≈ 0,5 R<sub>m</sub>, σ<sub>zdW</sub> ≈ 0,4 R<sub>m</sub>, τ<sub>tW</sub> ≈ 0,3 R<sub>m</sub>.</p>
+      </div>
+      <div class="f"><h3>Wöhlerlinie und Schadensakkumulation</h3>
+        <div class="eq">\[ N=N_D\left(\frac{\sigma_a}{\sigma_D}\right)^{-k},\qquad D=\sum_i\frac{n_i}{N_i}\le D_{\text{zul}} \]</div>
+        <p>Im Zeitfestigkeitsbereich ist die Wöhlerlinie im doppeltlogarithmischen Diagramm eine Gerade mit Neigung k (Stahl ungekerbt ≈ 15, gekerbt ≈ 5, Schweißnähte 3). Die lineare Schadensakkumulation nach Palmgren-Miner addiert die Teilschädigungen; in der Praxis wird D<sub>zul</sub> oft auf 0,3 … 0,5 abgesenkt.</p>
+      </div>
+    </article>
+  </div>
+</section>
